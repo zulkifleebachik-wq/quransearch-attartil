@@ -1,0 +1,449 @@
+{
+  "_about": "Grammar labels shown by app.js (word panel, root-page morphology table, fa'il panel). term = the Arabic term in the glossary's spelling; pre = an optional plain word in front (Huruf, Lam, Waw, Fa', Ha'); gl = the glossary.json key whose Malay gloss is shown in brackets at Mudah level. The deploy gate (scripts/check-sources.mjs) fails if a gl key is missing from glossary.json or a term is spelt differently from its glossary key.",
+  "manifest": {
+    "surahHuruf": [
+      67,
+      36
+    ]
+  },
+  "TYPE": {
+    "isim": {
+      "term": "Isim",
+      "gl": "isim",
+      "en": "Isim (noun)"
+    },
+    "fiil": {
+      "term": "Fi'il",
+      "gl": "fi'il",
+      "en": "Fi'il (verb)"
+    },
+    "harf": {
+      "term": "Harf",
+      "gl": "harf",
+      "en": "Harf (particle)"
+    }
+  },
+  "TYPES": {
+    "V-PERF": {
+      "term": "Fi'il Madi",
+      "gl": "fi'il madi",
+      "en": "Perfect verb"
+    },
+    "V-IMPF": {
+      "term": "Fi'il Mudari'",
+      "gl": "fi'il mudari'",
+      "en": "Imperfect verb"
+    },
+    "V-IMPV": {
+      "term": "Fi'il Amr",
+      "gl": "fi'il amr",
+      "en": "Imperative"
+    },
+    "ACT_PCPL": {
+      "term": "Isim Fa'il",
+      "gl": "isim fa'il",
+      "en": "Active participle"
+    },
+    "PASS_PCPL": {
+      "term": "Isim Maf'ul",
+      "gl": "isim maf'ul",
+      "en": "Passive participle"
+    },
+    "VN": {
+      "term": "Masdar",
+      "gl": "masdar",
+      "en": "Verbal noun"
+    },
+    "PN": {
+      "term": "Isim 'Alam",
+      "gl": "isim 'alam",
+      "en": "Proper noun"
+    },
+    "ADJ": {
+      "term": "Sifat",
+      "gl": "sifat",
+      "en": "Adjective"
+    },
+    "N": {
+      "term": "Isim",
+      "gl": "isim",
+      "en": "Noun"
+    }
+  },
+  "PTAG": {
+    "DET": {
+      "term": "Huruf Ta'rif",
+      "gl": "ta'rif",
+      "via_alt": true,
+      "en": "Definite article"
+    },
+    "P": {
+      "term": "Huruf Jar",
+      "gl": "huruf jar",
+      "en": "Preposition"
+    },
+    "CONJ": {
+      "pre": "Huruf",
+      "term": "'Ataf",
+      "gl": "'ataf",
+      "en": "Conjunction"
+    },
+    "NEG": {
+      "term": "Huruf Nafi",
+      "gl": "huruf nafi",
+      "en": "Negative particle"
+    },
+    "REM": {
+      "pre": "Huruf",
+      "term": "Isti'naf",
+      "gl": "isti'naf",
+      "en": "Resumption particle"
+    },
+    "RES": {
+      "pre": "Huruf",
+      "term": "Hasr",
+      "gl": "hasr",
+      "en": "Restriction particle"
+    },
+    "EMPH": {
+      "pre": "Lam",
+      "term": "Taukid",
+      "gl": "taukid",
+      "en": "Emphatic lam"
+    },
+    "PRP": {
+      "term": "Lam Ta'lil",
+      "gl": "lam ta'lil",
+      "en": "Lam of purpose"
+    },
+    "ATT": {
+      "pre": "Ha'",
+      "term": "Tanbih",
+      "gl": "tanbih",
+      "en": "Attention particle"
+    },
+    "VOC": {
+      "term": "Huruf Nida'",
+      "gl": "huruf nida'",
+      "en": "Vocative particle"
+    },
+    "INTG": {
+      "term": "Huruf Istifham",
+      "gl": "huruf istifham",
+      "en": "Interrogative particle"
+    },
+    "COND": {
+      "pre": "Huruf",
+      "term": "Syarat",
+      "gl": "syarat (makna)",
+      "en": "Conditional particle"
+    },
+    "SUB": {
+      "pre": "Huruf",
+      "term": "Masdari",
+      "gl": "masdari",
+      "en": "Subordinating particle"
+    },
+    "ACC": {
+      "term": "Inna",
+      "gl": "inna",
+      "en": "Accusative particle (inna)"
+    },
+    "FUT": {
+      "pre": "Huruf",
+      "term": "Istiqbal",
+      "gl": "istiqbal",
+      "en": "Future particle"
+    },
+    "CERT": {
+      "term": "Huruf Tahqiq",
+      "gl": "huruf tahqiq",
+      "en": "Particle of certainty"
+    },
+    "ANS": {
+      "pre": "Huruf",
+      "term": "Jawab",
+      "gl": "jawab (jawapan)",
+      "en": "Answer particle"
+    },
+    "PRO": {
+      "pre": "Huruf",
+      "term": "Nahi",
+      "gl": "nahi",
+      "en": "Prohibition particle"
+    },
+    "INC": {
+      "pre": "Huruf",
+      "term": "Ibtida'",
+      "gl": "ibtida'",
+      "en": "Inceptive particle"
+    },
+    "SUP": {
+      "pre": "Huruf",
+      "term": "Za'idah",
+      "gl": "za'idah",
+      "en": "Supplemental particle"
+    },
+    "EXP": {
+      "pre": "Huruf",
+      "term": "Istithna'",
+      "gl": "istithna'",
+      "en": "Exceptive particle"
+    },
+    "CAUS": {
+      "term": "Fa' Sababiyyah",
+      "gl": "fa' sababiyyah",
+      "en": "Particle of cause"
+    },
+    "CIRC": {
+      "pre": "Waw",
+      "term": "Hal",
+      "gl": "hal",
+      "en": "Circumstantial particle"
+    },
+    "COM": {
+      "pre": "Waw",
+      "term": "Ma'iyyah",
+      "gl": "ma'iyyah",
+      "en": "Comitative particle"
+    },
+    "EQ": {
+      "pre": "Huruf",
+      "term": "Taswiyah",
+      "gl": "taswiyah",
+      "en": "Equalisation particle"
+    },
+    "EXL": {
+      "pre": "Huruf",
+      "term": "Tafsil",
+      "gl": "tafsil",
+      "en": "Explanation particle"
+    },
+    "IMPV": {
+      "pre": "Lam",
+      "term": "Amr",
+      "gl": "amr",
+      "en": "Imperative lam"
+    },
+    "INT": {
+      "term": "Huruf Tafsir",
+      "gl": "huruf tafsir",
+      "en": "Particle of interpretation"
+    },
+    "PREV": {
+      "term": "Ma Kaffah",
+      "gl": "ma kaffah",
+      "en": "Preventive particle"
+    },
+    "RET": {
+      "pre": "Huruf",
+      "term": "Idhrab",
+      "gl": "idhrab",
+      "en": "Retraction particle"
+    },
+    "RSLT": {
+      "term": "Fa' Rabitah",
+      "gl": "fa' rabitah",
+      "en": "Result particle"
+    },
+    "SUR": {
+      "pre": "Idza",
+      "term": "Fuja'iyyah",
+      "gl": "fuja'iyyah",
+      "en": "Surprise particle"
+    },
+    "AMD": {
+      "pre": "Huruf",
+      "term": "Istidrak",
+      "gl": "istidrak",
+      "en": "Amendment particle"
+    },
+    "AVR": {
+      "pre": "Huruf",
+      "term": "Rad'",
+      "gl": "rad'",
+      "en": "Aversion particle"
+    },
+    "EXH": {
+      "pre": "Huruf",
+      "term": "Tahdhidh",
+      "gl": "tahdhidh",
+      "en": "Exhortation particle"
+    }
+  },
+  "NTAG": {
+    "REL": {
+      "term": "Isim Mausul",
+      "gl": "isim mausul",
+      "en": "Relative noun"
+    },
+    "DEM": {
+      "term": "Isim Isyarah",
+      "gl": "isim isyarah",
+      "en": "Demonstrative"
+    },
+    "PN": {
+      "term": "Isim 'Alam",
+      "gl": "isim 'alam",
+      "en": "Proper noun"
+    },
+    "INTG": {
+      "term": "Isim Istifham",
+      "gl": "isim istifham",
+      "en": "Interrogative noun"
+    },
+    "ACT_PCPL": {
+      "term": "Isim Fa'il",
+      "gl": "isim fa'il",
+      "en": "Active participle"
+    },
+    "PASS_PCPL": {
+      "term": "Isim Maf'ul",
+      "gl": "isim maf'ul",
+      "en": "Passive participle"
+    },
+    "VN": {
+      "term": "Masdar",
+      "gl": "masdar",
+      "en": "Verbal noun"
+    },
+    "ADJ": {
+      "term": "Sifat",
+      "gl": "sifat",
+      "en": "Adjective"
+    },
+    "T": {
+      "term": "Zaraf Zaman",
+      "gl": "zaraf zaman",
+      "en": "Time adverb"
+    },
+    "LOC": {
+      "term": "Zaraf Makan",
+      "gl": "zaraf makan",
+      "en": "Location adverb"
+    }
+  },
+  "CASE": {
+    "NOM": {
+      "term": "Marfu'",
+      "gl": "marfu'",
+      "en": "nominative"
+    },
+    "ACC": {
+      "term": "Mansub",
+      "gl": "mansub",
+      "en": "accusative"
+    },
+    "GEN": {
+      "term": "Majrur",
+      "gl": "majrur",
+      "en": "genitive"
+    }
+  },
+  "MOOD": {
+    "MOOD:IND": {
+      "term": "Marfu'",
+      "gl": "marfu'",
+      "en": "indicative"
+    },
+    "MOOD:SUBJ": {
+      "term": "Mansub",
+      "gl": "mansub",
+      "en": "subjunctive"
+    },
+    "MOOD:JUS": {
+      "term": "Majzum",
+      "gl": "majzum",
+      "en": "jussive"
+    }
+  },
+  "PERSON": {
+    "1": {
+      "term": "Mutakallim",
+      "gl": "mutakallim",
+      "en": "1st person"
+    },
+    "2": {
+      "term": "Mukhatab",
+      "gl": "mukhatab",
+      "en": "2nd person"
+    },
+    "3": {
+      "term": "Ghaib",
+      "gl": "ghaib (nahu)",
+      "en": "3rd person"
+    }
+  },
+  "GENDER": {
+    "M": {
+      "term": "Muzakkar",
+      "gl": "muzakkar",
+      "en": "masculine"
+    },
+    "F": {
+      "term": "Muannath",
+      "gl": "muannath",
+      "en": "feminine"
+    }
+  },
+  "NUMBER": {
+    "S": {
+      "term": "Mufrad",
+      "gl": "mufrad",
+      "en": "singular"
+    },
+    "D": {
+      "term": "Muthanna",
+      "gl": "tathniyah",
+      "via_alt": true,
+      "en": "dual"
+    },
+    "P": {
+      "term": "Jama'",
+      "gl": "jama'",
+      "en": "plural"
+    }
+  },
+  "MISC": {
+    "PRON_ATT": {
+      "term": "Dhamir Muttasil",
+      "gl": "dhamir muttasil",
+      "en": "Attached pronoun"
+    },
+    "PRON_DET": {
+      "term": "Dhamir Munfasil",
+      "gl": "dhamir munfasil",
+      "en": "Detached pronoun"
+    },
+    "PASS": {
+      "term": "Majhul",
+      "gl": "majhul",
+      "en": "passive"
+    },
+    "BAB": {
+      "term": "Bab",
+      "gl": "bab",
+      "en": "Form"
+    },
+    "THULATHI": {
+      "term": "Thulathi Mujarrad",
+      "gl": "thulathi mujarrad",
+      "en": "bare triliteral"
+    },
+    "HAMZA_INTG": {
+      "term": "Hamzah Istifham",
+      "gl": "hamzah istifham",
+      "en": "Interrogative hamzah"
+    },
+    "FAIL": {
+      "term": "Fa'il",
+      "gl": "fa'il",
+      "en": "Subject (fa'il)"
+    },
+    "NAIB_FAIL": {
+      "term": "Naib Fa'il",
+      "gl": "naib fa'il",
+      "en": "Stand-in subject (na'ib fa'il)"
+    }
+  }
+}

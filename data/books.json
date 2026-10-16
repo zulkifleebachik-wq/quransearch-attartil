@@ -1,0 +1,230 @@
+{
+ "about": "Short display names for Mudah level: who wrote the book, and (field_ms/field_en) the short Latin title of the book shown in brackets. role_ms/role_en keep the scholar's field. The full Arabic title, volume and page stay in Ilmiah and under 'Lihat nukilan asal'.",
+ "books": {
+  "23636": {
+   "who_ms": "al-Raghib al-Asfahani",
+   "who_en": "al-Raghib al-Isfahani",
+   "field_ms": "al-Mufradat",
+   "field_en": "al-Mufradat",
+   "book_ar": "المفردات في غريب القرآن",
+   "role_ms": "ahli bahasa",
+   "role_en": "lexicographer"
+  },
+  "21710": {
+   "who_ms": "Ibn Faris",
+   "who_en": "Ibn Faris",
+   "field_ms": "Maqayis al-Lughah",
+   "field_en": "Maqayis al-Lughah",
+   "book_ar": "معجم مقاييس اللغة",
+   "role_ms": "ahli bahasa",
+   "role_en": "lexicographer"
+  },
+  "10414": {
+   "who_ms": "Abu Hilal al-'Askari",
+   "who_en": "Abu Hilal al-'Askari",
+   "field_ms": "al-Furuq al-Lughawiyyah",
+   "field_en": "al-Furuq al-Lughawiyyah",
+   "book_ar": "الفروق اللغوية",
+   "role_ms": "ahli bahasa",
+   "role_en": "lexicographer"
+  },
+  "11243": {
+   "who_ms": "al-Hamlawi",
+   "who_en": "al-Hamlawi",
+   "field_ms": "Shadha al-'Arf",
+   "field_en": "Shadha al-'Arf",
+   "book_ar": "شذا العرف في فن الصرف",
+   "role_ms": "ahli sarf (bentuk kata)",
+   "role_en": "morphologist"
+  },
+  "6972": {
+   "who_ms": "Ibn Hisyam al-Ansari",
+   "who_en": "Ibn Hisham al-Ansari",
+   "field_ms": "Mughni al-Labib",
+   "field_en": "Mughni al-Labib",
+   "book_ar": "مغني اللبيب",
+   "role_ms": "ahli nahu (tatabahasa)",
+   "role_en": "grammarian"
+  },
+  "9904": {
+   "who_ms": "Ibn 'Aqil",
+   "who_en": "Ibn 'Aqil",
+   "field_ms": "Sharh Ibn 'Aqil",
+   "field_en": "Sharh Ibn 'Aqil",
+   "book_ar": "شرح ابن عقيل",
+   "role_ms": "ahli nahu (tatabahasa)",
+   "role_en": "grammarian"
+  },
+  "26099": {
+   "who_ms": "al-Muradi",
+   "who_en": "al-Muradi",
+   "field_ms": "al-Jana al-Dani",
+   "field_en": "al-Jana al-Dani",
+   "book_ar": "الجنى الداني",
+   "role_ms": "ahli nahu (tatabahasa)",
+   "role_en": "grammarian"
+  },
+  "22916": {
+   "who_ms": "Mahmud Safi",
+   "who_en": "Mahmud Safi",
+   "field_ms": "al-Jadwal fi I'rab al-Qur'an",
+   "field_en": "al-Jadwal fi I'rab al-Qur'an",
+   "book_ar": "الجدول في إعراب القرآن",
+   "role_ms": "ahli nahu (tatabahasa)",
+   "role_en": "grammarian"
+  },
+  "23584": {
+   "who_ms": "al-Du'as dan rakan-rakan",
+   "who_en": "al-Du'as et al.",
+   "field_ms": "I'rab al-Qur'an",
+   "field_en": "I'rab al-Qur'an",
+   "book_ar": "إعراب القرآن للدعاس",
+   "role_ms": "ahli nahu (tatabahasa)",
+   "role_en": "grammarian"
+  },
+  "2163": {
+   "who_ms": "Muhyiddin Darwisy",
+   "who_en": "Muhyiddin Darwish",
+   "field_ms": "I'rab al-Qur'an wa Bayanuh",
+   "field_en": "I'rab al-Qur'an wa Bayanuh",
+   "book_ar": "إعراب القرآن وبيانه",
+   "role_ms": "ahli nahu (tatabahasa)",
+   "role_en": "grammarian"
+  },
+  "9776": {
+   "who_ms": "Ibn 'Ashur",
+   "who_en": "Ibn 'Ashur",
+   "field_ms": "al-Tahrir wa al-Tanwir",
+   "field_en": "al-Tahrir wa al-Tanwir",
+   "book_ar": "التحرير والتنوير",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "7798": {
+   "who_ms": "al-Tabari",
+   "who_en": "al-Tabari",
+   "field_ms": "Jami' al-Bayan",
+   "field_en": "Jami' al-Bayan",
+   "book_ar": "جامع البيان",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "42": {
+   "who_ms": "al-Sa'di",
+   "who_en": "al-Sa'di",
+   "field_ms": "Taysir al-Karim al-Rahman",
+   "field_en": "Taysir al-Karim al-Rahman",
+   "book_ar": "تيسير الكريم الرحمن",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "1404": {
+   "who_ms": "al-Biqa'i",
+   "who_en": "al-Biqa'i",
+   "field_ms": "Masa'id al-Nazar",
+   "field_en": "Masa'id al-Nazar",
+   "book_ar": "مصاعد النظر لمقاصد السور",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "20855": {
+   "who_ms": "al-Qurtubi",
+   "who_en": "al-Qurtubi",
+   "field_ms": "al-Jami' li-Ahkam al-Qur'an",
+   "field_en": "al-Jami' li-Ahkam al-Qur'an",
+   "book_ar": "الجامع لأحكام القرآن",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "23632": {
+   "who_ms": "Ibn 'Atiyyah",
+   "who_en": "Ibn 'Atiyyah",
+   "field_ms": "al-Muharrar al-Wajiz",
+   "field_en": "al-Muharrar al-Wajiz",
+   "book_ar": "المحرر الوجيز",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "9856": {
+   "who_ms": "al-Fairuzabadi",
+   "who_en": "al-Fayruzabadi",
+   "field_ms": "Basa'ir Dhawi al-Tamyiz",
+   "field_en": "Basa'ir Dhawi al-Tamyiz",
+   "book_ar": "بصائر ذوي التمييز في لطائف الكتاب العزيز",
+   "role_ms": "ahli bahasa",
+   "role_en": "lexicographer"
+  },
+  "1736": {
+   "who_ms": "Abu Hilal al-'Askari",
+   "who_en": "Abu Hilal al-'Askari",
+   "field_ms": "Mu'jam al-Furuq al-Lughawiyyah",
+   "field_en": "Mu'jam al-Furuq al-Lughawiyyah",
+   "book_ar": "معجم الفروق اللغوية",
+   "role_ms": "ahli bahasa",
+   "role_en": "lexicographer"
+  },
+  "6334": {
+   "who_ms": "Ibn al-Jawzi",
+   "who_en": "Ibn al-Jawzi",
+   "field_ms": "Nuzhat al-A'yun al-Nawazir",
+   "field_en": "Nuzhat al-A'yun al-Nawazir",
+   "book_ar": "نزهة الأعين النواظر في علم الوجوه والنظائر",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "6936": {
+   "who_ms": "al-Suyuti",
+   "who_en": "al-Suyuti",
+   "field_ms": "al-Muzhir",
+   "field_en": "al-Muzhir",
+   "book_ar": "المزهر في علوم اللغة وأنواعها",
+   "role_ms": "ahli bahasa",
+   "role_en": "linguist"
+  },
+  "147597": {
+   "who_ms": "Ibn 'Ashur",
+   "who_en": "Ibn 'Ashur",
+   "field_ms": "Jamharat Maqalat",
+   "field_en": "Jamharat Maqalat",
+   "book_ar": "جمهرة مقالات ورسائل الشيخ الإمام محمد الطاهر ابن عاشور",
+   "role_ms": "ahli tafsir dan bahasa",
+   "role_en": "exegete and linguist"
+  },
+  "3590": {
+   "who_ms": "Ibn Sidah",
+   "who_en": "Ibn Sidah",
+   "field_ms": "al-Mukhassas",
+   "field_en": "al-Mukhassas",
+   "book_ar": "المخصص",
+   "role_ms": "ahli bahasa",
+   "role_en": "lexicographer"
+  },
+  "11368": {
+   "who_ms": "Manna' al-Qattan",
+   "who_en": "Manna' al-Qattan",
+   "field_ms": "Mabahith fi 'Ulum al-Qur'an",
+   "field_en": "Mabahith fi 'Ulum al-Qur'an",
+   "book_ar": "مباحث في علوم القرآن",
+   "role_ms": "ahli ilmu-ilmu al-Quran",
+   "role_en": "Qur'anic sciences scholar"
+  },
+  "735": {
+   "who_ms": "al-Bukhari",
+   "who_en": "al-Bukhari",
+   "field_ms": "Sahih al-Bukhari",
+   "field_en": "Sahih al-Bukhari",
+   "role_ms": "ahli hadis",
+   "role_en": "hadith scholar",
+   "book_ar": "صحيح البخاري"
+  },
+  "21715": {
+   "who_ms": "al-Qastallani",
+   "who_en": "al-Qastallani",
+   "field_ms": "Irshad al-Sari",
+   "field_en": "Irshad al-Sari",
+   "role_ms": "ahli hadis",
+   "role_en": "hadith scholar",
+   "book_ar": "إرشاد الساري لشرح صحيح البخاري"
+  }
+ }
+}

@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-Digital Quran Search AtTartil</title>
+<meta name="description" content="Kamus kosa kata al-Quran mengikut akar kata, kekerapan, morfologi dan catatan ulama lughah — AtTartil Quranic Institute.">
+<meta name="theme-color" content="#389000">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Quran Search">
+<meta name="application-name" content="E-Digital Quran Search AtTartil">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Arabic fonts (Amiri Quran, Noto Naskh Arabic) are self-hosted in fonts/ — see style.css -->
+<link rel="preload" href="fonts/amiri-quran-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <a href="#/" class="logo" aria-label="Laman utama">
+      <img class="logo-img" src="logo.png" alt="AtTartil Quranic Institute" width="46" height="46">
+      <span class="logo-txt"><b data-i18n="title">E-Digital Quran Search AtTartil</b><small>AtTartil Quranic Institute</small></span>
+    </a>
+    <div class="tools">
+      <div class="lvl" role="group" aria-label="Aras bacaan">
+        <button data-lv="mudah" type="button">Mudah</button><button data-lv="ilmiah" type="button">Ilmiah</button>
+      </div>
+      <div class="lang" role="group" aria-label="Bahasa / Language">
+        <button data-lang="ms" type="button">BM</button><button data-lang="en" type="button">EN</button>
+      </div>
+      <div class="size" role="group" aria-label="Saiz tulisan">
+        <button data-size="-1" type="button" aria-label="Kecilkan">A−</button><button data-size="1" type="button" aria-label="Besarkan">A+</button>
+      </div>
+    </div>
+  </div>
+  <form class="search" role="search" onsubmit="return false">
+    <div class="srow">
+      <input id="q" type="search" dir="auto" autocomplete="off" data-i18n-ph="ph">
+      <button type="button" id="kbdToggle" aria-expanded="false" aria-controls="kbd" title="Papan huruf / Letter pad">ا ب ت</button>
+    </div>
+    <div class="kbd" id="kbd" hidden aria-label="Papan kekunci huruf hijaiyah"></div>
+  </form>
+</header>
+<main id="app" tabindex="-1"></main>
+<footer class="foot">
+  <div class="brandbar"><img src="logo.png" alt="" width="28" height="28"><span>AtTartil Quranic Institute</span></div>
+  <p data-i18n="vision">Where Qur'anic Knowledge Transforms Lives</p>
+  <p class="small" data-i18n="credit"></p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
+
+</body></html>

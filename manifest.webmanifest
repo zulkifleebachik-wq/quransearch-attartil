@@ -1,0 +1,27 @@
+{
+  "name": "E-Digital Quran Search AtTartil",
+  "short_name": "Quran Search",
+  "description": "Kamus kosa kata al-Quran mengikut akar kata — AtTartil Quranic Institute",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f8ee",
+  "theme_color": "#389000",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
