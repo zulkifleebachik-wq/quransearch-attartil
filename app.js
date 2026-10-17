@@ -28,7 +28,7 @@
       scholars: 'Penerangan ulama (al-Maktabah al-Shamela)', grammarSrc: 'Analisis tatabahasa: Quranic Arabic Corpus', trDraft: 'Terjemahan AtTartil — draf, menunggu semakan',
       stated: 'Ulama ini menyebut ayat ini secara khusus', general: 'Penerangan umum — ulama ini tidak menyebut ayat ini', noNote: 'Penerangan ulama belum disediakan.', close: 'Tutup', ayatN: 'ayat', reported: 'pandangan yang dinukil (qila)',
       tabMakna: 'Makna', tabBab: 'Bab (kelompok pola kata kerja) & Wazan (pola kata)', tabFuruq: 'Furuq (perbezaan halus makna)', tabAll: 'Semua',
-      famT: 'Keluarga Makna', famIntro: 'Satu perkataan Melayu, beberapa kalimah al-Quran. Lihat beza halusnya menurut ulama bahasa.', famRoots: 'akar kata', famDefs: 'Huraian ulama & contoh ayat', famDiff: 'Apa bezanya?', famDiffIntro: 'Perbezaan halus yang dihuraikan oleh ulama. Nama ulama disebut pada setiap kad.', famWujuh: 'Makna-makna __W__ dalam al-Quran', famRootLink: 'Lihat akar penuh', famChosenScholar: 'Dipetik oleh __S__', famChosenUs: 'Contoh pilihan AtTartil', famEdition: 'Bacaan edisi lain', famIn: 'Keluarga makna', famGaps: 'Catatan', famCount: 'kali dalam makna ini', tdT: 'Sudut Taraduf (kata seerti)', tdViews: 'Tiga pandangan ulama', tdBenefits: 'Faedah kata seerti menurut Ibn \'Ashur', tdMuk: 'Kata-kata pertolongan dalam al-Mukhassas', tdNew: 'baharu dalam keluarga ini', tdQuran: 'Contoh dalam al-Quran: disangka seerti, sebenarnya berbeza', tdLink: 'Kaitan dengan halaman ini', tdReported: 'dinukil',
+      famT: 'Keluarga Makna', famIntro: 'Satu perkataan Melayu, beberapa kalimah al-Quran. Lihat beza halusnya menurut ulama bahasa.', famRoots: 'akar kata', famDefs: 'Huraian ulama & contoh ayat', famDiff: 'Apa bezanya?', famDiffIntro: 'Perbezaan halus yang dihuraikan oleh ulama. Nama ulama disebut pada setiap kad.', famWujuh: 'Makna-makna __W__ dalam al-Quran', famRootLink: 'Lihat akar penuh', famChosenScholar: 'Dipetik oleh __S__', famChosenUs: 'Contoh pilihan AtTartil', famEdition: 'Bacaan edisi lain', famIn: 'Keluarga makna', famGaps: 'Catatan', famCount: 'kali dalam makna ini', famPartial: '(kiraan terpilih)', tdT: 'Sudut Taraduf (kata seerti)', tdViews: 'Tiga pandangan ulama', tdBenefits: 'Faedah kata seerti menurut Ibn \'Ashur', tdMuk: 'Kata-kata pertolongan dalam al-Mukhassas', tdNew: 'baharu dalam keluarga ini', tdQuran: 'Contoh dalam al-Quran: disangka seerti, sebenarnya berbeza', tdLink: 'Kaitan dengan halaman ini', tdReported: 'dinukil',
       glossTitle: 'Glosari istilah', glossIntro: 'Setiap istilah Arab yang muncul dalam app ini, dengan penjelasan ringkas. Tekan mana-mana istilah bergaris dalam nota untuk sampai ke sini.', glossPh: 'Cari istilah…', glossN: 'istilah', glossCat: { nahu: 'Nahu (tatabahasa)', sarf: 'Sarf (bentuk kata)', balaghah: 'Balaghah (gaya bahasa)', tafsir: 'Tafsir', lughah: 'Lughah (makna kata)', umum: 'Umum' }, glossAll: 'Semua', glossNone: 'Tiada istilah sepadan.',
       babThis: 'Bab (kelompok pola kata kerja) kalimah ini', babOther: 'Bentuk lain akar ini dalam al-Quran', babMeaning: 'Makna bab (kelompok pola kata kerja) ini menurut ulama sarf (ilmu bentuk kata)',
       inQuran: 'dalam al-Quran', noBab: 'Kalimah ini bukan fi\'il (kata kerja) yang berwazan (mengikut pola kata); tiada bab (kelompok pola kata kerja).', noFuruq: 'Tiada entri tentang furuq (perbezaan halus makna) kalimah ini dalam kitab al-Furuq al-Lughawiyyah.',
@@ -88,7 +88,7 @@
       scholars: 'Scholars\' explanation (al-Maktabah al-Shamela)', grammarSrc: 'Grammar analysis: Quranic Arabic Corpus', trDraft: 'AtTartil translation — draft, awaiting review',
       stated: 'This scholar cites this very ayah', general: 'General explanation — this scholar does not cite this ayah', noNote: 'Scholars\' explanation not yet prepared.', close: 'Close', ayatN: 'ayat', reported: 'a reported view (qila)',
       tabMakna: 'Meaning', tabBab: 'Form & pattern', tabFuruq: 'Furuq', tabAll: 'All',
-      famT: 'Meaning Families', famIntro: 'One Malay word, several Qur\'anic words. See their fine differences according to the classical linguists.', famRoots: 'roots', famDefs: 'Scholars\' explanations & example ayat', famDiff: 'What is the difference?', famDiffIntro: 'Fine differences explained by the scholars. Each card names its scholar.', famWujuh: 'The meanings of __W__ in the Qur\'an', famRootLink: 'See the full root', famChosenScholar: 'Cited by __S__', famChosenUs: 'Example chosen by AtTartil', famEdition: 'Another edition reads', famIn: 'Meaning family', famGaps: 'Note', famCount: 'times in this sense', tdT: 'The Synonymy Corner', tdViews: 'Three scholarly views', tdBenefits: 'Benefits of synonyms according to Ibn \'Ashur', tdMuk: 'Words for help in al-Mukhassas', tdNew: 'new to this family', tdQuran: 'Qur\'anic examples: thought synonymous, actually different', tdLink: 'How this connects to this page', tdReported: 'reported',
+      famT: 'Meaning Families', famIntro: 'One Malay word, several Qur\'anic words. See their fine differences according to the classical linguists.', famRoots: 'roots', famDefs: 'Scholars\' explanations & example ayat', famDiff: 'What is the difference?', famDiffIntro: 'Fine differences explained by the scholars. Each card names its scholar.', famWujuh: 'The meanings of __W__ in the Qur\'an', famRootLink: 'See the full root', famChosenScholar: 'Cited by __S__', famChosenUs: 'Example chosen by AtTartil', famEdition: 'Another edition reads', famIn: 'Meaning family', famGaps: 'Note', famCount: 'times in this sense', famPartial: '(selected count)', tdT: 'The Synonymy Corner', tdViews: 'Three scholarly views', tdBenefits: 'Benefits of synonyms according to Ibn \'Ashur', tdMuk: 'Words for help in al-Mukhassas', tdNew: 'new to this family', tdQuran: 'Qur\'anic examples: thought synonymous, actually different', tdLink: 'How this connects to this page', tdReported: 'reported',
       glossTitle: 'Glossary of terms', glossIntro: 'Every Arabic term used in this app, with a short explanation. Tap any underlined term in a note to come here.', glossPh: 'Search terms…', glossN: 'terms', glossCat: { nahu: 'Nahu (syntax)', sarf: 'Sarf (morphology)', balaghah: 'Balaghah (rhetoric)', tafsir: 'Tafsir', lughah: 'Lughah (lexicon)', umum: 'General' }, glossAll: 'All', glossNone: 'No matching term.',
       babThis: 'The form of this word', babOther: 'Other forms of this root in the Qur\'an', babMeaning: 'What this form adds, per the scholars of sarf',
       inQuran: 'in the Qur\'an', noBab: 'This word is not a patterned verb form; no bab.', noFuruq: 'No al-Furuq al-Lughawiyyah entry for this word.',
@@ -352,7 +352,7 @@
       ${lexN.map(x => `<div class="lg">${noteCard(x).replace('</div>', '</div>' + lemOnly(x))}</div>`).join('')}</section>`
       : e ? `<section class="card"><h2>${t('lughah')}</h2>
       <p class="muted small" style="margin-top:0">${t('shamelaOnly')}</p>
-      ${e.lughah.map(L => {
+      ${e.lughah.filter(L => L.status === 'verified' || L.status === 'not_found' || (L.book_id && L.page_id && L.arabic)).map(L => {
         const url = shamelaUrl(L);
         const sourced = L.status === 'not_found' || (L.book_id && L.page_id);
         if (mudah() && L.status === 'verified' && L.arabic && L.book_id) return `<div class="lg"><h3>${who(L.book_id, L.author || L.book)}</h3>
@@ -708,11 +708,14 @@
     return parts.join(' ');
   }
 
+  // P3: page label with its volume. q.vol wins; a Shamela printed page «15/ 25» (volume/page) reads «Jld. 15, hlm. 25»
+  const volPage = q => { const pg = String(q.page == null ? '' : q.page), m = pg.match(/^\s*(\d+)\s*\/\s*(\d+(?:\s*[–-]\s*\d+)?)\s*$/);
+    return q.vol ? `${t('vol')} ${esc(q.vol)}, ${t('page')} ${esc(m ? m[2] : pg)}` : m ? `${t('vol')} ${esc(m[1])}, ${t('page')} ${esc(m[2])}` : `${t('page')} ${esc(pg)}`; };
   // WHO a hidden fa'il refers to. "kitab" = a scholar names it (quote attached); "siyaq" = reasoned from the ayah.
   function marjiLine(m) {
     if (!m) return '';
     const bk = id => failBook(id);
-    const qsrc = e => { const b = bk(e.book_id); return `<div class="muted small">${esc(b.ar)}${b.author ? ` — ${esc(b.author)}` : ''} · ${t('page')} ${esc(e.page)} · <a href="${shLink(e.book_id, e.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`; };
+    const qsrc = e => { const b = bk(e.book_id); return `<div class="muted small">${esc(b.ar)}${b.author ? ` — ${esc(b.author)}` : ''} · ${volPage(e)} · <a href="${shLink(e.book_id, e.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`; };
     const quotes = [m.ev, ...(m.views || []).map(v => v.ev), ...(m.also || []).map(v => v.ev)].filter(Boolean);
     const tag = m.src === 'kitab' && m.ev
       ? `<span class="mj-src kitab">${t('mjKitab')} ${esc(mudah() && whoName(m.ev.book_id) ? whoName(m.ev.book_id) : (bk(m.ev.book_id).name || bk(m.ev.book_id).ar))}</span>`
@@ -729,7 +732,7 @@
   function failItem(x, n, a) {
     const bk = failBook(x.q.book_id);
     const role = x['role_' + lang] || '';
-    const src = (q, b = failBook(q.book_id)) => `<div class="muted small">${esc(b.ar)}${b.author ? ` — ${esc(b.author)}` : ''} · ${q.vol ? `${t('vol')} ${esc(q.vol)}, ` : ''}${t('page')} ${esc(q.page)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
+    const src = (q, b = failBook(q.book_id)) => `<div class="muted small">${esc(b.ar)}${b.author ? ` — ${esc(b.author)}` : ''} · ${volPage(q)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
     return `<div class="frow${x.found ? '' : ' nf'}">
       <div class="fr-h"><b class="ar fr-v">${esc(x.verb)}</b>
         <span class="muted small">${t(x.voice === 'passive' ? 'voicePass' : 'voiceAct')}</span></div>
@@ -781,14 +784,14 @@
           <details class="src"><summary>${t('seeQuote')} <span class="muted small">(${r.points.length})</span></summary>
             ${r.points.map(p => `<div class="tpt"><div class="tpt-h">${esc(p['topic_' + lang] || '')}</div>
               <div class="q">${esc(p.arabic)}</div>
-              <div class="muted small">${esc(B.ar || '')} · ${t('page')} ${esc(p.page)} · <a href="${shLink(B.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
+              <div class="muted small">${esc(B.ar || '')} · ${volPage(p)} · <a href="${shLink(B.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
           </details></div></details>` : `
         ${r.points.map(p => shown.has(norm(p.arabic)) ? `<div class="tpt"><div class="tpt-h">${esc(p['topic_' + lang] || '')}</div>
           <p class="tdup">${t('tafDup')}</p>
-          <div class="muted small">${esc(B.ar || '')} · ${p.vol ? `${t('vol')} ${esc(p.vol)}, ` : ''}${t('page')} ${esc(p.page)} · <a href="${shLink(B.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`
+          <div class="muted small">${esc(B.ar || '')} · ${volPage(p)} · <a href="${shLink(B.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`
           : `<div class="tpt"><div class="tpt-h">${esc(p['topic_' + lang] || '')}</div>
           <div class="q">${esc(p.arabic)}</div>
-          <div class="muted small">${esc(B.ar || '')}${B.author_ar ? ` — ${esc(B.author_ar)}` : ''} · ${p.vol ? `${t('vol')} ${esc(p.vol)}, ` : ''}${t('page')} ${esc(p.page)} · <a href="${shLink(B.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
+          <div class="muted small">${esc(B.ar || '')}${B.author_ar ? ` — ${esc(B.author_ar)}` : ''} · ${volPage(p)} · <a href="${shLink(B.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
         <p class="tnote">${esc(r['note_' + lang] || '')}</p>`}</div></details>`;
   }
 
@@ -834,13 +837,13 @@
             ${r.books.map(b => `<div class="mbook"><div class="mb-h"><b class="ar">${esc(b.book_ar)}</b> <span class="muted small">${esc(b.author_ar)}</span></div>
               ${b.points.map(p => `<div class="mpt"><div class="mpt-h">${esc(p['topic_' + lang] || '')}</div>
                 <div class="q">${esc(p.arabic)}</div>
-                <div class="muted small">${p.vol ? `${t('vol')} ${esc(p.vol)}, ` : ''}${t('page')} ${esc(p.page)} · <a href="${shLink(b.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
+                <div class="muted small">${volPage(p)} · <a href="${shLink(b.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
             </div>`).join('')}
           </details></div></details>` : `
         ${r.books.map(b => `<div class="mbook"><div class="mb-h"><b class="ar">${esc(b.book_ar)}</b> <span class="muted small">${esc(b.author_ar)}</span></div>
           ${b.points.map(p => `<div class="mpt"><div class="mpt-h">${esc(p['topic_' + lang] || '')}</div>
             <div class="q">${esc(p.arabic)}</div>
-            <div class="muted small">${p.vol ? `${t('vol')} ${esc(p.vol)}, ` : ''}${t('page')} ${esc(p.page)} · <a href="${shLink(b.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
+            <div class="muted small">${volPage(p)} · <a href="${shLink(b.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
         </div>`).join('')}
         <p class="mnote">${esc(r['note_' + lang] || '')}</p>`}</div></details>`;
   }
@@ -852,10 +855,10 @@
       <p>${esc(n['note_' + lang] || '')}</p>
       ${qs.length ? `<details class="src"><summary>${t('seeQuote')} <span class="muted small">(${qs.length})</span></summary>
         ${qs.map(q => `<div class="q">«${esc(q.arabic)}»</div>
-        <div class="muted small">${esc(q.book)} — ${esc(q.author)} · ${q.vol ? `${t('vol')} ${esc(q.vol)}, ` : ''}${t('page')} ${esc(q.page)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`).join('')}</details>` : ''}</div>`;
+        <div class="muted small">${esc(q.book)} — ${esc(q.author)} · ${volPage(q)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`).join('')}</details>` : ''}</div>`;
     return `<div class="aynote"><h4>${t('scholarNote')}</h4>
       ${(n.quotes || []).map(q => `<div class="q">«${esc(q.arabic)}»</div>
-        <div class="muted small">${esc(q.book)} — ${esc(q.author)} · ${q.vol ? `${t('vol')} ${esc(q.vol)}, ` : ''}${t('page')} ${esc(q.page)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`).join('')}
+        <div class="muted small">${esc(q.book)} — ${esc(q.author)} · ${volPage(q)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`).join('')}
       <p>${esc(n['note_' + lang] || '')}</p></div>`;
   }
   // Mudah level names the SCHOLAR and their field; the full title, volume and page stay in Ilmiah and under "Lihat nukilan".
@@ -966,7 +969,7 @@
       ${p.conflict ? `<div class="irab-diff"><p>${esc(t('irabDiff'))}</p><div class="q">${esc(p.conflict.quote)}</div></div>` : ''}
       <div class="muted small" style="margin-top:4px">${t('scholars')}</div>
       <div class="note"><div class="nb"><b>${esc(h.book)}</b> <span class="muted small">${esc(h.author)}</span></div>
-        ${qs.map(q => `<div class="q">«${esc(q.arabic)}»</div><div class="muted small">${q.vol ? `${t('vol')} ${esc(q.vol)}, ` : ''}${t('page')} ${esc(q.page)} · <a href="${shLink(h.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`).join('')}
+        ${qs.map(q => `<div class="q">«${esc(q.arabic)}»</div><div class="muted small">${volPage(q)} · <a href="${shLink(h.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`).join('')}
         <p>${esc(h['note_' + lang])}</p>
         ${p.otherRefs ? `<p class="muted small other-ref">${esc(t('otherRef').replace('__R__', refsTxt(p.otherRefs)))}</p>` : ''}
         <span class="badge ${p.stated ? 'verified' : 'pending'}">${t(p.stated ? 'stated' : 'general')}</span></div></div>`;
@@ -1052,7 +1055,7 @@
   // ---------- Keluarga Makna (semantic families) ----------
   const famsOf = root => (FAMS.families || []).filter(f => f.status === 'verified' && f.members.some(m => m.root === root));
   const bookAr = bid => (WHO[String(bid)] || {}).book_ar || '';
-  const fullCite = q => `<div class="muted small">${esc(bookAr(q.book_id))} · ${t('page')} ${esc(q.page)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
+  const fullCite = q => `<div class="muted small">${esc(bookAr(q.book_id))} · ${volPage(q)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
   // Mudah: scholar + Malay first, the quotation under "Lihat nukilan"; Ilmiah: quotation, citation, then Malay
   // P1-F7: who a quotation is reported from. BM shows reported_from_ms, or the plain field when it holds no English
   // words; an English-only note (e.g. "…, via al-Raghib", "some exegetes (unnamed)") is hidden in BM, not shown.
@@ -1111,7 +1114,7 @@
     const member = m => `<article class="card fam-m">
         <div class="fm-h"><span class="ar fm-w">${esc(m.word)}</span><b class="fm-tr2">${esc(m.tr)}</b><span class="ar muted fm-root">${esc(m.root)}</span></div>
         <p class="fm-s">${esc(m['short_' + lang] || m.short_ms)}</p>
-        <div class="muted small">${m.freq} ${t('famCount')}${mudah() ? '' : ` · <span class="ar">${(m.freq_lemmas || []).map(esc).join('، ')}</span>`}</div>
+        <div class="muted small">${m.freq} ${t('famCount')}${m.freq_partial ? ' ' + t('famPartial') : ''}${mudah() ? '' : ` · <span class="ar">${(m.freq_lemmas || []).map(esc).join('، ')}</span>`}</div>
         ${!mudah() && m['freq_note_' + lang] ? `<p class="muted small fm-fn">${esc(m['freq_note_' + lang])}</p>` : ''}
         <details class="fm-more"><summary>${t('famDefs')}</summary>
           ${(m.def || []).map(d => `<div class="fm-def">${famQuoted([d], d['note_' + lang])}</div>`).join('')}

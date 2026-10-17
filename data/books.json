@@ -234,6 +234,33 @@
    "book_ar": "تفسير القرآن الكريم وإعرابه وبيانه",
    "role_ms": "ahli tafsir dan i'rab",
    "role_en": "exegete and grammarian"
+  },
+  "43": {
+   "who_ms": "al-Tabari",
+   "who_en": "al-Tabari",
+   "field_ms": "Jami' al-Bayan",
+   "field_en": "Jami' al-Bayan",
+   "book_ar": "جامع البيان",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "8353": {
+   "who_ms": "al-Saffarini",
+   "who_en": "al-Saffarini",
+   "field_ms": "Lawami' al-Anwar al-Bahiyyah",
+   "field_en": "Lawami' al-Anwar al-Bahiyyah",
+   "book_ar": "لوامع الأنوار البهية",
+   "role_ms": "ahli akidah",
+   "role_en": "theologian"
+  },
+  "910": {
+   "who_ms": "Muhammad al-Hilal",
+   "who_en": "Muhammad al-Hilal",
+   "field_ms": "Tafsir al-Qur'an al-Thari al-Jami'",
+   "field_en": "Tafsir al-Qur'an al-Thari al-Jami'",
+   "book_ar": "تفسير القرآن الثري الجامع",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
   }
  }
 }

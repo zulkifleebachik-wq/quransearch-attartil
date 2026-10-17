@@ -1,5 +1,5 @@
 // Offline cache: app shell first; data files cached on first use.
-const CACHE = 'quransearch-v34';
+const CACHE = 'quransearch-v36';
 const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'manifest.webmanifest', 'icon.svg', 'logo.png', 'data/labels.json',
   'fonts/amiri-quran-arabic-400-normal.woff2', 'fonts/noto-naskh-arabic-arabic-400-normal.woff2', 'fonts/noto-naskh-arabic-arabic-600-normal.woff2'];
 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())));
