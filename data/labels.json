@@ -196,9 +196,8 @@
       "en": "Particle of cause"
     },
     "CIRC": {
-      "pre": "Waw",
-      "term": "Hal",
-      "gl": "hal",
+      "term": "Waw Hal",
+      "gl": "waw hal",
       "en": "Circumstantial particle"
     },
     "COM": {
@@ -365,6 +364,11 @@
       "term": "Majzum",
       "gl": "majzum",
       "en": "jussive"
+    },
+    "MABNI": {
+      "term": "Mabni",
+      "gl": "mabni",
+      "en": "indeclinable (mabni)"
     }
   },
   "PERSON": {

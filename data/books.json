@@ -225,6 +225,15 @@
    "role_ms": "ahli hadis",
    "role_en": "hadith scholar",
    "book_ar": "إرشاد الساري لشرح صحيح البخاري"
+  },
+  "30271": {
+   "who_ms": "Muhammad 'Ali Taha al-Durrah",
+   "who_en": "Muhammad 'Ali Taha al-Durrah",
+   "field_ms": "Tafsir al-Qur'an al-Karim wa I'rabuh wa Bayanuh",
+   "field_en": "Tafsir al-Qur'an al-Karim wa I'rabuh wa Bayanuh",
+   "book_ar": "تفسير القرآن الكريم وإعرابه وبيانه",
+   "role_ms": "ahli tafsir dan i'rab",
+   "role_en": "exegete and grammarian"
   }
  }
 }

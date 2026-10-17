@@ -401,6 +401,7 @@
   // a noun with an open feminine ta (إِقامَت، مَوْتَت) or a plural ending (مُلاقُوا) is an inflected form
   const goodNoun = s => !/(?:\u064E\u062A[\u064B-\u0652]*|\u0648\u0627[\u064B-\u0652]*)$/.test(String(s || '').replace(/[\u06DF\u06E0]/g, ''));
   function lemmaShown(r, l) {
+    if (l.length > 6) return l[6];   // "" = no verified base form → «—»   // P2-C: corpus-derived base form with its ayah (roots.json lem[i][6])
     if (l[2] === 'V' ? goodVerb(l[0], l[4], l[3]) : goodNoun(l[0])) return l[0];
     if (l[2] !== 'V') return '';
     const alt = ((NOTES.forms || {})[r] || []).filter(x => x.form === l[3] && x.lemma && !/[\/،,]/.test(x.lemma) && goodVerb(x.lemma));
@@ -728,7 +729,7 @@
   function failItem(x, n, a) {
     const bk = failBook(x.q.book_id);
     const role = x['role_' + lang] || '';
-    const src = q => `<div class="muted small">${esc(bk.ar)}${bk.author ? ` — ${esc(bk.author)}` : ''} · ${q.vol ? `${t('vol')} ${esc(q.vol)}, ` : ''}${t('page')} ${esc(q.page)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
+    const src = (q, b = failBook(q.book_id)) => `<div class="muted small">${esc(b.ar)}${b.author ? ` — ${esc(b.author)}` : ''} · ${q.vol ? `${t('vol')} ${esc(q.vol)}, ` : ''}${t('page')} ${esc(q.page)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
     return `<div class="frow${x.found ? '' : ' nf'}">
       <div class="fr-h"><b class="ar fr-v">${esc(x.verb)}</b>
         <span class="muted small">${t(x.voice === 'passive' ? 'voicePass' : 'voiceAct')}</span></div>
@@ -978,6 +979,8 @@
       const info = segInfo(g, w, si), note = g.root ? null : segNote(n, a, i, si, w);
       // A9/A22: a verified kitab note names the particle; its label replaces the corpus tag's label for this segment
       if (note && note.h && note.label) info.label = note.label;
+      // P2-A: a reviewer's per-word kitab record that reads a corpus isim as a particle (ma za'idah 67:23) colours its chip as harf
+      if (note && note.override && info.type === 'isim' && ['SUP', 'NEG', 'PREV'].includes((PICK.noteClass(note.h, note.tag) || {}).c)) info.type = 'harf';
       return { g, si, info, note };
     });
     const fv = failWord(n, a, i);
