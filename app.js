@@ -251,7 +251,7 @@
     const ready = COLLS.filter(c => c.ready), soon = COLLS.filter(c => !c.ready);
     const juz30 = soon.filter(c => c.juz === 30), other = soon.filter(c => c.juz !== 30);
     const rcard = c => `<a class="scard" href="#/s/${c.surah}"><span class="sc-ar ar">${esc(SURAH[c.surah - 1])}</span>
-        <span class="sc-meta"><b>${esc(c.name_ms || 'Surah')}</b><span class="muted small">${t('surah')} ${c.surah} · ${c.ayat} ${t('ayatN')} · ${t('openSurah')} →</span></span></a>`;
+        <span class="sc-meta"><b>${esc(c.name_ms || 'Surah')}</b><span class="muted small">${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`} · ${t('openSurah')} →</span></span></a>`;
     const scard = (c, tight) => `<div class="scard off"><span class="sc-ar ar">${esc(SURAH[c.surah - 1])}</span>
         <span class="sc-meta"><b>${esc((c.name_ms || 'Surah').replace(/^Surah /, tight ? '' : 'Surah '))}</b><span class="muted small">${tight ? `${c.surah} · ${c.ayat} ${t('ayatN')}` : `${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`}`}</span></span></div>`;
     return `<section class="card"><p style="margin:0">${t('intro')}</p></section>
@@ -646,7 +646,7 @@
     };
     box.innerHTML = `<section class="card surah-head">
         <div class="sh-ar ar">سُورَةُ ${esc(SURAH[n - 1])}</div>
-        <div class="muted small">${t('surah')} ${n} · ${D.ayat.length} ${t('ayatN')}</div>
+        <div class="muted small">${t('surah')} ${n} · ${(() => { const c = COLLS.find(x => x.surah === n); return c && c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${D.ayat.length} ${t('ayatN')}`; })()}</div>
         <div class="legend">${legend}</div>
         <p class="small" style="margin:.4em 0 0">${t('tapWord')}</p>
         ${mudah() ? `<p class="lvhint">${t('lvHintM')}</p>` : ''}

@@ -3,7 +3,8 @@
   "manifest": {
     "surahHuruf": [
       67,
-      36
+      36,
+      2
     ]
   },
   "TYPE": {
@@ -278,6 +279,11 @@
       "term": "Lam Bu'd",
       "gl": "lam bu'd",
       "en": "Lam of distance"
+    },
+    "INL": {
+      "term": "Huruf Muqatta'ah",
+      "gl": "huruf muqatta'ah",
+      "en": "Disjointed letters (huruf muqatta'ah)"
     }
   },
   "NTAG": {
