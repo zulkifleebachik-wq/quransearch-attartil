@@ -418,3 +418,9 @@ td.bab .arw1.tri{font-size:1rem}
 .td-az{display:flex;gap:10px;align-items:flex-start;margin:6px 0}
 .td-az .chips{margin:0}
 .td-l{flex:0 0 auto;min-width:1.6em;font-weight:700;color:var(--brand-dark);padding-top:5px}
+
+/* P1 (Peringkat 1): Bab tab caveat lines, root-page lemma scope line */
+.bab-general{font-size:.85rem;color:var(--warn);background:var(--warn-bg);border-radius:8px;padding:6px 10px;margin:.4em 0}
+.bab-unknown{margin:.5em 0 .2em}
+.lem-only{margin:.2em 0 .6em}
+.sm-m .badge{margin-left:6px}

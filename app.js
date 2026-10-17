@@ -60,6 +60,10 @@
       mqNukil: 'Maqsad ayat — nukilan ulama',
       mqIntro: 'Maqsad (tujuan) ayat ini, dinukil daripada kitab tafsir.',
       babPartial: 'Nukilan di bawah merangkumi sebahagian makna ini sahaja; nukilan khusus bagi setiap makna sedang disiapkan.',
+      lemOnly: 'Catatan ini bagi kalimah:',
+      babHidden: 'Makna-makna umum pola ini menurut al-Hamlawi tidak dipaparkan bagi kalimah ini.',
+      babGeneral: 'Ini makna-makna umum pola ini menurut al-Hamlawi. Tidak semuanya terpakai pada kalimah ini.',
+      babOneUnknown: 'Data ini tidak dapat menentukan sama ada kalimah ini mengikut pola فَعَلَ, فَعِلَ atau فَعُلَ. Oleh itu makna bab (kelompok pola kata kerja) tidak dipaparkan.',
       tdHomeT: 'Sudut Taraduf (kata seerti)', tdHomeDef: 'Taraduf (kata seerti) ialah dua perkataan atau lebih yang menunjuk kepada satu makna yang sama. Ulama bahasa berbeza pendapat tentangnya: ada yang menolak, ada yang menerima, dan ada pandangan pertengahan.', tdHomeViews: 'Lihat tiga pandangan ulama', tdHomeList: 'Senarai perkataan (A–Z)', tdHomeHint: 'Tekan satu perkataan Melayu untuk melihat kalimah-kalimah al-Quran yang hampir sama maknanya dan apa bezanya menurut ulama.', tdPageIntro: 'Halaman ini menghimpunkan pandangan ulama tentang taraduf (kata seerti). Setiap pandangan disertakan nukilan kitabnya. Ketiga-tiganya dipaparkan tanpa diutamakan satu atas yang lain.', tdWords: 'kalimah',
       msT: 'Maqsad Surah (tujuan surah)', msIntro: 'Tujuan induk surah ini menurut ulama yang mengkaji maqasid (tujuan-tujuan utama) surah. Dua ulama boleh merangkanya dengan cara berbeza; kedua-duanya dipaparkan tanpa dipilih salah satu.'
     },
@@ -116,6 +120,10 @@
       mqNukil: 'Maqsad of the ayah — scholars\' words',
       mqIntro: 'The maqsad (purpose) of this ayah, quoted from the books of tafsir.',
       babPartial: 'The quotations below cover only some of these meanings; a quotation for each meaning is being prepared.',
+      lemOnly: 'This note is for the word(s):',
+      babHidden: 'Al-Hamlawi\'s general meanings of this pattern are not shown for this word.',
+      babGeneral: 'These are the general meanings of this pattern according to al-Hamlawi. Not all of them apply to this word.',
+      babOneUnknown: 'The data cannot tell whether this word follows فَعَلَ, فَعِلَ or فَعُلَ, so no bab meanings are shown.',
       tdHomeT: 'Taraduf corner (synonyms)', tdHomeDef: 'Taraduf (synonymy) means two or more words that point to one and the same meaning. Scholars of Arabic differ on it: some deny it, some accept it, and there is a middle view.', tdHomeViews: 'See the three scholarly views', tdHomeList: 'Word list (A–Z)', tdHomeHint: 'Tap a Malay word to see the Qur\'anic words that are close in meaning and how the scholars tell them apart.', tdPageIntro: 'This page gathers the scholars\' views on taraduf (synonymy), each with its quotations. The three views are shown without one being preferred.', tdWords: 'words',
       msT: 'Maqsad of the surah (its purpose)', msIntro: 'This surah\'s governing purpose according to the scholars of maqasid al-suwar. Two scholars may frame it differently; both are shown without one being preferred.'
     }
@@ -151,7 +159,8 @@
   const FORM_IDX = new Map(); // mushaf word form (normalised) -> roots
   const t = k => (T[lang] && T[lang][k]) || T.ms[k] || k;
   const $ = s => document.querySelector(s);
-  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  // P1 gate: a raw data field name left in a note ("(3/366, page_id 1288)") is never shown: → "(3/366)"
+  const esc = s => String(s ?? '').replace(/[,;]?\s*\bpage_id\s*[:=]?\s*\d+/g, '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   // Arabic normalisation for search: drop harakat/tatweel, unify hamza seats & alif forms
   const norm = s => String(s || '')
@@ -301,10 +310,11 @@
   }
 
   function typeLabel(types) {
+    const used = new Set();   // P1 gate: a term is glossed on its first use in the row only (Fi'il Mudari' … then Fi'il Mudari' · Majhul)
     return Object.entries(types).sort((a, b) => b[1] - a[1]).map(([k, n]) => {
       const pass = k.endsWith('-PASS'); const base = pass ? k.slice(0, -5) : k;
-      const L = LB.TYPES[base] ? lab(LB.TYPES[base]) : base;
-      return `<span class="tl">${esc(L)}${pass ? (lang === 'en' ? ' (passive)' : mudah() ? ' · ' + esc(lab(LB.MISC.PASS)) : ' (majhul)') : ''} <span class="muted">×${n}</span></span>`;
+      const L = LB.TYPES[base] ? lab(LB.TYPES[base], used.has(base) ? false : undefined) : base; used.add(base);
+      return `<span class="tl">${esc(L)}${pass ? (lang === 'en' ? ' (passive)' : mudah() ? ' · ' + esc(lab(LB.MISC.PASS, used.has('@PASS') ? false : undefined)) + (used.add('@PASS'), '') : ' · ' + esc(lab(LB.MISC.PASS, false))) : ''} <span class="muted">×${n}</span></span>`;
     }).join('');
   }
 
@@ -319,14 +329,17 @@
     const e = ENTRIES[r];
     const rank = ROOT_KEYS.indexOf(r) + 1;
     const badge = s => s === 'verified' ? '' : `<span class="badge ${s}">${t(s === 'draft' ? 'draft' : s === 'not_found' ? 'notFound' : 'pending')}</span>`;
-    const meaning = e ? `<section class="card"><h2>${t('meaning')} ${badge(e.meaning.status)}</h2>
-        <p style="font-size:1.1rem;margin:0">${esc(e.meaning[lang])}</p>
-        <p class="muted small" style="margin:.3em 0 0">${esc(e.meaning[lang === 'ms' ? 'en' : 'ms'])}</p></section>`
-      : `<section class="card muted">${t('noEntry')}</section>`;
+    // P1-F5: notes.json (newer, ATV-checked) comes before the older fatihah.json wording when both exist
+    const nm = (NOTES.meaning || {})[r], mean = nm && nm[lang] ? nm : e && e.meaning;
+    const lexN = Object.values((NOTES.lex || {})[r] || {}).filter(x => x && x.status === 'verified' && x.arabic && x.book_id);
+    const meaning = mean ? `<section class="card"><h2>${t('meaning')} ${badge(mean.status || 'draft')}</h2>
+        <p style="font-size:1.1rem;margin:0">${esc(mean[lang])}</p>
+        ${lang === 'en' && mean.ms ? `<p class="muted small" style="margin:.3em 0 0">${esc(mean.ms)}</p>` : ''}</section>`
+      : e || lexN.length ? '' : `<section class="card muted">${t('noEntry')}</section>`;
 
     const forms = `<section class="card"><h2>${t('morph')}</h2><div class="tscroll"><table>
       <thead><tr><th>${t('lemma')}</th><th>${t('type')}</th><th>${t('bab')}</th><th>${t('count')}</th></tr></thead><tbody>
-      ${R.lem.map(l => `<tr><td class="arw">${esc(l[0])}</td><td>${typeLabel(l[4])}</td><td class="bab">${babCell(l[3], l[0], R, l[2] === 'V', l[4])}</td><td><b>${l[1]}</b></td></tr>`).join('')}
+      ${R.lem.map(l => `<tr><td class="arw">${esc(lemmaShown(r, l)) || '<span class="muted">—</span>'}</td><td>${typeLabel(l[4])}</td><td class="bab">${babCell(l[3], l[0], R, l[2] === 'V', l[4])}</td><td><b>${l[1]}</b></td></tr>`).join('')}
       </tbody></table></div></section>`;
 
     const shamelaUrl = L => {
@@ -334,7 +347,10 @@
       return L.book_id && pid ? `https://shamela.ws/book/${encodeURIComponent(L.book_id)}/${encodeURIComponent(pid)}` : '';
     };
     // only sources with a Shamela book + page are shown in full; others stay as "pending" placeholders
-    const lughah = e ? `<section class="card"><h2>${t('lughah')}</h2>
+    const lughah = lexN.length ? `<section class="card"><h2>${t('lughah')}</h2>
+      <p class="muted small" style="margin-top:0">${t('shamelaOnly')}</p>
+      ${lexN.map(x => `<div class="lg">${noteCard(x).replace('</div>', '</div>' + lemOnly(x))}</div>`).join('')}</section>`
+      : e ? `<section class="card"><h2>${t('lughah')}</h2>
       <p class="muted small" style="margin-top:0">${t('shamelaOnly')}</p>
       ${e.lughah.map(L => {
         const url = shamelaUrl(L);
@@ -373,6 +389,27 @@
       </section>`;
   }
 
+  // P1-F5: the "Bentuk asas" column shows a lemma only when it is a real base form. The corpus fork cuts weak
+  // verbs (لَقُ، مَشَ، عَتَ) and keeps some inflected forms (مَلَكَتْ، إِقامَت); those are replaced by the lemma of the
+  // same root and verb form in notes.json → forms when one exists there, otherwise left blank. Nothing is made up.
+  const AR_L = /[\u0621-\u064A\u0671]/g;
+  // a past-tense verb lemma: 3+ letters ending in fatha (خَلَقَ، ضَلَّ) or alif (أَلْقَى); a form seen only in the present
+  // and starting with a present-tense prefix (يَدَّعُ، يَلِجَ) is not one
+  const goodVerb = (s, forms, vf) => { const b = String(s || '').replace(/[\u06DF\u06E0\u0670]/g, ''), n = (b.match(AR_L) || []).length + (b.match(/\u0651/g) || []).length;
+    return n >= 3 && /(?:[\u0621-\u064A\u0671][\u064E\u0651]*\u064E[\u0651]?|[\u0649\u0627][\u064B-\u0652]*)$/.test(b) && !/[\u0648\u0624][\u064B-\u0652]*\u0627$/.test(b)
+      && !(forms && !forms['V-PERF'] && !forms['V-PERF-PASS'] && /^[\u064A\u0646\u0623]|^\u062A/.test(b) && !(/^\u062A/.test(b) && (vf === '5' || vf === '6'))); };
+  // a noun with an open feminine ta (إِقامَت، مَوْتَت) or a plural ending (مُلاقُوا) is an inflected form
+  const goodNoun = s => !/(?:\u064E\u062A[\u064B-\u0652]*|\u0648\u0627[\u064B-\u0652]*)$/.test(String(s || '').replace(/[\u06DF\u06E0]/g, ''));
+  function lemmaShown(r, l) {
+    if (l[2] === 'V' ? goodVerb(l[0], l[4], l[3]) : goodNoun(l[0])) return l[0];
+    if (l[2] !== 'V') return '';
+    const alt = ((NOTES.forms || {})[r] || []).filter(x => x.form === l[3] && x.lemma && !/[\/،,]/.test(x.lemma) && goodVerb(x.lemma));
+    return alt.length && alt.every(x => x.lemma === alt[0].lemma) ? alt[0].lemma : '';
+  }
+  // a lex / furuq record written for some lemmas of the root only (rec.lemmas) names them on the root page
+  const lemOnly = x => Array.isArray(x.lemmas) && x.lemmas.length ? `<p class="muted small lem-only">${t('lemOnly')} <span class="ar">${x.lemmas.map(esc).join('، ')}</span></p>` : '';
+  const lemFits = (x, lem) => !Array.isArray(x.lemmas) || !lem || x.lemmas.includes(lem);
+
   function renderOcc(reset) {
     const box = $('#occ'); if (!box) return;
     const refs = ROOTS[box.dataset.root].refs.split(' ');
@@ -409,16 +446,21 @@
   // a Malay label that came from a data note ("Waw Isti'naf", "Isim Mausul (Ma)"). In Mudah: drop a bracket that only
   // holds more Arabic ("(Ma)", "(Lam Kay)", "(أَوَلَمْ)"), then put the glossary gloss after each term on its first use.
   // The sense is matched through the segment's own label, so "Huruf Jawab" gets "jawapan", not "ayat balasan".
-  function glossLabel(s, tagLab) {
+  // P1-F1: a bracket is added only when its sense is certain: the segment's own label sense, or the term's only
+  // glossary sense. A term that names the particle itself at the head of the label (Lam, Hal, Bal, Lamma…) gets that
+  // one sense only when the glossary entry is this very particle (its Arabic = the segment's key); otherwise no bracket.
+  function glossLabel(s, tagLab, key) {
     if (lang === 'en' || !mudah() || !s) return s;
     s = String(s).replace(/\s*\(([^()]*)\)\s*$/, (m, br) => (PICK.isQualifier(br) ? '' : m));
     const inside = off => { let d = 0, q = 0; for (let i = 0; i < off; i++) { const c = s[i]; if (c === '(') d++; else if (c === ')') d = Math.max(0, d - 1); else if (c === '«') q++; else if (c === '»') q = Math.max(0, q - 1); } return d > 0 || q > 0; };
     if (!GLOSS_ANY_RE) return s;
     const want = tagLab && GLOSS_K.get(String(tagLab.gl).toLowerCase());
+    const nk = norm(key || '');
     const done = new Set();
     return s.replace(GLOSS_ANY_RE, (m, pre, term, off, str) => {
       const base = term.replace(/\u2019/g, "'").toLowerCase(), c = GLOSS_BASE.get(base) || [];
-      const e = (want && c.includes(want) && want) || c.find(x => x.k.toLowerCase() === base) || c[0];
+      const head = off + pre.length === 0;
+      const e = (want && c.includes(want) && want) || (c.length === 1 && (!head || (nk && norm(c[0].ar) === nk)) ? c[0] : null);
       if (!e || done.has(e) || inside(off + pre.length) || /^\s*\(/.test(str.slice(off + m.length))) return m;
       done.add(e); return `${pre}${term} (${e.ms})`;
     });
@@ -437,21 +479,36 @@
     const pronAttached = (w, si) => w.segs[si].tags.includes('SUFF')
       || w.segs.slice(0, si).some(s => !(s.pos === 'P' && s.tags.some(x => DETACH_OK.has(x))));
     const segKey = g => g.key || (g.tags.includes('PRON') && !g.t ? 'ي' : '');   // elided ya' of نَذِيرِ / نَكِيرِ
-    const noteTag = (g, LB) => g.tags.find(x => LB.PTAG[x] || LB.NTAG[x] || x === 'PRON') || g.pos;
+    // P1 gate: the kaf/lam of ذَٰلِكَ (tags ADDR, DIST) are not prepositions: they no longer fall back to pos "P",
+    // which made them pick the Kaf Jar note
+    const noteTag = (g, LB) => g.tags.find(x => LB.PTAG[x] || LB.NTAG[x] || x === 'PRON') || (g.tags.find(x => x === 'ADDR' || x === 'DIST')) || g.pos;
     // the interrogative hamzah is a harf even though the corpus gives it pos N
     const segType = g => g.pos === 'V' ? 'fiil' : g.pos === 'N' && !(g.key === 'أ' && g.tags.includes('INTG')) ? 'isim' : 'harf';
     const ok = h => (h && h.status === 'verified' ? h : null);
+    const refsOf = h => (Array.isArray(h.refs) && h.refs.length ? h.refs : null);
+    // P1-F3: singular / dual / plural of a relative noun. The segment's number comes from its tags (MS, MD, MP …);
+    // a note's number from the form its quotation and note name (الذي / اللذان / الذين). Unknown on either side = no check.
+    const segNum = g => (g.tags.find(x => /^[123]?[MF]?[SDP]$/.test(x)) || '').slice(-1) || null;
+    const noteNum = h => { const s = `${(h.quotes || []).map(q => q.arabic).join(' ')} ${h.arabic || ''} ${h.note_ms || ''}`.replace(/[\u064B-\u0652\u0670]/g, '');
+      return /الذين|اللاتي|اللائي/.test(s) ? 'P' : /اللذان|اللذين|اللتان|اللتين/.test(s) ? 'D' : /الذي|التي|للمفرد/.test(s) ? 'S' : null; };
     function pickNote(o) {                       // o: { surah, ayah, wi, si, w, tagged, HURUF, LB }
       const g = o.w.segs[o.si]; if (g.root) return null;
       const key = segKey(g), tag = noteTag(g, o.LB), ref = `${o.surah}:${o.ayah}:${o.wi + 1}`;
       const T = o.tagged || {}, H = o.HURUF || {};
       let h = null, id = null, override = false;
-      const tryId = x => { if (!h && x && ok(T[x])) { h = T[x]; id = x; } };
+      const sn = tag === 'REL' ? segNum(g) : null;
+      const numOk = x => { const nn = sn && noteNum(x); return !sn || !nn || nn === sn; };
+      // P1-F2: a note that lists the words it was written for (refs) is the reading of those words only
+      const fits = x => { const r = refsOf(x); return (!r || r.includes(ref)) && numOk(x); };
+      const tryId = (x, force) => { if (!h && x && ok(T[x]) && (force || fits(T[x]))) { h = T[x]; id = x; } };
       // a reviewer's per-word override in huruf-NNN.json: "@ref": { "67:17:10": "ف|RSLT" }
-      [].concat((T['@ref'] || {})[ref] || []).forEach(x => { if (!h && String(x).split('|')[0] === key) { tryId(x); override = !!h; } });
-      const fat = () => { if (!h && o.surah === 1 && ok(H[key])) { h = H[key]; id = 'HURUF:' + key; } };   // al-Fatihah notes are keyed by the bare word
+      [].concat((T['@ref'] || {})[ref] || []).forEach(x => { if (!h && String(x).split('|')[0] === key) { tryId(x, true); override = !!h; } });
+      const fat = () => { if (!h && o.surah === 1 && ok(H[key]) && numOk(H[key])) { h = H[key]; id = 'HURUF:' + key; } };   // al-Fatihah notes are keyed by the bare word
+      // elsewhere, a general al-Fatihah note of the same particle (no refs, same class as the tag, same number) may stand in
+      const gen = () => { const x = ok(H[key]); if (!h && o.surah !== 1 && x && x.sense_in_ayah === 'general' && !refsOf(x) && numOk(x)
+        && (noteClass(x, tag) || {}).c === tag) { h = x; id = 'HURUF:' + key; } };
       if (tag === 'PRON') { tryId(key + '|PRON'); fat(); tryId(pronAttached(o.w, o.si) ? '@MUTTASIL' : '@MUNFASIL'); }
-      else { tryId(key + '|' + tag); fat(); }
+      else { tryId(key + '|' + tag); fat(); gen(); }
       if (!h) return { key, tag, ref, id: null, h: null, stated: false, otherRefs: null, override };
       const refs = Array.isArray(h.refs) && h.refs.length ? h.refs : null;
       const own = !refs || refs.includes(ref);
@@ -548,7 +605,8 @@
       if (tg.includes('PRON')) { const p = pgnLab(tg, false); if (p) extra.push(p); if (!g.t) extra.push(t('elided')); }
     } else {
       const k = g.key === 'أ' && tg.includes('INTG') ? null : Object.keys(LB.PTAG).find(x => tg.includes(x));
-      label = g.key === 'أ' && tg.includes('INTG') ? lab(LB.MISC.HAMZA_INTG) : k ? lab(LB.PTAG[k]) : lab(LB.TYPE.harf);
+      // ATV-P1-03: a particle with no scholar note keeps its glossary bracket at both levels (Huruf Jar (huruf sendi nama))
+      label = g.key === 'أ' && tg.includes('INTG') ? lab(LB.MISC.HAMZA_INTG, true) : k ? lab(LB.PTAG[k], true) : lab(LB.TYPE.harf);
     }
     return { type, label, extra };
   }
@@ -820,12 +878,14 @@
   }
 
   // --- Segment 1: meaning (lexicons)
-  function segMakna(root) {
+  const draftBadge = m => m && m.status !== 'verified' ? ` <span class="badge draft">${t('draft').split(' — ')[0]}</span>` : '';
+  function segMakna(root, lem) {
     const R = ROOTS[root], m = (NOTES.meaning || {})[root];
-    const notes = Object.values((NOTES.lex || {})[root] || {});
+    // P1: a lex note written for some lemmas of the root only (rec.lemmas) is shown for those words only
+    const notes = Object.values((NOTES.lex || {})[root] || {}).filter(x => lemFits(x, lem));
     return `<div class="blk"><div class="blk-h"><span>${t('root')}</span><b class="ar rootl">${esc(spaced(root))}</b>
         ${R ? `<span class="muted small">${R.f.toLocaleString()} ${t('times2')} ${t('inQuran')}</span>` : ''}</div>
-      ${m ? `<p style="margin:.2em 0">${esc(m[lang])} <span class="badge draft">${t('draft').split(' — ')[0]}</span></p>` : ''}
+      ${m && m[lang] ? `<p style="margin:.2em 0">${esc(m[lang])}${draftBadge(m)}</p>` : ''}
       ${notes.length ? `<div class="muted small" style="margin-top:6px">${t('scholars')}</div>` + notes.map(x => noteCard(x)).join('')
         : `<p class="muted small">${t('noNote')}</p>`}
       <a class="more-link" href="#/root/${encodeURIComponent(root)}">${t('fullRoot')} →</a></div>`;
@@ -833,19 +893,33 @@
 
   // --- Segment 2: bab (verb pattern) and how the meaning changes across patterns
   function babName(vf, lem, root) { return BAB[vf] ? `${lab(LB.MISC.BAB, false)} ${BAB[vf][0]} · ${babWazan(vf, lem, lemForms(root, lem))}` : ''; }
+  // P1-F4: which Form I sub-pattern a Shadha al-'Arf meaning belongs to (its own "wazan" field, else read from its English).
+  // The ghalabah item is a vowelling rule for one class of fa'ala verbs, not a meaning of every fa'ala verb, so it is
+  // not attached to فَعَلَ (left for ATV/UZB, Peringkat 2).
+  const babSub = m => m.wazan || (/^fa'ila\b/.test(m.en || '') ? 'فَعِلَ' : /^fa'ula\b|fa'ula pattern/.test(m.en || '') ? 'فَعُلَ' : null);
   function segBab(root, vf, lem) {
     const list = (NOTES.forms || {})[root] || [];
     const here = vf ? list.filter(x => x.form === vf) : [];
     const others = list.filter(x => x.form !== vf);
     const babRef = BABS && vf && BABS.babs[vf];
     if (!vf && !list.length) return `<div class="blk"><p class="muted small" style="margin:0">${t('noBab')}</p></div>`;
+    // Form I: only the meanings of this word's own sub-pattern; none when the sub-pattern cannot be read
+    const R = ROOTS && ROOTS[root], forms = lemForms(root, lem), isV = !!(R && (R.lem.find(l => l[0] === lem) || [])[2] === 'V');
+    const sub = vf === '1' ? (PICK.formOneWazan(lem, forms) || (!isV && R ? PICK.rootFormOne(R.lem) : null)) : null;
+    // ATV-P1-02: تَبَارَكَ is said of Allah only; the general tafa'ala list («berpura-pura» …) is not printed under it
+    const hideList = lem === 'تَبارَكَ';
+    const meanings = babRef && !hideList ? (vf === '1' ? (sub ? (babRef.meanings || []).filter(m => babSub(m) === sub) : []) : (babRef.meanings || [])) : [];
+    const head = vf === '1' && sub ? `${lab(LB.MISC.BAB, false)} ${BAB[vf][0]} · ${sub}` : babName(vf, lem, root);
     return `<div class="blk">
       <p class="muted small" style="margin:.1em 0 .5em">${t('babIntro')}</p>
-      ${vf ? `<div class="bab-head"><b class="ar">${esc(babWazan(vf, lem, lemForms(root, lem)))}</b><span>${esc(babName(vf, lem, root))}</span></div>` : ''}
+      ${vf ? `<div class="bab-head"><b class="ar">${esc(vf === '1' && sub ? sub : babWazan(vf, lem, forms))}</b><span>${esc(head)}</span></div>` : ''}
       ${here.map(x => `<div class="formrow"><span class="fgloss">${esc(x['gloss_' + lang] || '')}</span>${noteCard(x)}</div>`).join('')}
-      ${babRef ? `<div class="muted small" style="margin-top:8px">${t('babMeaning')}</div>
+      ${babRef && vf === '1' && !sub ? `<p class="muted small bab-unknown">${t('babOneUnknown')}</p>` : ''}
+      ${babRef && hideList ? `<p class="muted small bab-unknown">${t('babHidden')}</p>` : ''}
+      ${babRef && meanings.length ? `<div class="muted small" style="margin-top:8px">${t('babMeaning')}</div>
+        <p class="bab-general">${t('babGeneral')}</p>
         <div class="note"><div class="nb"><b>${esc(BABS.book)}</b> <span class="muted small">${esc(BABS.author)}</span></div>
-          <ol class="mlist">${(babRef.meanings || []).map(m => `<li><span class="mn-t">${esc(m[lang] || '')}</span>
+          <ol class="mlist">${meanings.map(m => `<li><span class="mn-t">${esc(m[lang] || '')}</span>
             ${m.arabic ? `<div class="q">«${esc(m.arabic)}»</div>
               <div class="muted small">${t('page')} ${esc(m.page)} · <a href="${shLink(BABS.book_id, m.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`
               : `<p class="partial">${t('babPartial')}</p>`}</li>`).join('')}</ol>
@@ -858,15 +932,15 @@
   }
 
   // --- Segment 3: al-Furuq al-Lughawiyyah
-  function segFuruq(root) {
-    const list = (NOTES.furuq || {})[root] || [];
+  function segFuruq(root, lem) {
+    const list = ((NOTES.furuq || {})[root] || []).filter(x => lemFits(x, lem));
     if (!list.length) return `<div class="blk"><p class="muted small" style="margin:0">${t('noFuruq')}</p></div>`;
     return `<div class="blk"><p class="muted small" style="margin:.1em 0 .5em">${t('furuqIntro')}</p>
       ${list.map(x => noteCard(x, `<b class="ar fq-t">${esc(x.title)}</b>`)).join('')}</div>`;
   }
 
   function rootBlock(root, vf, lem) {
-    const tabs = [['makna', segMakna(root)], ['bab', segBab(root, vf, lem)], ['furuq', segFuruq(root)]];
+    const tabs = [['makna', segMakna(root, lem)], ['bab', segBab(root, vf, lem)], ['furuq', segFuruq(root, lem)]];
     const id = 'tb' + Math.random().toString(36).slice(2, 8);
     return `<div class="tabs" id="${id}">
       <div class="tabbar" role="tablist">${tabs.map((x, i) => `<button type="button" role="tab" class="tab ${i ? '' : 'on'}" data-tab="${x[0]}" data-tabs="${id}" aria-selected="${i ? 'false' : 'true'}">${t('tab' + x[0][0].toUpperCase() + x[0].slice(1))}</button>`).join('')}</div>
@@ -931,20 +1005,25 @@
     const whole = gl ? gl[lang === 'ms' ? 0 : 1] : '';
     segs.forEach(({ g, info, note }) => {
       const id = g.root ? 'r:' + g.root : 'k:' + PICK.segKey(g) + '|' + (note && note.id); if (seen.has(id)) return; seen.add(id);
-      let ms = '', sub = '';
+      let ms = '', sub = '', msB = '', subB = '';
       if (g.root) {
         const m = (NOTES.meaning || {})[g.root], rm = m && m[lang];
-        // A13: the word's own gloss first; the root's general meaning is labelled as the root's, not the word's
-        if (segs.length === 1 && whole) { ms = whole; if (rm) sub = `${t('rootMeaning')}: ${rm}`; }
-        else if (rm) ms = `${t('rootMeaning')}: ${rm}`;
+        // A13: the word's own gloss first; the root's general meaning is labelled as the root's, not the word's.
+        // P1-F6: a draft root meaning carries its «Draf» mark here too; a word with prefixes (ٱلْمَوْتَ) whose root has
+        // no meaning line shows the word's own gloss (surah-NNN-tr.json w[i]) on its root part
+        if (segs.length === 1 && whole) { ms = whole; if (rm) { sub = `${t('rootMeaning')}: ${rm}`; subB = draftBadge(m); } }
+        else if (rm) { ms = `${t('rootMeaning')}: ${rm}`; msB = draftBadge(m); }
+        // ATV-P1-01: only for ال + a plain isim (ٱلْمَوْتَ) — every other part is the article and the stem's label is the
+        // bare type; any other affixed word keeps its stem's grammar label
+        else if (whole && segs.every(x => x.g.root === g.root || x.g.tags.includes('DET')) && info.label === lab(LB.TYPE[info.type])) ms = whole;
       } else if (note && note.h) {
-        ms = glossLabel(note.label, tagLabOf(g));
+        ms = glossLabel(note.label, tagLabOf(g), PICK.segKey(g));
         if (note.conflict) sub = t('irabDiffM');
       }
       rows.push(`<div class="sm-row"><span class="sm-ar ar t-${info.type}">${esc(segText(g))}</span>
         <span class="sm-b"><span class="chip-t t-bg-${info.type}">${esc(lab(LB.TYPE[info.type]))}</span>
-        ${ms ? `<span class="sm-m">${esc(ms)}</span>` : `<span class="sm-m sm-lab">${esc(info.label)}</span>`}
-        ${sub ? `<span class="muted small sm-sub">${esc(sub)}</span>` : ''}</span></div>`);
+        ${ms ? `<span class="sm-m">${esc(ms)}${msB}</span>` : info.label && info.label !== lab(LB.TYPE[info.type]) ? `<span class="sm-m sm-lab">${esc(info.label)}</span>` : ''}
+        ${sub ? `<span class="muted small sm-sub">${esc(sub)}${subB}</span>` : ''}</span></div>`);
     });
     return `<div class="blk simple"><div class="muted small">${t('wMeaning')}</div>${rows.join('')}
       <button type="button" class="more-link" data-lv="ilmiah">${t('seeMore')} →</button></div>`;
@@ -972,7 +1051,12 @@
   const bookAr = bid => (WHO[String(bid)] || {}).book_ar || '';
   const fullCite = q => `<div class="muted small">${esc(bookAr(q.book_id))} · ${t('page')} ${esc(q.page)} · <a href="${shLink(q.book_id, q.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
   // Mudah: scholar + Malay first, the quotation under "Lihat nukilan"; Ilmiah: quotation, citation, then Malay
-  const repBy = q => q.reported_from ? `<span class="muted small td-rep">${esc(q.reported_from)}</span>` : '';
+  // P1-F7: who a quotation is reported from. BM shows reported_from_ms, or the plain field when it holds no English
+  // words; an English-only note (e.g. "…, via al-Raghib", "some exegetes (unnamed)") is hidden in BM, not shown.
+  const EN_WORDS = /\b(?:via|same|some|for|the|of|only|unnamed|text|his|its|is|not|stated|speaker|scholars|sages|exegetes|definition|body)\b|page_id|Shamela/i;
+  const repTxt = q => { if (!q) return ''; if (lang === 'en') return q.reported_from_en || q.reported_from || '';
+    if (q.reported_from_ms) return q.reported_from_ms; const s = q.reported_from || ''; return s && !EN_WORDS.test(s) ? s : ''; };
+  const repBy = q => repTxt(q) ? `<span class="muted small td-rep">${esc(repTxt(q))}</span>` : '';
   function famQuoted(qs, note) {
     qs = qs.filter(Boolean);
     if (mudah()) return `<div class="nb">${[...new Set(qs.map(q => String(q.book_id)))].map(id => who(id)).join(' · ')}</div>
@@ -990,7 +1074,7 @@
   // Sudut Taraduf: quotations may be one scholar reporting another (reported_from)
   function tdQuoted(qs, note) {
     qs = (qs || []).filter(Boolean);
-    const by = q => q.reported_from ? `<span class="muted small td-rep">${esc(q.reported_from)}</span>` : '';
+    const by = repBy;
     if (mudah()) return `<div class="nb">${[...new Set(qs.map(q => String(q.book_id)))].map(id => who(id)).join(' · ')}</div>
       <p>${esc(note || '')}</p>
       ${qs.length ? `<details class="src"><summary>${t('seeQuote')}</summary>${qs.map(q => `${by(q)}<div class="q">${esc(q.arabic)}</div>${fullCite(q)}`).join('')}</details>` : ''}`;
@@ -1008,7 +1092,7 @@
       ${mk ? `<article class="card td-m"><h3>${t('tdMuk')}</h3><div class="nb">${who(mk.book_id)}</div><p>${esc(L(mk))}</p>
         <ul class="td-words">${(mk.words || []).map(x => `<li><div class="tw-h"><span class="ar tw-ar">${esc(x.ar)}</span> <b>${esc(x.tr)}</b>${x.new_to_family ? ` <span class="badge tw-new">${t('tdNew')}</span>` : ''}</div>
           <div>${esc(x[lang] || x.ms)} ${ayChips(x.ayat)}</div>
-          <details class="src"><summary>${t('seeQuote')}</summary>${x.quote.reported_from ? `<span class="muted small td-rep">${esc(x.quote.reported_from)}</span>` : ''}<div class="q">${esc(x.quote.arabic)}</div>${fullCite(x.quote)}</details></li>`).join('')}</ul></article>` : ''}
+          <details class="src"><summary>${t('seeQuote')}</summary>${repBy(x.quote)}<div class="q">${esc(x.quote.arabic)}</div>${fullCite(x.quote)}</details></li>`).join('')}</ul></article>` : ''}
       ${td.quran ? `<article class="card td-qr"><h3>${t('tdQuran')}</h3>${tdQuoted(td.quran.quotes, L(td.quran))}<div>${ayChips(td.quran.ayat)}</div></article>` : ''}
       ${td.link_ms ? `<aside class="card td-link"><h3>${t('tdLink')}</h3>${tdQuoted(td.link_quotes, td['link_' + lang] || td.link_ms)}</aside>` : ''}
     </section>`;

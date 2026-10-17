@@ -269,6 +269,16 @@
       "term": "Tahdhidh",
       "gl": "tahdhidh",
       "en": "Exhortation particle"
+    },
+    "ADDR": {
+      "term": "Huruf Khitab",
+      "gl": "huruf khitab",
+      "en": "Particle of address"
+    },
+    "DIST": {
+      "term": "Lam Bu'd",
+      "gl": "lam bu'd",
+      "en": "Lam of distance"
     }
   },
   "NTAG": {
