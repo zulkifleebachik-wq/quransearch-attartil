@@ -253,7 +253,7 @@
     const rcard = c => `<a class="scard" href="#/s/${c.surah}"><span class="sc-ar ar">${esc(SURAH[c.surah - 1])}</span>
         <span class="sc-meta"><b>${esc(c.name_ms || 'Surah')}</b><span class="muted small">${t('surah')} ${c.surah} · ${c.ayat} ${t('ayatN')} · ${t('openSurah')} →</span></span></a>`;
     const scard = (c, tight) => `<div class="scard off"><span class="sc-ar ar">${esc(SURAH[c.surah - 1])}</span>
-        <span class="sc-meta"><b>${esc((c.name_ms || 'Surah').replace(/^Surah /, tight ? '' : 'Surah '))}</b><span class="muted small">${tight ? `${c.surah} · ${c.ayat} ${t('ayatN')}` : `${t('surah')} ${c.surah} · ${c.ayat} ${t('ayatN')}`}</span></span></div>`;
+        <span class="sc-meta"><b>${esc((c.name_ms || 'Surah').replace(/^Surah /, tight ? '' : 'Surah '))}</b><span class="muted small">${tight ? `${c.surah} · ${c.ayat} ${t('ayatN')}` : `${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`}`}</span></span></div>`;
     return `<section class="card"><p style="margin:0">${t('intro')}</p></section>
       <h2>${t('ready')}</h2><div class="sgrid">${ready.map(rcard).join('')}</div>
       ${other.length ? `<h2 class="soon-h">${t('soon2')}</h2><div class="sgrid">${other.map(scard).join('')}</div>` : ''}
