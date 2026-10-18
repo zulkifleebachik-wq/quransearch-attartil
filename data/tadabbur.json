@@ -24,6 +24,56 @@
  ],
  "items": [
   {
+   "id": "1-2",
+   "surah": 1,
+   "from": 2,
+   "to": 2,
+   "theme": "ikhlas",
+   "title_ms": "Pujian Milik Allah",
+   "title_en": "All Praise Is His",
+   "tagline_ms": "Memuji dahulu, sebelum meminta",
+   "tagline_en": "Praise first, before asking",
+   "renung_ms": "Sebelum meminta apa-apa dalam al-Fatihah, kita memuji dahulu: «Segala puji tertentu bagi Allah». Dialah «Tuhan yang memelihara dan mentadbirkan sekalian alam», termasuk hidup kita yang kecil ini. Kita mudah berterima kasih kepada orang yang menolong, tetapi lupa siapa yang menggerakkan pertolongan itu. Alhamdulillah bukan sekadar ucapan selepas makan; ia pengakuan hati bahawa setiap kebaikan datang daripada-Nya.",
+   "renung_en": "Before asking for anything in al-Fatihah, we praise first: \"All praise is for Allah\". He is the \"Lord of all the worlds\", who cares for and governs them, our own small lives included. We readily thank the people who help us, yet forget who set that help in motion. Alhamdulillah is not just something said after a meal; it is the heart admitting that every good comes from Him.",
+   "renung_hl_ms": "ia pengakuan hati bahawa setiap kebaikan datang daripada-Nya",
+   "renung_hl_en": "it is the heart admitting that every good comes from Him",
+   "tanya_ms": [
+    "Bilakah kali terakhir aku mengucapkan alhamdulillah dengan hati yang benar-benar sedar?",
+    "Apabila orang memujiku, adakah aku mengembalikan pujian itu kepada Allah?"
+   ],
+   "tanya_en": [
+    "When did I last say alhamdulillah with a truly aware heart?",
+    "When people praise me, do I return that praise to Allah?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "1-4",
+   "surah": 1,
+   "from": 4,
+   "to": 4,
+   "theme": "iman-akhirat",
+   "title_ms": "Hari Segalanya Dibalas",
+   "title_en": "The Day All Is Repaid",
+   "tagline_ms": "Tiada kebaikan yang sia-sia",
+   "tagline_en": "No good deed is wasted",
+   "renung_ms": "Setiap rakaat kita menyebut Allah «Yang Menguasai pemerintahan hari Pembalasan». Di dunia, ada kesalahan yang terlepas dan ada kebaikan yang tidak dihargai. Pada hari itu, setiap amal, yang baik dan yang buruk, akan dibalas. Kita mengingatinya bukan untuk berputus asa, tetapi supaya kebaikan kecil yang tidak dilihat orang tetap kita lakukan.",
+   "renung_en": "In every rak'ah we call Allah the \"Owner of the Day of Judgement\". In this world, some wrongs go unpunished and some good goes unappreciated. On that Day, every deed, good and bad, will be repaid. We remember it not to despair, but so that we keep doing the small good no one else sees.",
+   "renung_hl_ms": "supaya kebaikan kecil yang tidak dilihat orang tetap kita lakukan",
+   "renung_hl_en": "so that we keep doing the small good no one else sees",
+   "tanya_ms": [
+    "Jika hari pembalasan itu esok, amal apakah yang paling aku harapkan?",
+    "Adakah aku masih berbuat baik walaupun tiada siapa yang menghargainya?"
+   ],
+   "tanya_en": [
+    "If the Day of Judgement were tomorrow, which deed would I most hope in?",
+    "Do I still do good even when no one appreciates it?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
    "id": "1-5",
    "surah": 1,
    "from": 5,
@@ -119,6 +169,56 @@
    "tanya_en": [
     "If no one were watching, would my prayer stay the same?",
     "What have I given this month from the provision Allah has given me?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "2-4",
+   "surah": 2,
+   "from": 4,
+   "to": 4,
+   "theme": "iman-akhirat",
+   "title_ms": "Yakin Yang Menggerakkan",
+   "title_en": "Certainty That Moves Us",
+   "tagline_ms": "Payung dibawa sebelum hujan",
+   "tagline_en": "The umbrella is taken before the rain",
+   "renung_ms": "Ayat ini menyebut orang bertakwa (orang yang memelihara diri daripada murka Allah dengan taat kepada-Nya) yang beriman kepada al-Quran dan kitab-kitab sebelumnya, «serta mereka yakin akan (adanya) hari akhirat». Yakin bukan sekadar tahu. Orang yang yakin hujan akan turun membawa payung sebelum keluar rumah. Begitulah yakin kepada akhirat: ia membuat kita bersiap hari ini, bukan menunggu esok.",
+   "renung_en": "This ayah describes the God-conscious who believe in the Qur'an and the books before it, \"and of the Hereafter they are certain\". Certainty is more than knowing. Someone sure that rain is coming takes an umbrella before leaving home. So it is with certainty of the Hereafter: it makes us prepare today, not wait for tomorrow.",
+   "renung_hl_ms": "Yakin bukan sekadar tahu.",
+   "renung_hl_en": "Certainty is more than knowing.",
+   "tanya_ms": [
+    "Jika aku benar-benar yakin akan hari akhirat, apakah yang akan aku ubah minggu ini?",
+    "Adakah imanku kepada akhirat menggerakkan amalku, atau hanya tersimpan dalam ingatan?"
+   ],
+   "tanya_en": [
+    "If I were truly certain of the Hereafter, what would I change this week?",
+    "Does my faith in the Hereafter move my deeds, or does it only sit in my memory?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "2-5",
+   "surah": 2,
+   "from": 5,
+   "to": 5,
+   "theme": "istiqamah",
+   "title_ms": "Teguh Di Atas Petunjuk",
+   "title_en": "Firm upon Guidance",
+   "tagline_ms": "Petunjuk yang mengangkat, bukan membebankan",
+   "tagline_en": "Guidance that lifts, not weighs down",
+   "renung_ms": "Ayat ini menutup sifat-sifat orang bertakwa (orang yang memelihara diri daripada murka Allah dengan taat kepada-Nya): «Mereka itulah yang tetap mendapat petunjuk dari Tuhan mereka». Petunjuk itu seperti tunggangan; orang yang menaikinya terangkat dan terus bergerak ke hadapan. Mereka juga «orang-orang yang berjaya», iaitu mendapat apa yang diharap dan selamat daripada apa yang ditakuti. Petunjuk itu dijaga dengan amal kecil yang tetap, hari demi hari.",
+   "renung_en": "This ayah closes the qualities of the God-conscious: \"Those are upon [right] guidance from their Lord\". Guidance is like a mount; whoever rides it is raised up and keeps moving forward. They are also \"the successful\": they gain what they hope for and are safe from what they fear. That guidance is kept by small deeds done steadily, day after day.",
+   "renung_hl_ms": "orang yang menaikinya terangkat dan terus bergerak ke hadapan",
+   "renung_hl_en": "whoever rides it is raised up and keeps moving forward",
+   "tanya_ms": [
+    "Amal kecil apakah yang aku lakukan setiap hari tanpa putus?",
+    "Apakah ukuran kejayaanku sekarang: pandangan orang, atau selamat di sisi Allah?"
+   ],
+   "tanya_en": [
+    "Which small deed do I do every day without fail?",
+    "What is my measure of success right now: how people see me, or being safe with Allah?"
    ],
    "status": "disemak",
    "reviewed_by": "UZB 2026-10-18"
@@ -249,6 +349,31 @@
    "reviewed_by": "UZB 2026-10-18"
   },
   {
+   "id": "67-1",
+   "surah": 67,
+   "from": 1,
+   "to": 1,
+   "theme": "ikhlas",
+   "title_ms": "Semua Dalam Kuasa-Nya",
+   "title_en": "All Is in His Power",
+   "tagline_ms": "Pemilik sebenar segala urusan",
+   "tagline_en": "The true Owner of every affair",
+   "renung_ms": "Surah ini dibuka dengan «Maha Berkat» Tuhan «yang menguasai pemerintahan». Kita sering gelisah tentang orang yang berkuasa atas kerja, rezeki atau masa depan kita. Namun seluruh pemerintahan ada pada-Nya, dan «Ia Maha Kuasa atas tiap-tiap sesuatu». Hati yang tahu siapa Pemilik sebenar lebih tenang, dan tidak lagi bekerja semata-mata untuk menyenangkan manusia.",
+   "renung_en": "This surah opens with \"Blessed is He in whose hand is the dominion\". We often worry about the people who hold power over our work, provision or future. Yet all dominion is His, and \"He is over all things competent\". A heart that knows who the true Owner is grows calmer, and no longer works only to please people.",
+   "renung_hl_ms": "Hati yang tahu siapa Pemilik sebenar lebih tenang",
+   "renung_hl_en": "A heart that knows who the true Owner is grows calmer",
+   "tanya_ms": [
+    "Siapakah yang paling aku takuti, seolah-olah urusanku berada di tangannya?",
+    "Adakah aku bekerja kerana Allah, atau kerana mahu dipuji orang atasan?"
+   ],
+   "tanya_en": [
+    "Whom do I fear most, as if my affairs were in their hand?",
+    "Do I work for Allah, or to be praised by those above me?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
    "id": "67-2",
    "surah": 67,
    "from": 2,
@@ -269,6 +394,31 @@
    "tanya_en": [
     "If no one knew of my deeds, would I still do them?",
     "Which deed do I do out of habit, not for Allah?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "67-3",
+   "surah": 67,
+   "from": 3,
+   "to": 4,
+   "theme": "iman-akhirat",
+   "title_ms": "Pandanglah Sekali Lagi",
+   "title_en": "Look Once More",
+   "tagline_ms": "Langit yang tidak pernah retak",
+   "tagline_en": "A sky that never cracks",
+   "renung_ms": "Ayat ini mengajak kita memandang langit: «dapatkah engkau melihat sebarang kecacatan?» Lalu disuruh lagi: «ulangilah pandangan (mu) berkali-kali». Pandangan itu tetap pulang «dengan hampa», tidak menemui satu cacat pun. Kita lebih kerap menunduk ke skrin daripada mendongak ke langit; sesekali angkatlah kepala, dan biarkan ciptaan yang sempurna itu menguatkan iman.",
+   "renung_en": "This ayah invites us to look at the sky: \"do you see any cracks?\" Then again: \"return your gaze twice again\". The gaze still comes back \"humbled\", finding not a single flaw. We look down at screens more often than we look up at the sky; now and then, lift your head, and let that flawless creation strengthen your faith.",
+   "renung_hl_ms": "sesekali angkatlah kepala",
+   "renung_hl_en": "now and then, lift your head",
+   "tanya_ms": [
+    "Bilakah kali terakhir aku memandang langit dan teringat kepada Penciptanya?",
+    "Adakah mataku lebih mudah melihat kekurangan orang daripada kebesaran ciptaan Allah?"
+   ],
+   "tanya_en": [
+    "When did I last look at the sky and remember its Creator?",
+    "Do my eyes find people's faults more easily than the greatness of Allah's creation?"
    ],
    "status": "disemak",
    "reviewed_by": "UZB 2026-10-18"
