@@ -668,9 +668,10 @@
       ${D.ayat.map(ay => `<article class="card ayah-card" id="ay-${ay.a}">
         <div class="ay-ar" dir="rtl">${ayahLine(ay)}</div>
         ${TR && TR.ayat[ay.a] ? `<p class="tr">${esc(TR.ayat[ay.a][lang])}</p>` : ''}
+        ${(() => { const h = tadPanel(n, ay.a); return h ? `<div class="tad-top">${h}</div>` : ''; })()}
         ${oneLine(n, ay.a)}
         ${TR && TR.ayat[ay.a] && TR.ayat[ay.a].note ? ayNote(TR.ayat[ay.a].note) : ''}
-        <div class="ind-row">${irabPanel(n, ay.a)}${failPanel(n, ay.a)}${tafPanel(n, ay.a)}${mqPanel(n, ay.a)}${tadPanel(n, ay.a)}</div>
+        <div class="ind-row">${irabPanel(n, ay.a)}${failPanel(n, ay.a)}${tafPanel(n, ay.a)}${mqPanel(n, ay.a)}</div>
         <div class="wpanel" id="wp-${ay.a}" hidden></div>
       </article>`).join('')}
       ${TR ? `<p class="trsrc"><b>${t('trBy')}</b> ${esc(TR['source_' + lang])}${TR.tr_source === 'basmeih' ? '' : ` <span class="badge draft">${t('draft').split(' — ')[0]}</span>`}${TR['tr_note_' + lang] ? `<br><span class="muted small">${esc(TR['tr_note_' + lang])}</span>` : ''}</p>` : ''}
@@ -866,7 +867,7 @@
     if (a !== +x.from) return `<p class="tad-link"><a href="#/s/${n}/${x.from}">${esc(t('tadSee').replace('__R__', rg))} ↑</a></p>`;
     const renung = tadL(x, 'renung'), tagline = tadL(x, 'tagline');
     const tanya = tadArr(x, 'tanya');
-    return `<details class="tad" id="tad-${esc(x.id)}"><summary>
+    return `<details class="tad" open id="tad-${esc(x.id)}"><summary>
         <span class="tad-lab">${t('tadLab')} <span class="tad-rg">· ${t('ayatN')} <span class="nw">${rg}</span></span></span>
         <span class="tad-title">${esc(tadL(x, 'title'))}</span>
         ${tagline ? `<span class="tad-tag">${esc(tagline)}</span>` : ''}
