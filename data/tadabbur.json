@@ -1,0 +1,352 @@
+{
+ "about": "Tadabbur & Refleksi Umat, rewritten 18 Oct 2026 in the voice of «Bila Hamba Berbicara» (brief S/p7/BRIEF-P7b.md): own plain Malay, no Shamela quotes; RENUNG / CONTOH KEHIDUPAN / CUBA MINGGU INI / tanya diri. Label: Tadabbur · Renungan, bukan tafsir. Only status 'disemak' is shown to students; localStorage kamus.preview='1' also shows 'draf'. Previous Shamela version: S/p7/tadabbur_v1_shamela.json.",
+ "themes": [
+  {
+   "id": "ikhlas",
+   "ms": "Ikhlas & bergantung kepada Allah",
+   "en": "Sincerity & reliance on Allah"
+  },
+  {
+   "id": "istiqamah",
+   "ms": "Istiqamah (teguh di jalan yang lurus)",
+   "en": "Istiqamah (steadfastness)"
+  },
+  {
+   "id": "iman-akhirat",
+   "ms": "Iman & akhirat",
+   "en": "Faith & the Hereafter"
+  },
+  {
+   "id": "amal-dakwah",
+   "ms": "Amal & dakwah",
+   "en": "Deeds & calling to good"
+  }
+ ],
+ "items": [
+  {
+   "id": "1-5",
+   "surah": 1,
+   "from": 5,
+   "to": 5,
+   "theme": "ikhlas",
+   "title_ms": "Hanya Kepada-Mu",
+   "title_en": "To You Alone",
+   "tagline_ms": "Satu arah untuk hati yang bercabang",
+   "tagline_en": "One direction for a scattered heart",
+   "renung_ms": "Setiap rakaat kita berjanji: «kepada Engkaulah sahaja kami memohon pertolongan». Kita mengucapkannya belasan kali sehari. Tetapi apabila datang masalah, hati sering berlari dahulu kepada orang, wang atau telefon. Janji ini bukan sekadar bacaan; ia kompas yang mengembalikan hati kepada Allah.",
+   "renung_en": "In every rak'ah we make a promise: \"You alone we ask for help.\" We say it more than a dozen times a day. Yet when trouble comes, the heart often runs first to people, money or the phone. This promise is not just a recitation; it is a compass that turns the heart back to Allah.",
+   "renung_hl_ms": "ia kompas yang mengembalikan hati kepada Allah",
+   "renung_hl_en": "it is a compass that turns the heart back to Allah",
+   "tanya_ms": [
+    "Apabila aku susah, kepada siapa hatiku berlari dahulu?",
+    "Adakah ibadahku hari ini kerana Allah, atau kerana dilihat orang?"
+   ],
+   "tanya_en": [
+    "When I am in difficulty, to whom does my heart run first?",
+    "Is my worship today for Allah, or to be seen by people?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "1-6",
+   "surah": 1,
+   "from": 6,
+   "to": 7,
+   "theme": "istiqamah",
+   "title_ms": "Jalan Lurus, Teman Yang Baik",
+   "title_en": "The Straight Path, Good Company",
+   "tagline_ms": "Doa yang kita perlukan setiap hari",
+   "tagline_en": "The prayer we need every day",
+   "renung_ms": "Kita sudah Islam, tetapi masih memohon «Tunjukilah kami jalan yang lurus» berkali-kali sehari. Petunjuk bukan sekali dapat lalu disimpan; ia perlu dipohon supaya kekal. Jalan ini juga ada pejalannya: «orang-orang yang Engkau telah kurniakan nikmat kepada mereka». Kita tidak berjalan seorang diri.",
+   "renung_en": "We are already Muslim, yet we still ask \"Guide us to the straight path\" many times a day. Guidance is not something received once and stored away; it must be asked for so that it stays. This path also has travellers: \"those upon whom You have bestowed favour\". We do not walk alone.",
+   "renung_hl_ms": "Kita tidak berjalan seorang diri.",
+   "renung_hl_en": "We do not walk alone.",
+   "tanya_ms": [
+    "Siapakah teman yang paling banyak mempengaruhi jalan hidupku sekarang?",
+    "Adakah aku memohon petunjuk dengan sedar, atau sekadar membacanya?"
+   ],
+   "tanya_en": [
+    "Who are the companions shaping the path of my life most right now?",
+    "Do I ask for guidance with awareness, or do I simply recite the words?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "2-2",
+   "surah": 2,
+   "from": 2,
+   "to": 2,
+   "theme": "iman-akhirat",
+   "title_ms": "Petunjuk Bagi Hati Yang Berjaga",
+   "title_en": "Guidance for a Watchful Heart",
+   "tagline_ms": "Cahaya yang sama, dirasai oleh yang mahu berjalan",
+   "tagline_en": "The same light, felt by those willing to walk",
+   "renung_ms": "Al-Quran ini «tidak ada sebarang syak padanya». Namun petunjuknya paling terasa oleh «orang-orang yang (hendak) bertaqwa», iaitu yang berhati-hati dalam setiap langkah. Seperti lampu suluh: cahayanya sama, tetapi hanya orang yang mahu berjalan akan melihat laluannya. Setiap kali kita lebih berhati-hati, petunjuk itu terasa lebih terang.",
+   "renung_en": "This Qur'an is a Book \"about which there is no doubt\". Yet its guidance is felt most by \"those conscious of Allah\", those who take care with every step. It is like a torch: the light is the same, but only someone willing to walk sees the way. Each time we take more care, that guidance shines brighter.",
+   "renung_hl_ms": "Setiap kali kita lebih berhati-hati, petunjuk itu terasa lebih terang.",
+   "renung_hl_en": "Each time we take more care, that guidance shines brighter.",
+   "tanya_ms": [
+    "Apabila aku membaca al-Quran, adakah aku datang untuk dipimpin, atau sekadar untuk habis?",
+    "Apakah satu perkara yang aku tahu kurang baik, tetapi masih aku lakukan?"
+   ],
+   "tanya_en": [
+    "When I read the Qur'an, do I come to be guided, or only to finish?",
+    "What is one thing I know is not good, yet I still do?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "2-3",
+   "surah": 2,
+   "from": 3,
+   "to": 3,
+   "theme": "iman-akhirat",
+   "title_ms": "Yakin Pada Yang Tidak Terlihat",
+   "title_en": "Sure of the Unseen",
+   "tagline_ms": "Iman yang turun ke dahi dan tangan",
+   "tagline_en": "Faith that reaches the forehead and the hand",
+   "renung_ms": "Ayat ini menyebut tiga tanda: beriman kepada yang ghaib (perkara yang tidak dapat dicapai oleh pancaindera), mendirikan sembahyang, dan membelanjakan sebahagian daripada rezeki. Kita tidak melihat Allah, tetapi kita sujud kepada-Nya. Kita tidak melihat akhirat, tetapi kita memberi untuknya. Iman yang hidup bukan di kepala sahaja; ia turun ke dahi yang sujud dan ke tangan yang memberi.",
+   "renung_en": "This ayah names three signs: believing in the unseen (what the senses cannot reach), establishing prayer, and spending from what we are given. We do not see Allah, yet we prostrate to Him. We do not see the Hereafter, yet we give for it. A living faith is not only in the head; it reaches the forehead that prostrates and the hand that gives.",
+   "renung_hl_ms": "ia turun ke dahi yang sujud dan ke tangan yang memberi",
+   "renung_hl_en": "it reaches the forehead that prostrates and the hand that gives",
+   "tanya_ms": [
+    "Jika tiada siapa melihat, adakah solatku tetap sama?",
+    "Apa yang telah aku beri bulan ini daripada rezeki yang Allah berikan?"
+   ],
+   "tanya_en": [
+    "If no one were watching, would my prayer stay the same?",
+    "What have I given this month from the provision Allah has given me?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "36-20",
+   "surah": 36,
+   "from": 20,
+   "to": 21,
+   "theme": "amal-dakwah",
+   "title_ms": "Berlari Membawa Nasihat",
+   "title_en": "Running with Good Counsel",
+   "tagline_ms": "Seorang lelaki dari hujung bandar",
+   "tagline_en": "A man from the far end of the city",
+   "renung_ms": "Ketika para rasul diancam, «datanglah seorang lelaki dari hujung bandar itu dengan berlari». Dia orang biasa, bukan salah seorang rasul itu, namun dia tidak menunggu orang lain bersuara. Dia menyeru «Wahai kaumku!», panggilan orang yang sayang, bukan orang yang marah, lalu mengajak mereka mengikut orang yang tidak meminta balasan. Kebaikan kadang-kadang hanya memerlukan seorang yang sanggup bergerak dahulu.",
+   "renung_en": "When the messengers were threatened, \"there came from the farthest end of the city a man, running.\" He was ordinary, not one of the messengers, yet did not wait for others to speak. He called out \"O my people\", the call of someone who cares, not someone who is angry, urging them to follow those who ask no payment. Sometimes goodness only needs one person willing to move first.",
+   "renung_hl_ms": "panggilan orang yang sayang, bukan orang yang marah",
+   "renung_hl_en": "the call of someone who cares, not someone who is angry",
+   "tanya_ms": [
+    "Adakah aku menunggu orang lain dahulu untuk berbuat baik?",
+    "Apabila aku menasihati, adakah nadaku membawa kasih, atau rasa diri lebih baik?"
+   ],
+   "tanya_en": [
+    "Do I wait for others before I do good?",
+    "When I advise someone, does my tone carry love, or a sense that I am better?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "36-30",
+   "surah": 36,
+   "from": 30,
+   "to": 30,
+   "theme": "amal-dakwah",
+   "title_ms": "Jangan Mengejek Peringatan",
+   "title_en": "Do Not Mock the Reminder",
+   "tagline_ms": "Penyesalan yang datang terlambat",
+   "tagline_en": "Regret that comes too late",
+   "renung_ms": "Ayat ini tentang orang yang mengejek setiap rasul yang datang kepada mereka: «Sungguh besar perasaan sesal dan kecewa yang menimpa hamba-hamba». Namun kita juga boleh bertanya: bagaimana kita menyambut peringatan hari ini? Mungkin kita tidak mengejek, tetapi tersenyum sinis atau terus menatal. Hati yang lembut menerima nasihat sebelum terlambat.",
+   "renung_en": "This ayah is about those who mocked every messenger who came to them: \"How regretful for the servants.\" Yet we too can ask: how do we receive a reminder today? Perhaps we do not mock, but we smile with scorn or simply scroll past. A soft heart accepts advice before it is too late.",
+   "renung_hl_ms": "Hati yang lembut menerima nasihat sebelum terlambat.",
+   "renung_hl_en": "A soft heart accepts advice before it is too late.",
+   "tanya_ms": [
+    "Apabila ditegur, apakah reaksi pertamaku: mendengar atau membela diri?",
+    "Pernahkah aku memandang ringan nasihat kerana siapa yang menyampaikannya?"
+   ],
+   "tanya_en": [
+    "When I am corrected, what is my first reaction: to listen, or to defend myself?",
+    "Have I ever taken advice lightly because of who delivered it?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "36-60",
+   "surah": 36,
+   "from": 60,
+   "to": 62,
+   "theme": "istiqamah",
+   "title_ms": "Kenal Musuh, Pilih Jalan",
+   "title_en": "Know the Enemy, Choose the Path",
+   "tagline_ms": "Satu musuh, satu jalan",
+   "tagline_en": "One enemy, one path",
+   "renung_ms": "Ayat ini ditujukan kepada orang yang dahulu mengikut syaitan dan menolak peringatan. Namun pesannya untuk semua «anak-anak Adam»: syaitan «musuh yang nyata», dan jalan yang lurus ialah menyembah Allah. Musuh yang tidak kita kenali paling mudah memimpin kita. Ayat ini ditutup dengan soalan «tidakkah sepatutnya kamu berfikir dan insaf», dan soalan itu wajar juga kita tanyakan kepada diri sendiri.",
+   "renung_en": "This ayah is addressed to those who once followed Satan and rejected the reminder. Yet its message is for all \"children of Adam\": Satan is \"a clear enemy\", and the straight path is to worship Allah. An enemy we do not recognise leads us most easily. The passage closes with the question \"did you not use reason\", a question we should also ask ourselves.",
+   "renung_hl_ms": "Musuh yang tidak kita kenali paling mudah memimpin kita.",
+   "renung_hl_en": "An enemy we do not recognise leads us most easily.",
+   "tanya_ms": [
+    "Bisikan apakah yang paling kerap menarik aku daripada solat?",
+    "Bila kali terakhir aku berhenti dan berfikir sebelum menurut rasa marah atau malas?"
+   ],
+   "tanya_en": [
+    "Which whisper most often pulls me away from prayer?",
+    "When did I last stop and think before giving in to anger or laziness?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "36-65",
+   "surah": 36,
+   "from": 65,
+   "to": 65,
+   "theme": "iman-akhirat",
+   "title_ms": "Ketika Anggota Berbicara",
+   "title_en": "When the Limbs Speak",
+   "tagline_ms": "Mulut diam, tangan bercerita",
+   "tagline_en": "The mouth is silent, the hands tell the story",
+   "renung_ms": "Ayat ini tentang orang yang menolak kebenaran: pada hari itu mulut mereka dimeteraikan, lalu tangan bercakap dan kaki menjadi saksi. Namun kita juga boleh bertanya: jika tanganku dan kakiku bercakap, apa yang akan diceritakannya? Tangan inilah yang menatal telefon, kaki inilah yang melangkah ke mana-mana. Setiap hari kita sedang menulis kesaksian kita sendiri.",
+   "renung_en": "This ayah is about those who rejected the truth: on that Day their mouths are sealed, then the hands speak and the feet bear witness. Yet we too can ask: if my hands and feet spoke, what would they tell? These are the hands that scroll the phone, the feet that step wherever they go. Every day we are writing our own testimony.",
+   "renung_hl_ms": "Setiap hari kita sedang menulis kesaksian kita sendiri.",
+   "renung_hl_en": "Every day we are writing our own testimony.",
+   "tanya_ms": [
+    "Jika tanganku bercakap hari ini, apakah yang akan diceritakannya?",
+    "Ke manakah kakiku paling kerap membawa aku minggu ini?"
+   ],
+   "tanya_en": [
+    "If my hands spoke today, what would they tell?",
+    "Where have my feet taken me most often this week?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "36-77",
+   "surah": 36,
+   "from": 77,
+   "to": 79,
+   "theme": "iman-akhirat",
+   "title_ms": "Ingat Asal Kejadian",
+   "title_en": "Remember Where We Began",
+   "tagline_ms": "Dari setitis air, kepada Yang Maha Mengetahui",
+   "tagline_en": "From a drop of fluid, to the One who Knows",
+   "renung_ms": "Ayat ini tentang manusia yang membantah dengan bertanya siapakah yang dapat menghidupkan tulang yang telah hancur, sedangkan dia lupa bahawa dirinya sendiri bermula «dari (setitis) air benih». Yang mencipta pada kali pertama tentu mampu menghidupkannya semula. Kita juga mudah lupa asal diri apabila sudah kuat dan berjaya. Mengingati asal diri melembutkan hati yang mula angkuh.",
+   "renung_en": "This ayah is about a person who argues by asking who can give life to bones that have crumbled, while forgetting that he himself began \"from a sperm-drop\". The One who created the first time can surely give life again. We too easily forget where we came from once we are strong and successful. Remembering our beginning softens a heart that is growing proud.",
+   "renung_hl_ms": "Mengingati asal diri melembutkan hati yang mula angkuh.",
+   "renung_hl_en": "Remembering our beginning softens a heart that is growing proud.",
+   "tanya_ms": [
+    "Adakah ada perkara yang membuat aku berasa seolah-olah tidak memerlukan Allah?",
+    "Bila kali terakhir aku memikirkan hari aku akan dihidupkan semula?"
+   ],
+   "tanya_en": [
+    "Is there anything that makes me feel as if I do not need Allah?",
+    "When did I last think about the day I will be brought back to life?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "67-2",
+   "surah": 67,
+   "from": 2,
+   "to": 2,
+   "theme": "amal-dakwah",
+   "title_ms": "Yang Paling Baik Amalnya",
+   "title_en": "Best in Deed",
+   "tagline_ms": "Hidup ini ujian, bukan perlumbaan bilangan",
+   "tagline_en": "Life is a test, not a race of numbers",
+   "renung_ms": "Allah menjadikan mati dan hidup untuk menguji «siapakah di antara kamu yang lebih baik amalnya», bukan yang paling banyak. Kita sering sibuk mengejar banyak, lalu lupa bertanya: adakah amalku diterima? Sedikit tetapi ikhlas (semata-mata kerana Allah) dan betul caranya lebih bernilai daripada banyak tetapi kosong. Dan Dia «Maha Pengampun»; pintu untuk memperbaiki masih terbuka.",
+   "renung_en": "Allah created death and life to test \"which of you is best in deed\", not who does the most. We are often busy chasing more, and forget to ask: is my deed accepted? A little done with sincerity, solely for Allah, and in the right way, is worth more than a lot that is empty. And He is \"the Forgiving\"; the door to set things right is still open.",
+   "renung_hl_ms": "bukan yang paling banyak",
+   "renung_hl_en": "not who does the most",
+   "tanya_ms": [
+    "Jika tiada siapa tahu amalku, adakah aku masih melakukannya?",
+    "Amal manakah yang aku lakukan kerana kebiasaan, bukan kerana Allah?"
+   ],
+   "tanya_en": [
+    "If no one knew of my deeds, would I still do them?",
+    "Which deed do I do out of habit, not for Allah?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "67-10",
+   "surah": 67,
+   "from": 10,
+   "to": 10,
+   "theme": "amal-dakwah",
+   "title_ms": "Mendengar Sebelum Terlambat",
+   "title_en": "Listen Before It Is Too Late",
+   "tagline_ms": "Dua pintu petunjuk: telinga dan akal",
+   "tagline_en": "Two doors of guidance: the ear and the mind",
+   "renung_ms": "Ayat ini tentang penyesalan orang yang menolak peringatan, setelah semuanya terlambat: «Kalaulah kami dahulu mendengar dan memahami». Mereka ada telinga dan akal, tetapi tidak menggunakannya untuk menerima kebenaran. Namun kita juga boleh bertanya: berapa banyak ayat yang kita dengar setiap hari tanpa benar-benar mendengar? Hari ini pintu itu masih terbuka.",
+   "renung_en": "This ayah is about the regret of those who rejected the reminder, once it was all too late: \"If only we had been listening or reasoning.\" They had ears and minds, but did not use them to accept the truth. Yet we too can ask: how many ayat do we hear each day without truly listening? Today that door is still open.",
+   "renung_hl_ms": "Hari ini pintu itu masih terbuka.",
+   "renung_hl_en": "Today that door is still open.",
+   "tanya_ms": [
+    "Ayat manakah yang selalu aku dengar tetapi belum pernah aku fikirkan?",
+    "Adakah aku memberi masa untuk memahami, atau hanya mendengar sepintas lalu?"
+   ],
+   "tanya_en": [
+    "Which ayah do I hear often but have never thought about?",
+    "Do I give time to understanding, or do I only hear in passing?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "67-22",
+   "surah": 67,
+   "from": 22,
+   "to": 22,
+   "theme": "istiqamah",
+   "title_ms": "Berjalan Tegak",
+   "title_en": "Walking Upright",
+   "tagline_ms": "Dua cara berjalan, dua arah hidup",
+   "tagline_en": "Two ways of walking, two directions in life",
+   "renung_ms": "Ayat ini membandingkan dua orang: seorang berjalan tersungkur di atas mukanya, seorang lagi «berjalan tegak betul, melalui jalan yang lurus rata». Ia perumpamaan bagi orang yang menolak tauhid (mengesakan Allah) dan orang yang beriman. Namun kita juga boleh bertanya: adakah aku tahu ke mana hidupku menuju? Orang yang melihat jalannya tidak mudah tersandung.",
+   "renung_en": "This ayah compares two people: one walks stumbling on his face, the other \"walks upright on a straight path\". It is a parable of one who rejects tauhid, affirming Allah's oneness, and one who believes. Yet we too can ask: do I know where my life is heading? One who sees the path does not stumble easily.",
+   "renung_hl_ms": "Orang yang melihat jalannya tidak mudah tersandung.",
+   "renung_hl_en": "One who sees the path does not stumble easily.",
+   "tanya_ms": [
+    "Ke manakah sebenarnya hidupku sedang menuju bulan ini?",
+    "Apakah yang paling kerap membuat aku tersandung dalam ibadah?"
+   ],
+   "tanya_en": [
+    "Where is my life really heading this month?",
+    "What most often makes me stumble in my worship?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  },
+  {
+   "id": "67-30",
+   "surah": 67,
+   "from": 30,
+   "to": 30,
+   "theme": "ikhlas",
+   "title_ms": "Air Di Tangan Kita",
+   "title_en": "The Water in Our Hands",
+   "tagline_ms": "Nikmat kecil yang kita lupa pemberinya",
+   "tagline_en": "A small blessing whose Giver we forget",
+   "renung_ms": "Setiap pagi kita membuka paip, dan air mengalir tanpa kita fikirkan. Ayat ini bertanya: «sekiranya air kamu hilang lenyap», siapakah yang dapat mendatangkannya semula? Air itu disebut «air kamu», tetapi sebenarnya ia pinjaman. Setiap titis air wuduk ialah nikmat daripada Allah yang kita terima tanpa diminta.",
+   "renung_en": "Every morning we turn on the tap, and water flows without a thought. This ayah asks: \"if your water were to sink deep away into the earth\", who could bring it back? It is called \"your water\", but in truth it is on loan. Every drop of wudu' water is a blessing from Allah that we receive without asking.",
+   "renung_hl_ms": "tetapi sebenarnya ia pinjaman",
+   "renung_hl_en": "but in truth it is on loan",
+   "tanya_ms": [
+    "Nikmat apakah yang aku guna setiap hari tetapi tidak pernah aku syukuri?",
+    "Adakah aku berjimat dengan air, atau membazir kerana ia mudah didapati?"
+   ],
+   "tanya_en": [
+    "Which blessing do I use every day but never give thanks for?",
+    "Am I careful with water, or do I waste it because it is easy to get?"
+   ],
+   "status": "disemak",
+   "reviewed_by": "UZB 2026-10-18"
+  }
+ ]
+}

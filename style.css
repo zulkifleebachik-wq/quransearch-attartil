@@ -454,3 +454,51 @@ th{font-size:.78rem}
 #q::placeholder{font-size:min(1em,16px)}
 #q{text-overflow:ellipsis}
 
+
+/* ---- Tadabbur & Refleksi Umat (Mudah level, under Maqsad Ayat) + Ayat Pilihan Tadabbur ---- */
+/* ---- Tadabbur card (P7b): AtTartil renungan in the style of «Bila Hamba Berbicara»; warm cream/gold, distinct from the white/green info panels ---- */
+:root{--tad-bg:#fcf5d7; --tad-line:#e9d68a; --tad-gold:#7d6200; --tad-title:#1f5410; --tad-tag:#2f6b00; --tad-ink:#2a2a14; --tad-muted:#5b6b4a; --tad-dk:#1f4a12; --tad-dk-ink:#ffffff; --tad-dk-lab:#c9ec6a; --tad-hl-bg:#98D000; --tad-hl-ink:#10200a; --tad-soft:#fffdf4; --tad-cuba:#2f6b00; --tad-cuba-bg:#ffffff;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tad-bg:#26270f; --tad-line:#4a4a1c; --tad-gold:#e6cc5a; --tad-title:#d7eea8; --tad-tag:#b9dd6e; --tad-ink:#f1f1de; --tad-muted:#c3c4a0; --tad-dk:#0e2608; --tad-dk-ink:#f4f8ec; --tad-dk-lab:#b5e04a; --tad-hl-bg:#98D000; --tad-hl-ink:#10200a; --tad-soft:#2f3015; --tad-cuba:#9ccc3c; --tad-cuba-bg:#1d1e0b;}}
+:root[data-theme="dark"]{--tad-bg:#26270f; --tad-line:#4a4a1c; --tad-gold:#e6cc5a; --tad-title:#d7eea8; --tad-tag:#b9dd6e; --tad-ink:#f1f1de; --tad-muted:#c3c4a0; --tad-dk:#0e2608; --tad-dk-ink:#f4f8ec; --tad-dk-lab:#b5e04a; --tad-hl-bg:#98D000; --tad-hl-ink:#10200a; --tad-soft:#2f3015; --tad-cuba:#9ccc3c; --tad-cuba-bg:#1d1e0b;}
+.tad{border:1px solid var(--tad-line);border-left:5px solid var(--brand-yellow);border-radius:14px;background:var(--tad-bg);color:var(--tad-ink)}
+.tad>summary{cursor:pointer;padding:10px 14px 10px 34px;list-style:none;display:block;position:relative;min-height:44px}
+.tad>summary::-webkit-details-marker{display:none}
+.tad>summary::before{content:'▸';position:absolute;left:14px;top:10px;font-size:.85rem;color:var(--tad-gold)}
+.tad[open]>summary::before{content:'▾'}
+.tad>summary:focus-visible{outline:3px solid var(--blue-2);border-radius:12px}
+.tad-lab{display:block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tad-gold)}
+.tad-rg{letter-spacing:.06em}
+.tad-title{display:block;font-family:Lora,Georgia,'Times New Roman',serif;font-weight:700;font-size:1.12rem;line-height:1.35;color:var(--tad-title);margin-top:2px;overflow-wrap:anywhere}
+.tad-tag{display:block;font-family:Lora,Georgia,'Times New Roman',serif;font-style:italic;font-size:.88rem;color:var(--tad-tag);line-height:1.4;margin-top:2px}
+.tad-body{padding:0 14px 12px}
+.tad-draft{margin:4px 0 10px;padding:6px 10px;border-radius:8px;background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn);font-weight:700;font-size:.86rem}
+.tad-grid{display:grid;gap:10px;grid-template-columns:1fr}
+@media (min-width:700px){.tad-grid{grid-template-columns:1fr 1fr}}
+.tad-box{border-radius:12px;padding:10px 14px;min-width:0}
+.tad-box p,.tad-box li{font-size:.9rem;line-height:1.6;overflow-wrap:anywhere}
+.tad-box p{margin:.2em 0}
+.tad-box ul,.tad-box ol{margin:.2em 0;padding-inline-start:1.3em}
+.tad-box li{margin:.25em 0}
+.tad-h{margin:0 0 4px;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tad-gold)}
+.tad-renung{background:var(--tad-dk);color:var(--tad-dk-ink)}
+.tad-renung .tad-h{color:var(--tad-dk-lab)}
+.tad-renung p{font-size:.95rem}
+.tad-hl{background:var(--tad-hl-bg);color:var(--tad-hl-ink);font-weight:700;border-radius:4px;padding:0 3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.tad-renung .gl{color:inherit}
+.tad-contoh,.tad-tanya{background:var(--tad-soft);border:1px solid var(--tad-line)}
+.tad-hint{font-style:italic;color:var(--tad-muted);font-size:.8rem!important}
+.tad-cuba{background:var(--tad-cuba-bg);border:2px solid var(--tad-cuba)}
+.tad-cuba .tad-h{color:var(--tad-cuba)}
+.tad-cuba ol{list-style:none;padding:0;counter-reset:tc}
+.tad-cuba li{counter-increment:tc;position:relative;padding-inline-start:2em}
+.tad-cuba li::before{content:counter(tc);position:absolute;left:0;top:.1em;width:1.45em;height:1.45em;border-radius:50%;background:var(--tad-cuba);color:var(--tad-cuba-bg);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tad-foot{margin:10px 0 0;font-size:.76rem;color:var(--tad-muted);font-style:italic}
+.tad-link{margin:0;font-size:.85rem}
+.tad-link a{font-weight:600;text-decoration:none}
+.tad-home{margin-top:18px}
+.tad-theme h3{margin:18px 0 8px;color:var(--blue)}
+.tad-item .sc-meta{min-width:0;gap:2px}
+.tad-item .sc-meta b{overflow-wrap:anywhere}
+/* in Mudah the taf/mq panels end their markup early, so the tadabbur card can sit outside .ind-row: keep the same 8px gap */
+.ayah-card>.tad,.ayah-card>.tad-link{margin-top:8px}
+.tad-theme .sgrid{grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}

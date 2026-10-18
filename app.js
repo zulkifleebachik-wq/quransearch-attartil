@@ -65,7 +65,13 @@
       babGeneral: 'Ini makna-makna umum pola ini menurut al-Hamlawi. Tidak semuanya terpakai pada kalimah ini.',
       babOneUnknown: 'Data ini tidak dapat menentukan sama ada kalimah ini mengikut pola فَعَلَ, فَعِلَ atau فَعُلَ. Oleh itu makna bab (kelompok pola kata kerja) tidak dipaparkan.',
       tdHomeT: 'Sudut Taraduf (kata seerti)', tdHomeDef: 'Taraduf (kata seerti) ialah dua perkataan atau lebih yang menunjuk kepada satu makna yang sama. Ulama bahasa berbeza pendapat tentangnya: ada yang menolak, ada yang menerima, dan ada pandangan pertengahan.', tdHomeViews: 'Lihat tiga pandangan ulama', tdHomeList: 'Senarai perkataan (A–Z)', tdHomeHint: 'Tekan satu perkataan Melayu untuk melihat kalimah-kalimah al-Quran yang hampir sama maknanya dan apa bezanya menurut ulama.', tdPageIntro: 'Halaman ini menghimpunkan pandangan ulama tentang taraduf (kata seerti). Setiap pandangan disertakan nukilan kitabnya. Ketiga-tiganya dipaparkan tanpa diutamakan satu atas yang lain.', tdWords: 'kalimah',
-      msT: 'Maqsad Surah (tujuan surah)', msIntro: 'Tujuan induk surah ini menurut ulama yang mengkaji maqasid (tujuan-tujuan utama) surah. Dua ulama boleh merangkanya dengan cara berbeza; kedua-duanya dipaparkan tanpa dipilih salah satu.'
+      msT: 'Maqsad Surah (tujuan surah)', msIntro: 'Tujuan induk surah ini menurut ulama yang mengkaji maqasid (tujuan-tujuan utama) surah. Dua ulama boleh merangkanya dengan cara berbeza; kedua-duanya dipaparkan tanpa dipilih salah satu.',
+      tadLab: 'Tadabbur · Renungan, bukan tafsir', tadRenung: 'Renung', tadTanya: 'Tanya Diri', tadTanyaHint: 'Jujurlah; hanya Allah yang melihat.',
+      tadFoot: 'Renungan AtTartil berdasarkan makna ayat. Huraian ulama ada dalam Maqsad Ayat dan Tafsir.',
+      tadDraft: 'Draf — belum disemak', tadSee: 'lihat tadabbur ayat __R__',
+      tadHomeT: 'Ayat Pilihan Tadabbur', tadHomeIntro: 'Ayat-ayat pilihan untuk tadabbur (merenung makna). Renungi maknanya dan tanya diri sendiri.', tadHomeGo: 'Lihat senarai ayat pilihan',
+      tadListIntro: 'Ayat pilihan disusun mengikut tema. Tekan satu ayat untuk membuka kad tadabburnya pada ayat itu.',
+      tadNone: 'Ayat pilihan sedang disediakan.'
     },
     en: {
       title: 'E-Digital Quran Search AtTartil', ph: 'Search a root, word or meaning',
@@ -125,7 +131,13 @@
       babGeneral: 'These are the general meanings of this pattern according to al-Hamlawi. Not all of them apply to this word.',
       babOneUnknown: 'The data cannot tell whether this word follows فَعَلَ, فَعِلَ or فَعُلَ, so no bab meanings are shown.',
       tdHomeT: 'Taraduf corner (synonyms)', tdHomeDef: 'Taraduf (synonymy) means two or more words that point to one and the same meaning. Scholars of Arabic differ on it: some deny it, some accept it, and there is a middle view.', tdHomeViews: 'See the three scholarly views', tdHomeList: 'Word list (A–Z)', tdHomeHint: 'Tap a Malay word to see the Qur\'anic words that are close in meaning and how the scholars tell them apart.', tdPageIntro: 'This page gathers the scholars\' views on taraduf (synonymy), each with its quotations. The three views are shown without one being preferred.', tdWords: 'words',
-      msT: 'Maqsad of the surah (its purpose)', msIntro: 'This surah\'s governing purpose according to the scholars of maqasid al-suwar. Two scholars may frame it differently; both are shown without one being preferred.'
+      msT: 'Maqsad of the surah (its purpose)', msIntro: 'This surah\'s governing purpose according to the scholars of maqasid al-suwar. Two scholars may frame it differently; both are shown without one being preferred.',
+      tadLab: 'Tadabbur · A reflection, not tafsir', tadRenung: 'Reflect', tadTanya: 'Ask yourself', tadTanyaHint: 'Be honest; only Allah is watching.',
+      tadFoot: 'AtTartil\'s reflection, based on the meaning of the ayah. The scholars\' explanations are in Maqsad of the ayah and Brief tafsir.',
+      tadDraft: 'Draft — not yet reviewed', tadSee: 'see the tadabbur for ayat __R__',
+      tadHomeT: 'Selected Ayat for Tadabbur', tadHomeIntro: 'Selected ayat for tadabbur, reflecting on the meaning. Reflect on the meaning and ask yourself.', tadHomeGo: 'See the list of selected ayat',
+      tadListIntro: 'The selected ayat are grouped by theme. Tap an ayah to open its tadabbur card at that ayah.',
+      tadNone: 'The selected ayat are being prepared.'
     }
   };
   /* </T> */
@@ -154,7 +166,7 @@
   let size = store.get('kamus.size', 19);
   let level = store.get('kamus.level', 'mudah');        // 'mudah' = beginner, 'ilmiah' = full
   const mudah = () => level === 'mudah';
-  let ROOTS = null, ROOT_KEYS = [], ENTRIES = {}, COLLS = [], QURAN = null, LEMMA_IDX = [], HURUF = {}, NOTES = {}, BABS = null, IRAB = [], FAIL = { books: {}, v: {} }, TAFSIR = { book: {}, v: {} }, MAQSAD = { books: {}, v: {} }, MAQSURAH = { s: {} }, GLOSS = { terms: [] }, GLOSS_IDX = null, GLOSS_RE = null, GLOSS_K = new Map(), GLOSS_BASE = new Map(), GLOSS_ANY_RE = null, WHO = {}, FAMS = { families: [] };
+  let ROOTS = null, ROOT_KEYS = [], ENTRIES = {}, COLLS = [], QURAN = null, LEMMA_IDX = [], HURUF = {}, NOTES = {}, BABS = null, IRAB = [], FAIL = { books: {}, v: {} }, TAFSIR = { book: {}, v: {} }, MAQSAD = { books: {}, v: {} }, MAQSURAH = { s: {} }, GLOSS = { terms: [] }, GLOSS_IDX = null, GLOSS_RE = null, GLOSS_K = new Map(), GLOSS_BASE = new Map(), GLOSS_ANY_RE = null, WHO = {}, FAMS = { families: [] }, TAD = { themes: [], items: [] };
   const SDATA = {}, STR = {}, SHUR = {};
   const FORM_IDX = new Map(); // mushaf word form (normalised) -> roots
   const t = k => (T[lang] && T[lang][k]) || T.ms[k] || k;
@@ -172,7 +184,7 @@
 
   // ---------- data ----------
   async function load() {
-    const [roots, colls, fat, huruf, notes, babs, irab, fail, taf, mq, mqs, gl, bk, fm, lb] = await Promise.all([
+    const [roots, colls, fat, huruf, notes, babs, irab, fail, taf, mq, mqs, gl, bk, fm, lb, td] = await Promise.all([
       fetch('data/roots.json').then(r => r.json()),
       fetch('data/collections.json').then(r => r.json()),
       fetch('data/fatihah.json').then(r => r.json()),
@@ -187,10 +199,11 @@
       fetch('data/glossary.json').then(r => r.json()).catch(() => ({ terms: [] })),
       fetch('data/books.json').then(r => r.json()).catch(() => ({ books: {} })),
       fetch('data/families.json').then(r => r.json()).catch(() => ({ families: [] })),
-      fetch('data/labels.json').then(r => r.json())
+      fetch('data/labels.json').then(r => r.json()),
+      fetch('data/tadabbur.json').then(r => r.json()).catch(() => ({ themes: [], items: [] }))
     ]);
     LB = lb;
-    HURUF = huruf; NOTES = notes; BABS = babs; IRAB = irab; FAIL = fail; TAFSIR = taf; MAQSAD = mq; MAQSURAH = mqs; GLOSS = gl; buildGlossIdx(); WHO = bk.books || {}; FAMS = fm;
+    HURUF = huruf; NOTES = notes; BABS = babs; IRAB = irab; FAIL = fail; TAFSIR = taf; MAQSAD = mq; MAQSURAH = mqs; GLOSS = gl; buildGlossIdx(); WHO = bk.books || {}; FAMS = fm; TAD = td && Array.isArray(td.items) ? td : { themes: [], items: [] };
     ROOTS = roots; ROOT_KEYS = Object.keys(roots); COLLS = colls;
     fat.entries.forEach(e => { ENTRIES[e.root] = Object.assign({ coll: fat.id }, e); });
     ROOT_KEYS.forEach(r => {
@@ -259,8 +272,8 @@
       ${other.length ? `<h2 class="soon-h">${t('soon2')}</h2><div class="sgrid">${other.map(scard).join('')}</div>` : ''}
       ${juz30.length ? `<h2 class="soon-h">${t('juz30')} <span class="muted small">(${juz30.length} ${t('surahsN')} · ${t('soon')})</span></h2>
         <div class="sgrid compact">${juz30.map(c => scard(c, true)).join('')}</div>` : ''}
-      <div class="chips" style="margin-top:16px"><a class="chip" href="#/c/fatihah">${t('rootList')} · <span class="ar">الفاتحة</span></a><a class="chip" href="#/all">${t('allRoots')}</a><a class="chip" href="#/istilah">${t('glossTitle')}</a><a class="chip" href="#/makna">${t('famT')}</a></div>
-      ${tdHome()}`;
+      <div class="chips" style="margin-top:16px"><a class="chip" href="#/c/fatihah">${t('rootList')} · <span class="ar">الفاتحة</span></a><a class="chip" href="#/all">${t('allRoots')}</a><a class="chip" href="#/istilah">${t('glossTitle')}</a><a class="chip" href="#/makna">${t('famT')}</a>${tadItems().length ? `<a class="chip" href="#/tadabbur">${t('tadHomeT')}</a>` : ''}</div>
+      ${tadHome()}${tdHome()}`;
   }
   // ---------- Sudut Taraduf (home): definition, link to the three views, alphabetical list of meaning families ----------
   const famSorted = () => (FAMS.families || []).filter(f => f.status === 'verified')
@@ -657,7 +670,7 @@
         ${TR && TR.ayat[ay.a] ? `<p class="tr">${esc(TR.ayat[ay.a][lang])}</p>` : ''}
         ${oneLine(n, ay.a)}
         ${TR && TR.ayat[ay.a] && TR.ayat[ay.a].note ? ayNote(TR.ayat[ay.a].note) : ''}
-        <div class="ind-row">${irabPanel(n, ay.a)}${failPanel(n, ay.a)}${tafPanel(n, ay.a)}${mqPanel(n, ay.a)}</div>
+        <div class="ind-row">${irabPanel(n, ay.a)}${failPanel(n, ay.a)}${tafPanel(n, ay.a)}${mqPanel(n, ay.a)}${tadPanel(n, ay.a)}</div>
         <div class="wpanel" id="wp-${ay.a}" hidden></div>
       </article>`).join('')}
       ${TR ? `<p class="trsrc"><b>${t('trBy')}</b> ${esc(TR['source_' + lang])}${TR.tr_source === 'basmeih' ? '' : ` <span class="badge draft">${t('draft').split(' — ')[0]}</span>`}${TR['tr_note_' + lang] ? `<br><span class="muted small">${esc(TR['tr_note_' + lang])}</span>` : ''}</p>` : ''}
@@ -825,6 +838,69 @@
           <div class="muted small">${esc(B.short_ar || B.ar || '')}${B.author_ar ? ` — ${esc(B.author_ar)}` : ''} · ${t('page')} ${esc(p.page)} · <a href="${shLink(r.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div></div>`).join('')}
         <p class="mnote">${esc(r['note_' + lang] || '')}</p>`}
       </div></details>`;
+  }
+
+  // ---------- Tadabbur & Refleksi Umat (data/tadabbur.json; both levels) ----------
+  // AtTartil's own renungan, in the style of «Bila Hamba Berbicara»: no kitab quotes here (those live in Maqsad Ayat and Tafsir).
+  // Students see only items with status "disemak". localStorage kamus.preview = '1' also shows "draf" items, with a banner, for UZB's review.
+  const preview = () => { try { return localStorage.getItem('kamus.preview') === '1'; } catch (e) { return false; } };
+  const tadShown = x => !!x && (x.status === 'disemak' || (x.status === 'draf' && preview()));
+  const tadItems = () => (TAD.items || []).filter(tadShown);
+  const tadFor = (n, a) => tadItems().find(x => +x.surah === n && a >= +x.from && a <= +x.to) || null;
+  const tadRange = x => +x.from === +x.to ? `${x.from}` : `${x.from}–${x.to}`;
+  const tadL = (x, k) => x[k + '_' + lang] || x[k + '_ms'] || '';
+  const tadArr = (x, k) => [].concat(tadL(x, k) || []).filter(s => typeof s === 'string' && s.trim());
+  // renung text with its key phrase highlighted: split on the first exact match, escape each part
+  function tadHl(txt, hl) {
+    const i = hl ? txt.indexOf(hl) : -1;
+    if (i < 0) return esc(txt);
+    return `${esc(txt.slice(0, i))}<mark class="tad-hl">${esc(hl)}</mark>${esc(txt.slice(i + hl.length))}`;
+  }
+  // keep «al-» joined to its word (UZB's adab rule): non-breaking hyphen in text nodes only
+  const tadNb = html => html.replace(/>[^<]*/g, m => m.replace(/\b(al|an|ar|as|ash|at|ad|adh|az)-(?=\S)/gi, '$1\u2011'));
+  function tadPanel(n, a) { return tadNb(tadPanel0(n, a)); }
+  function tadPanel0(n, a) {
+    const x = tadFor(n, a); if (!x) return '';
+    const rg = tadRange(x);
+    // a range shows its card once, at its first ayah; the other ayat get a short link back to it
+    if (a !== +x.from) return `<p class="tad-link"><a href="#/s/${n}/${x.from}">${esc(t('tadSee').replace('__R__', rg))} ↑</a></p>`;
+    const renung = tadL(x, 'renung'), tagline = tadL(x, 'tagline');
+    const tanya = tadArr(x, 'tanya');
+    return `<details class="tad" id="tad-${esc(x.id)}"><summary>
+        <span class="tad-lab">${t('tadLab')} <span class="tad-rg">· ${t('ayatN')} <span class="nw">${rg}</span></span></span>
+        <span class="tad-title">${esc(tadL(x, 'title'))}</span>
+        ${tagline ? `<span class="tad-tag">${esc(tagline)}</span>` : ''}
+      </summary>
+      <div class="tad-body">
+        ${x.status !== 'disemak' ? `<p class="tad-draft">${t('tadDraft')}</p>` : ''}
+        <div class="tad-grid">
+          ${renung ? `<section class="tad-box tad-renung"><h4 class="tad-h">${t('tadRenung')}</h4><p>${tadHl(renung, tadL(x, 'renung_hl'))}</p></section>` : ''}
+          ${tanya.length ? `<section class="tad-box tad-tanya"><h4 class="tad-h">${t('tadTanya')}</h4><ul>${tanya.map(s => `<li>${esc(s)}</li>`).join('')}</ul><p class="tad-hint">${t('tadTanyaHint')}</p></section>` : ''}
+        </div>
+        <p class="tad-foot">${t('tadFoot')}</p>
+      </div></details>`;
+  }
+  function tadHome() {
+    const n = tadItems().length; if (!n) return '';
+    return `<section class="card tad-home"><h2>${t('tadHomeT')} <span class="muted small">(${n})</span></h2><p>${t('tadHomeIntro')}</p>
+      <p class="muted small">${t('tadFoot')}</p><p><a class="more-link" href="#/tadabbur">${t('tadHomeGo')} →</a></p></section>`;
+  }
+  function viewTadabbur() {
+    const items = tadItems();
+    const sname = s => (COLLS.find(c => c.surah === +s) || {}).name_ms || `${t('surah')} ${s}`;
+    const groups = (TAD.themes || []).map(g => [g, items.filter(x => x.theme === g.id).sort((p, q) => p.surah - q.surah || p.from - q.from)]).filter(([, xs]) => xs.length);
+    const card = x => `<a class="scard tad-item" href="#/s/${+x.surah}/${+x.from}"><span class="sc-ar ar">${esc(SURAH[x.surah - 1] || '')}</span>
+        <span class="sc-meta"><b>${esc(tadL(x, 'title'))}</b><span class="muted small">${esc(sname(x.surah))} · <span class="nw">${+x.surah}:${tadRange(x)}</span></span>
+        ${x.status !== 'disemak' ? `<span><span class="badge draft">${t('draft')}</span></span>` : ''}</span></a>`;
+    return `<a class="back" href="#/">${t('back')}</a><h2>${t('tadHomeT')}</h2><p class="fam-intro">${t('tadListIntro')}</p><p class="muted small">${t('tadFoot')}</p>
+      ${groups.length ? groups.map(([g, xs]) => `<section class="tad-theme"><h3>${esc(g[lang] || g.ms)}</h3><div class="sgrid">${xs.map(card).join('')}</div></section>`).join('')
+        : `<div class="empty">${t('tadNone')}</div>`}`;
+  }
+  // #/s/<n>/<ayah>: scroll to that ayah and open its tadabbur card, if it has one
+  function focusAyah(a) {
+    const el = document.getElementById('ay-' + a); if (!el) return;
+    const d = el.querySelector('details.tad'); if (d) d.open = true;
+    el.scrollIntoView({ block: 'start' });
   }
 
   function maqsadSurah(n) {
@@ -1244,7 +1320,9 @@
     if (q && !h.startsWith('root/')) { app.innerHTML = viewSearch(q); return; }
     if (h.startsWith('root/')) { app.innerHTML = viewRoot(h.slice(5)); linkGloss(app); renderOcc(true); window.scrollTo(0, 0); return; }
     if (h.startsWith('all')) { app.innerHTML = viewAll(+(h.split('/')[1] || 1)); window.scrollTo(0, 0); return; }
-    if (h.startsWith('s/')) { const n = +h.slice(2) || 1; app.innerHTML = viewSurahShell(n); renderSurah(n); window.scrollTo(0, 0); return; }
+    if (h.startsWith('s/')) { const [, sn, sa] = h.split('/'); const n = +sn || 1, a = +sa || 0; app.innerHTML = viewSurahShell(n); window.scrollTo(0, 0); renderSurah(n).then(() => { if (a) focusAyah(a); }); return; }
+    if (h === 'tadabbur') { app.innerHTML = viewTadabbur(); linkGloss(app); window.scrollTo(0, 0); return; }
+    if (h.startsWith('tadabbur/')) { const x = tadItems().find(y => String(y.id) === h.slice(9)); location.replace(x ? `#/s/${+x.surah}/${+x.from}` : '#/tadabbur'); return; }
     if (h === 'taraduf') { app.innerHTML = viewTaraduf(); linkGloss(app); window.scrollTo(0, 0); return; }
     if (h === 'makna') { app.innerHTML = viewFamilies(); window.scrollTo(0, 0); return; }
     if (h.startsWith('makna/')) { app.innerHTML = `<a class="back" href="#/makna">${t('back')}</a><div id="famBox"><div class="muted">${t('loading')}</div></div>`; renderFamily(decodeURIComponent(h.slice(6))); window.scrollTo(0, 0); return; }
