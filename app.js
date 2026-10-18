@@ -1120,7 +1120,7 @@
           ${(m.def || []).map(d => `<div class="fm-def">${famQuoted([d], d['note_' + lang])}</div>`).join('')}
           ${(m.examples || []).map(e => ex(m, e)).join('')}
         </details>
-        <a class="more-link" href="#/root/${encodeURIComponent(m.root)}">${t('famRootLink')} →</a></article>`;
+        ${ROOTS[m.root] ? `<a class="more-link" href="#/root/${encodeURIComponent(m.root)}">${t('famRootLink')} →</a>` : ''}</article>`;
     const pair = p => { const prim = (p.quotes || []).filter(q => q.reading === 'primary'), ed = (p.quotes || []).filter(q => q.reading === 'edition');
       return `<article class="card fam-p"><div class="fp-h"><b>${esc(p.a_tr)}</b> <span class="ar">${esc(p.a)}</span> <span class="fp-vs">↔</span> <b>${esc(p.b_tr)}</b> <span class="ar">${esc(p.b)}</span></div>
         ${famQuoted(prim, p['note_' + lang])}
