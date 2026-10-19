@@ -1144,8 +1144,8 @@
     qs = qs.filter(Boolean);
     if (mudah()) return `<div class="nb">${[...new Set(qs.map(q => String(q.book_id)))].map(id => who(id)).join(' · ')}</div>
       <p>${esc(note || '')}</p>
-      <details class="src"><summary>${t('seeQuote')}</summary>${qs.map(q => `${repBy(q)}<div class="q">${esc(q.arabic)}</div>${fullCite(q)}`).join('')}</details>`;
-    return `${qs.map(q => `<div class="nb">${who(q.book_id)}</div>${repBy(q)}<div class="q">${esc(q.arabic)}</div>${fullCite(q)}`).join('')}<p>${esc(note || '')}</p>`;
+      <details class="src"><summary>${t('seeQuote')}</summary>${qs.map(q => `${repBy(q)}<div class="q">${esc(q.arabic)}</div>${fullCite(q)}${q.arabic_cont ? `<div class="q">${esc(q.arabic_cont)}</div>${fullCite({ book_id: q.book_id, vol: q.vol, page_id: q.page_id_cont, page: q.page_cont })}` : ''}`).join('')}</details>`;
+    return `${qs.map(q => `<div class="nb">${who(q.book_id)}</div>${repBy(q)}<div class="q">${esc(q.arabic)}</div>${fullCite(q)}${q.arabic_cont ? `<div class="q">${esc(q.arabic_cont)}</div>${fullCite({ book_id: q.book_id, vol: q.vol, page_id: q.page_id_cont, page: q.page_cont })}` : ''}`).join('')}<p>${esc(note || '')}</p>`;
   }
   function viewFamilies() {
     const fs = famSorted();
@@ -1191,7 +1191,7 @@
     const member = m => `<article class="card fam-m">
         <div class="fm-h"><span class="ar fm-w">${esc(m.word)}</span><b class="fm-tr2">${esc(m.tr)}</b><span class="ar muted fm-root">${esc(m.root)}</span></div>
         <p class="fm-s">${esc(m['short_' + lang] || m.short_ms)}</p>
-        <div class="muted small">${m.freq} ${t('famCount')}${m.freq_partial ? ' ' + t('famPartial') : ''}${mudah() ? '' : ` · <span class="ar">${(m.freq_lemmas || []).map(esc).join('، ')}</span>`}</div>
+        <div class="muted small">${m.freq} ${m['freq_label_' + lang] ? esc(m['freq_label_' + lang]) : t('famCount') + (m.freq_partial ? ' ' + t('famPartial') : '')}${mudah() ? '' : ` · <span class="ar">${(m.freq_lemmas || []).map(esc).join('، ')}</span>`}</div>
         ${!mudah() && m['freq_note_' + lang] ? `<p class="muted small fm-fn">${esc(m['freq_note_' + lang])}</p>` : ''}
         <details class="fm-more"><summary>${t('famDefs')}</summary>
           ${(m.def || []).map(d => `<div class="fm-def">${famQuoted([d], d['note_' + lang])}</div>`).join('')}
