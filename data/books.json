@@ -261,6 +261,15 @@
    "book_ar": "تفسير القرآن الثري الجامع",
    "role_ms": "ahli tafsir",
    "role_en": "exegete"
+  },
+  "12884": {
+   "who_ms": "al-Suyuti",
+   "who_en": "al-Suyuti",
+   "field_ms": "al-Durr al-Manthur",
+   "field_en": "al-Durr al-Manthur",
+   "book_ar": "الدر المنثور في التفسير بالمأثور",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
   }
  }
 }

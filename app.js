@@ -1142,9 +1142,9 @@
   const repBy = q => repTxt(q) ? `<span class="muted small td-rep">${esc(repTxt(q))}</span>` : '';
   function famQuoted(qs, note) {
     qs = qs.filter(Boolean);
-    if (mudah()) return `<div class="nb">${[...new Set(qs.map(q => String(q.book_id)))].map(id => who(id)).join(' · ')}</div>
+    if (mudah()) return `${qs.length ? `<div class="nb">${[...new Set(qs.map(q => String(q.book_id)))].map(id => who(id)).join(' · ')}</div>` : ''}
       <p>${esc(note || '')}</p>
-      <details class="src"><summary>${t('seeQuote')}</summary>${qs.map(q => `${repBy(q)}<div class="q">${esc(q.arabic)}</div>${fullCite(q)}${q.arabic_cont ? `<div class="q">${esc(q.arabic_cont)}</div>${fullCite({ book_id: q.book_id, vol: q.vol, page_id: q.page_id_cont, page: q.page_cont })}` : ''}`).join('')}</details>`;
+      ${qs.length ? `<details class="src"><summary>${t('seeQuote')}</summary>${qs.map(q => `${repBy(q)}<div class="q">${esc(q.arabic)}</div>${fullCite(q)}${q.arabic_cont ? `<div class="q">${esc(q.arabic_cont)}</div>${fullCite({ book_id: q.book_id, vol: q.vol, page_id: q.page_id_cont, page: q.page_cont })}` : ''}`).join('')}</details>` : ''}`;
     return `${qs.map(q => `<div class="nb">${who(q.book_id)}</div>${repBy(q)}<div class="q">${esc(q.arabic)}</div>${fullCite(q)}${q.arabic_cont ? `<div class="q">${esc(q.arabic_cont)}</div>${fullCite({ book_id: q.book_id, vol: q.vol, page_id: q.page_id_cont, page: q.page_cont })}` : ''}`).join('')}<p>${esc(note || '')}</p>`;
   }
   function viewFamilies() {
