@@ -297,6 +297,24 @@
    "book_ar": "التسهيل لعلوم التنزيل",
    "role_ms": "ahli tafsir",
    "role_en": "exegete"
+  },
+  "86": {
+   "who_ms": "Sekumpulan pengarang",
+   "who_en": "A group of authors",
+   "field_ms": "I'rab al-Qur'an al-Karim (terbitan Dar al-Sahabah)",
+   "field_en": "I'rab al-Qur'an al-Karim (Dar al-Sahabah edition)",
+   "book_ar": "إعراب القرآن الكريم - ط دار الصحابة",
+   "role_ms": "kitab i'rab",
+   "role_en": "i'rab reference"
+  },
+  "17375": {
+   "who_ms": "Muhammad al-Amin al-Harari",
+   "who_en": "Muhammad al-Amin al-Harari",
+   "field_ms": "Hada'iq al-Ruh wa al-Rayhan",
+   "field_en": "Hada'iq al-Ruh wa al-Rayhan",
+   "book_ar": "تفسير حدائق الروح والريحان في روابي علوم القرآن",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
   }
  }
 }
