@@ -915,7 +915,7 @@
   // Jalinan Surah (nazm / tanasub): data/nazm.json. Students see status "verified"; preview also shows "draf".
   const nzShown = x => !!x && (x.status === 'verified' || (x.status === 'draf' && preview()));
   const nzCite = p => `<div class="muted small">${volPage(p)} · <a href="${shLink(p.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
-  const nzQuote = (v, p) => `${p['topic_' + lang] ? `<div class="mpt-h">${esc(p['topic_' + lang])}</div>` : ''}<div class="q">${esc(p.arabic)}</div>${nzCite(Object.assign({ book_id: v.book_id }, p))}${p.arabic_cont ? `<div class="q">${esc(p.arabic_cont)}</div>${nzCite({ book_id: v.book_id, vol: p.vol, page: p.page_cont, page_id: p.page_id_cont })}` : ''}`;
+  const nzQuote = (v, p) => `${p['topic_' + lang] ? `<div class="mpt-h">${esc(p['topic_' + lang])}</div>` : ''}<div class="q">${esc(p.arabic)}</div>${!mudah() && p['reading_note_' + lang] ? `<div class="muted small">${esc(p['reading_note_' + lang])}</div>` : ''}${nzCite(Object.assign({ book_id: v.book_id }, p))}${p.arabic_cont ? `<div class="q">${esc(p.arabic_cont)}</div>${nzCite({ book_id: v.book_id, vol: p.vol, page: p.page_cont, page_id: p.page_id_cont })}` : ''}`;
   const lvOk = x => !(mudah() && x && x.level === 'ilmiah');
   const nzView = v0 => {
     if (!lvOk(v0)) return '';
