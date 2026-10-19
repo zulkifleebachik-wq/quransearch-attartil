@@ -68,6 +68,9 @@
       msT: 'Maqsad Surah (tujuan surah)', msIntro: 'Tujuan induk surah ini menurut ulama yang mengkaji maqasid (tujuan-tujuan utama) surah. Dua ulama boleh merangkanya dengan cara berbeza; kedua-duanya dipaparkan tanpa dipilih salah satu.',
       tadLab: 'Tadabbur · Renungan, bukan tafsir', tadRenung: 'Renung', tadTanya: 'Tanya Diri', tadTanyaHint: 'Jujurlah; hanya Allah yang melihat.',
       tadFoot: 'Renungan AtTartil berdasarkan makna ayat. Huraian ulama ada dalam Maqsad Ayat dan Tafsir.',
+      nzT: 'Jalinan Surah', nzIntro: 'Hubungan surah ini dengan surah di sebelahnya dalam susunan mushaf, menurut ulama yang mengkaji tanasub (jalinan) ayat dan surah. Pandangan setiap ulama dipaparkan dengan namanya, tanpa dipilih salah satu.',
+      nzNext: 'Dengan surah selepasnya: __S__', nzPrev: 'Dengan surah sebelumnya: __S__', nzFirst: 'Mengapa al-Fatihah di awal mushaf', nzPdf: 'hlm. __P__ (PDF imbasan)',
+      amT: 'Tujuan surah menurut al-Farahi', amIntro: 'Kotak ini memaparkan pendekatan al-Farahi secara berasingan daripada ulama di atas. Takrif beliau:',
       tadDraft: 'Draf — belum disemak', tadSee: 'lihat tadabbur ayat __R__',
       tadHomeT: 'Ayat Pilihan Tadabbur', tadHomeIntro: 'Ayat-ayat pilihan untuk tadabbur (merenung makna). Renungi maknanya dan tanya diri sendiri.', tadHomeGo: 'Lihat senarai ayat pilihan',
       tadListIntro: 'Ayat pilihan disusun mengikut tema. Tekan satu ayat untuk membuka kad tadabburnya pada ayat itu.',
@@ -134,6 +137,9 @@
       msT: 'Maqsad of the surah (its purpose)', msIntro: 'This surah\'s governing purpose according to the scholars of maqasid al-suwar. Two scholars may frame it differently; both are shown without one being preferred.',
       tadLab: 'Tadabbur · A reflection, not tafsir', tadRenung: 'Reflect', tadTanya: 'Ask yourself', tadTanyaHint: 'Be honest; only Allah is watching.',
       tadFoot: 'AtTartil\'s reflection, based on the meaning of the ayah. The scholars\' explanations are in Maqsad of the ayah and Brief tafsir.',
+      nzT: 'How the surah links', nzIntro: 'How this surah links with the surah beside it in the mushaf order, according to the scholars of tanasub (the linking of verses and surahs). Each scholar\'s view is shown by name, without one being preferred.',
+      nzNext: 'With the next surah: __S__', nzPrev: 'With the previous surah: __S__', nzFirst: 'Why al-Fatihah opens the mushaf', nzPdf: 'p. __P__ (scanned PDF)',
+      amT: 'The surah\'s aim according to al-Farahi', amIntro: 'This box shows al-Farahi\'s approach separately from the scholars above. His definition:',
       tadDraft: 'Draft — not yet reviewed', tadSee: 'see the tadabbur for ayat __R__',
       tadHomeT: 'Selected Ayat for Tadabbur', tadHomeIntro: 'Selected ayat for tadabbur, reflecting on the meaning. Reflect on the meaning and ask yourself.', tadHomeGo: 'See the list of selected ayat',
       tadListIntro: 'The selected ayat are grouped by theme. Tap an ayah to open its tadabbur card at that ayah.',
@@ -166,7 +172,7 @@
   let size = store.get('kamus.size', 19);
   let level = store.get('kamus.level', 'mudah');        // 'mudah' = beginner, 'ilmiah' = full
   const mudah = () => level === 'mudah';
-  let ROOTS = null, ROOT_KEYS = [], ENTRIES = {}, COLLS = [], QURAN = null, LEMMA_IDX = [], HURUF = {}, NOTES = {}, BABS = null, IRAB = [], FAIL = { books: {}, v: {} }, TAFSIR = { book: {}, v: {} }, MAQSAD = { books: {}, v: {} }, MAQSURAH = { s: {} }, GLOSS = { terms: [] }, GLOSS_IDX = null, GLOSS_RE = null, GLOSS_K = new Map(), GLOSS_BASE = new Map(), GLOSS_ANY_RE = null, WHO = {}, FAMS = { families: [] }, TAD = { themes: [], items: [] };
+  let ROOTS = null, ROOT_KEYS = [], ENTRIES = {}, COLLS = [], QURAN = null, LEMMA_IDX = [], HURUF = {}, NOTES = {}, BABS = null, IRAB = [], FAIL = { books: {}, v: {} }, TAFSIR = { book: {}, v: {} }, MAQSAD = { books: {}, v: {} }, MAQSURAH = { s: {} }, GLOSS = { terms: [] }, GLOSS_IDX = null, GLOSS_RE = null, GLOSS_K = new Map(), GLOSS_BASE = new Map(), GLOSS_ANY_RE = null, WHO = {}, FAMS = { families: [] }, TAD = { themes: [], items: [] }, NAZM = { links: [], amud: {} };
   const SDATA = {}, STR = {}, SHUR = {};
   const FORM_IDX = new Map(); // mushaf word form (normalised) -> roots
   const t = k => (T[lang] && T[lang][k]) || T.ms[k] || k;
@@ -184,7 +190,7 @@
 
   // ---------- data ----------
   async function load() {
-    const [roots, colls, fat, huruf, notes, babs, irab, fail, taf, mq, mqs, gl, bk, fm, lb, td] = await Promise.all([
+    const [roots, colls, fat, huruf, notes, babs, irab, fail, taf, mq, mqs, gl, bk, fm, lb, td, nz] = await Promise.all([
       fetch('data/roots.json').then(r => r.json()),
       fetch('data/collections.json').then(r => r.json()),
       fetch('data/fatihah.json').then(r => r.json()),
@@ -200,10 +206,11 @@
       fetch('data/books.json').then(r => r.json()).catch(() => ({ books: {} })),
       fetch('data/families.json').then(r => r.json()).catch(() => ({ families: [] })),
       fetch('data/labels.json').then(r => r.json()),
-      fetch('data/tadabbur.json').then(r => r.json()).catch(() => ({ themes: [], items: [] }))
+      fetch('data/tadabbur.json').then(r => r.json()).catch(() => ({ themes: [], items: [] })),
+      fetch('data/nazm.json').then(r => r.json()).catch(() => ({ links: [], amud: {} }))
     ]);
     LB = lb;
-    HURUF = huruf; NOTES = notes; BABS = babs; IRAB = irab; FAIL = fail; TAFSIR = taf; MAQSAD = mq; MAQSURAH = mqs; GLOSS = gl; buildGlossIdx(); WHO = bk.books || {}; FAMS = fm; TAD = td && Array.isArray(td.items) ? td : { themes: [], items: [] };
+    HURUF = huruf; NOTES = notes; BABS = babs; IRAB = irab; FAIL = fail; TAFSIR = taf; MAQSAD = mq; MAQSURAH = mqs; GLOSS = gl; buildGlossIdx(); WHO = bk.books || {}; FAMS = fm; TAD = td && Array.isArray(td.items) ? td : { themes: [], items: [] }; NAZM = nz && Array.isArray(nz.links) ? nz : { links: [], amud: {} };
     ROOTS = roots; ROOT_KEYS = Object.keys(roots); COLLS = colls;
     fat.entries.forEach(e => { ENTRIES[e.root] = Object.assign({ coll: fat.id }, e); });
     ROOT_KEYS.forEach(r => {
@@ -663,7 +670,7 @@
         <div class="legend">${legend}</div>
         <p class="small" style="margin:.4em 0 0">${t('tapWord')}</p>
         ${mudah() ? `<p class="lvhint">${t('lvHintM')}</p>` : ''}
-        ${maqsadSurah(n)}${failSurahList(n)}
+        ${maqsadSurah(n)}${nazmSurah(n)}${failSurahList(n)}
       </section>
       ${D.ayat.map(ay => `<article class="card ayah-card" id="ay-${ay.a}">
         <div class="ay-ar" dir="rtl">${ayahLine(ay)}</div>
@@ -677,7 +684,7 @@
       ${TR ? `<p class="trsrc"><b>${t('trBy')}</b> ${esc(TR['source_' + lang])}${TR.tr_source === 'basmeih' ? '' : ` <span class="badge draft">${t('draft').split(' — ')[0]}</span>`}${TR['tr_note_' + lang] ? `<br><span class="muted small">${esc(TR['tr_note_' + lang])}</span>` : ''}</p>` : ''}
       <p class="muted small">${t('notesBy')}</p>
       <p class="muted small">${t('grammarSrc')}</p>`;
-    linkGloss(box);
+    linkGloss(box); nzNoBreak(box);
   }
 
   // an i'rab group is shown only under the ayat its text actually covers (a group "1–4" holding ayah 1 alone is not shown under 2–4)
@@ -902,6 +909,61 @@
     const el = document.getElementById('ay-' + a); if (!el) return;
     const d = el.querySelector('details.tad'); if (d) d.open = true;
     el.scrollIntoView({ block: 'start' });
+  }
+
+
+  // Jalinan Surah (nazm / tanasub): data/nazm.json. Students see status "verified"; preview also shows "draf".
+  const nzShown = x => !!x && (x.status === 'verified' || (x.status === 'draf' && preview()));
+  const nzCite = p => `<div class="muted small">${volPage(p)} · <a href="${shLink(p.book_id, p.page_id)}" target="_blank" rel="noopener">${t('openShamela')} ↗</a></div>`;
+  const nzQuote = (v, p) => `${p['topic_' + lang] ? `<div class="mpt-h">${esc(p['topic_' + lang])}</div>` : ''}<div class="q">${esc(p.arabic)}</div>${nzCite(Object.assign({ book_id: v.book_id }, p))}${p.arabic_cont ? `<div class="q">${esc(p.arabic_cont)}</div>${nzCite({ book_id: v.book_id, vol: p.vol, page: p.page_cont, page_id: p.page_id_cont })}` : ''}`;
+  const lvOk = x => !(mudah() && x && x.level === 'ilmiah');
+  const nzView = v0 => {
+    if (!lvOk(v0)) return '';
+    const v = Object.assign({}, v0, { points: (v0.points || []).filter(lvOk) });
+    const head = `<div class="mb-h"><b>${esc(v['who_' + lang] || v.who_ms)}</b> <span class="ar muted small">${esc(v.book_ar)}</span></div>`;
+    if (mudah()) return `<div class="mbook">${head}<p>${esc(v['note_' + lang] || '')}</p>
+      <details class="src"><summary>${t('seeQuote')} <span class="muted small">(${v.points.length})</span></summary>${v.points.map(p => `<div class="mpt">${nzQuote(v, p)}</div>`).join('')}</details></div>`;
+    return `<div class="mbook">${head}${v.points.map(p => `<div class="mpt">${nzQuote(v, p)}</div>`).join('')}<p>${esc(v['note_' + lang] || '')}${v['note_ilmiah_' + lang] ? ' ' + esc(v['note_ilmiah_' + lang]) : ''}</p></div>`;
+  };
+  const nzBlock = (title, b) => `<div class="nz-blk"><h4>${esc(title)}</h4>${(b.views || []).map(nzView).join('')}${(() => { const nt = (mudah() && b['note_mudah_' + lang]) || b['note_' + lang]; return nt ? `<p class="mnote">${esc(nt)}${!mudah() && b['note_ilmiah_' + lang] ? ' ' + esc(b['note_ilmiah_' + lang]) : ''}</p>` : ''; })()}</div>`;
+  const amPdf = (p, pg) => `<div class="muted small">${t('nzPdf').replace('__P__', esc(pg))}</div>`;
+  const amQuote = p => `${p['topic_' + lang] ? `<div class="mpt-h">${esc(p['topic_' + lang])}</div>` : ''}<div class="q">${esc(p.arabic)}</div>${amPdf(p, p.printed_page)}${p.arabic_cont ? `<div class="q">${esc(p.arabic_cont)}</div>${amPdf(p, p.cont_printed_page)}` : ''}`;
+  function amudSurah(n) {
+    const r = (NAZM.amud || {})[String(n)]; if (!nzShown(r)) return '';
+    const pts = (r.points || []).filter(lvOk), rb = (r.rabt || []).filter(lvOk), td = (r.tadhkirah || []).filter(lvOk);
+    const one = p => `<div class="mpt">${amQuote(p)}${p['note_' + lang] ? `<p class="small">${esc(p['note_' + lang])}</p>` : ''}</div>`;
+    const qs = pts.map(one).join('')
+      + (rb.length ? `<h4 class="am-sub">${esc(r['rabt_title_' + lang] || r.rabt_title_ms || '')}</h4>${rb.map(one).join('')}` : '')
+      + (td.length ? `<h4 class="am-sub">${esc(r['tadhkirah_label_' + lang] || r.tadhkirah_label_ms || '')}</h4>${td.map(one).join('')}` : '');
+    const nq = pts.length + rb.length + td.length;
+    const def = r.def && lvOk(r.def) ? `${r.def['title_' + lang] ? `<h4 class="am-sub">${esc(r.def['title_' + lang])}</h4>` : ''}<p class="muted small">${t('amIntro')}</p><div class="q">${esc(r.def.arabic)}</div>${r.def['reading_note_' + lang] ? `<div class="muted small">${esc(r.def['reading_note_' + lang])}</div>` : ''}<div class="muted small"><span class="ar">${esc(r.def.book_ar || r.book_ar)}</span> · ${t('nzPdf').replace('__P__', esc(r.def.printed_page))}</div>` : '';
+    return `<details class="msur amud"><summary>${esc(r['title_' + lang] || t('amT'))}</summary>
+      <div class="msur-body">${r.status !== 'verified' ? `<p class="tad-draft">${t('tadDraft')}</p>` : ''}${r['label_' + lang] ? `<p class="am-lab">${esc(r['label_' + lang])}</p>` : ''}${def}
+        <div class="mb-h"><b>${esc(r['who_' + lang] || r.who_ms)}</b> <span class="ar muted small">${esc(r.book_ar)}</span></div>
+        ${mudah() ? `<p>${esc(r['note_' + lang] || '')}</p><details class="src"><summary>${t('seeQuote')} <span class="muted small">(${nq})</span></summary>${qs}</details>`
+          : `${qs}<p class="mnote">${esc(r['note_' + lang] || '')}</p>`}
+        ${r['edition_note_' + lang] ? `<p class="muted small">${esc(r['edition_note_' + lang])}</p>` : ''}</div></details>`;
+  }
+  // keep «al-» etc. with the next word inside the Jalinan Surah / al-Farahi boxes (run after linkGloss)
+  function nzNoBreak(root) {
+    root.querySelectorAll('.nazm, .amud').forEach(box => {
+      const w = document.createTreeWalker(box, NodeFilter.SHOW_TEXT); let x;
+      while ((x = w.nextNode())) { const v = x.nodeValue.replace(/\b(al|an|ar|as|ash|at|ad|adh|az)-(?=\S)/gi, '$1\u2011'); if (v !== x.nodeValue) x.nodeValue = v; }
+    });
+  }
+  function nazmSurah(n) {
+    const ls = (NAZM.links || []).filter(l => nzShown(l) && (l.from === n || l.to === n));
+    let h = '';
+    if (ls.length) {
+      const draft = ls.some(l => l.status !== 'verified');
+      h = `<details class="msur nazm"><summary>${t('nzT')}</summary><div class="msur-body"><p class="muted small">${t('nzIntro')}</p>
+        ${draft ? `<p class="tad-draft">${t('tadDraft')}</p>` : ''}
+        ${ls.map(l => { const other = l.from === n ? l.to : l.from;
+          const ttl = t(l.from === n ? 'nzNext' : 'nzPrev').replace('__S__', SURAH[other - 1]);
+          return nzBlock(ttl, l) + (l.from === n && n === 1 && l.first_place ? nzBlock(t('nzFirst'), l.first_place) : ''); }).join('')}
+      </div></details>`;
+    }
+    return h + amudSurah(n);
   }
 
   function maqsadSurah(n) {
