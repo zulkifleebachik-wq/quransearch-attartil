@@ -4,7 +4,10 @@
     "surahHuruf": [
       67,
       36,
-      2
+      2,
+      112,
+      113,
+      114
     ]
   },
   "TYPE": {
@@ -464,6 +467,11 @@
       "term": "Naib Fa'il",
       "gl": "naib fa'il",
       "en": "Stand-in subject (na'ib fa'il)"
+    },
+    "RUBAI": {
+      "term": "Ruba'i Mujarrad",
+      "gl": "ruba'i mujarrad",
+      "en": "bare quadriliteral"
     }
   }
 }

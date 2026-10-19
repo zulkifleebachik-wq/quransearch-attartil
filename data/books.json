@@ -270,6 +270,33 @@
    "book_ar": "الدر المنثور في التفسير بالمأثور",
    "role_ms": "ahli tafsir",
    "role_en": "exegete"
+  },
+  "22928": {
+   "who_ms": "Abu al-Baqa' al-'Ukbari",
+   "who_en": "Abu al-Baqa' al-'Ukbari",
+   "field_ms": "al-Tibyan fi I'rab al-Qur'an",
+   "field_en": "al-Tibyan fi I'rab al-Qur'an",
+   "book_ar": "التبيان في إعراب القرآن",
+   "role_ms": "ahli nahu (tatabahasa)",
+   "role_en": "grammarian"
+  },
+  "23627": {
+   "who_ms": "al-Zamakhshari",
+   "who_en": "al-Zamakhshari",
+   "field_ms": "al-Kashshaf",
+   "field_en": "al-Kashshaf",
+   "book_ar": "الكشاف",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
+  },
+  "30186": {
+   "who_ms": "Ibn Juzay",
+   "who_en": "Ibn Juzay",
+   "field_ms": "al-Tashil li-'Ulum al-Tanzil",
+   "field_en": "al-Tashil li-'Ulum al-Tanzil",
+   "book_ar": "التسهيل لعلوم التنزيل",
+   "role_ms": "ahli tafsir",
+   "role_en": "exegete"
   }
  }
 }

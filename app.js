@@ -153,12 +153,16 @@
   // Form I has three babs (فَعَلَ / فَعِلَ / فَعُلَ); the real one is read from the lemma's middle vowel (see PICK.formOneWazan)
   const BAB = { '1': ['I', 'فَعَلَ / فَعِلَ / فَعُلَ'], '2': ['II', 'فَعَّلَ'], '3': ['III', 'فَاعَلَ'], '4': ['IV', 'أَفْعَلَ'],
     '5': ['V', 'تَفَعَّلَ'], '6': ['VI', 'تَفَاعَلَ'], '7': ['VII', 'انْفَعَلَ'], '8': ['VIII', 'افْتَعَلَ'], '9': ['IX', 'افْعَلَّ'],
-    '10': ['X', 'اسْتَفْعَلَ'], '11': ['XI', 'افْعَالَّ'], '12': ['XII', 'افْعَوْعَلَ'] };
+    '10': ['X', 'اسْتَفْعَلَ'], '11': ['XI', 'افْعَالَّ'], '12': ['XII', 'افْعَوْعَلَ'], 'Q1': ['', 'فَعْلَلَ'] };
+  // A four-letter root (وسوس) is tagged VF:1 by the Corpus but is ruba'i mujarrad (فَعْلَلَ), not Bab I thulathi
+  const qv = (vf, root) => (vf === '1' && root && [...root].length === 4) ? 'Q1' : vf;
+  const rubai = gloss => `${lab(LB.MISC.RUBAI, gloss)} · فَعْلَلَ`;
   // roots.json counts of a lemma's forms (V-PERF, V-IMPF …), which formOneWazan needs to tell a past lemma from a present one
   const lemForms = (root, lemma) => { const l = ROOTS && ROOTS[root] && ROOTS[root].lem.find(x => x[0] === lemma); return l ? l[4] : null; };
   const babWazan = (vf, lemma, forms) => (vf === '1' && PICK.formOneWazan(lemma, forms)) || (BAB[vf] || ['', ''])[1];
   // a Form I noun (راحِم) takes the bab of its root's Form I verb when that verb's bab is known and unique
   const babCell = (vf, lemma, R, isVerb, forms) => {
+    if (vf === 'Q1') return `<span class="arw1">فَعْلَلَ</span><span class="muted small">${esc(lab(LB.MISC.RUBAI))}</span>`;
     const wz = vf === '1' && !isVerb && !PICK.formOneWazan(lemma, forms) && R ? (PICK.rootFormOne(R.lem) || BAB[vf][1]) : babWazan(vf, lemma, forms);
     return BAB[vf] ? `<span class="arw1${wz.includes('/') ? ' tri' : ''}">${wz}</span><span class="muted small">${esc(lab(LB.MISC.BAB, false))} ${BAB[vf][0]}${mudah() && lang !== 'en' && glossOf('bab') ? ` (${esc(glossOf('bab'))})` : ''}${vf === '1' ? ' · ' + esc(lab(LB.MISC.THULATHI)) : ''}</span>` : ''; };
   const SURAH = ['الفاتحة','البقرة','آل عمران','النساء','المائدة','الأنعام','الأعراف','الأنفال','التوبة','يونس','هود','يوسف','الرعد','إبراهيم','الحجر','النحل','الإسراء','الكهف','مريم','طه','الأنبياء','الحج','المؤمنون','النور','الفرقان','الشعراء','النمل','القصص','العنكبوت','الروم','لقمان','السجدة','الأحزاب','سبأ','فاطر','يس','الصافات','ص','الزمر','غافر','فصلت','الشورى','الزخرف','الدخان','الجاثية','الأحقاف','محمد','الفتح','الحجرات','ق','الذاريات','الطور','النجم','القمر','الرحمن','الواقعة','الحديد','المجادلة','الحشر','الممتحنة','الصف','الجمعة','المنافقون','التغابن','الطلاق','التحريم','الملك','القلم','الحاقة','المعارج','نوح','الجن','المزمل','المدثر','القيامة','الإنسان','المرسلات','النبأ','النازعات','عبس','التكوير','الانفطار','المطففين','الانشقاق','البروج','الطارق','الأعلى','الغاشية','الفجر','البلد','الشمس','الليل','الضحى','الشرح','التين','العلق','القدر','البينة','الزلزلة','العاديات','القارعة','التكاثر','العصر','الهمزة','الفيل','قريش','الماعون','الكوثر','الكافرون','النصر','المسد','الإخلاص','الفلق','الناس'];
@@ -359,7 +363,7 @@
 
     const forms = `<section class="card"><h2>${t('morph')}</h2><div class="tscroll"><table>
       <thead><tr><th>${t('lemma')}</th><th>${t('type')}</th><th>${t('bab')}</th><th>${t('count')}</th></tr></thead><tbody>
-      ${R.lem.map(l => `<tr><td class="arw">${esc(lemmaShown(r, l)) || '<span class="muted">—</span>'}</td><td>${typeLabel(l[4])}</td><td class="bab">${babCell(l[3], l[0], R, l[2] === 'V', l[4])}</td><td><b>${l[1]}</b></td></tr>`).join('')}
+      ${R.lem.map(l => `<tr><td class="arw">${esc(lemmaShown(r, l)) || '<span class="muted">—</span>'}</td><td>${typeLabel(l[4])}</td><td class="bab">${babCell(qv(l[3], r), l[0], R, l[2] === 'V', l[4])}</td><td><b>${l[1]}</b></td></tr>`).join('')}
       </tbody></table></div></section>`;
 
     const shamelaUrl = L => {
@@ -616,13 +620,13 @@
       label = lab(LB.TYPES[tg.includes('PERF') ? 'V-PERF' : tg.includes('IMPV') ? 'V-IMPV' : 'V-IMPF']);
       if (tg.includes('PASS')) extra.push(lab(LB.MISC.PASS, false));
       const md = tg.find(x => LB.MOOD[x]); if (md) extra.push(lab(LB.MOOD[md], false));
-      const vf = (tg.find(x => x.startsWith('VF:')) || '').slice(3); if (BAB[vf]) extra.push(`${lab(LB.MISC.BAB, false)} ${BAB[vf][0]} (${babWazan(vf, g.lem, lemForms(g.root, g.lem))})`);
+      const vf = qv((tg.find(x => x.startsWith('VF:')) || '').slice(3), g.root); if (vf === 'Q1') extra.push(rubai(false)); else if (BAB[vf]) extra.push(`${lab(LB.MISC.BAB, false)} ${BAB[vf][0]} (${babWazan(vf, g.lem, lemForms(g.root, g.lem))})`);
       const p = pgnLab(tg, false); if (p) extra.push(p);
     } else if (type === 'isim') {
       if (tg.includes('PRON')) label = lab(w && PICK.pronAttached(w, si) ? LB.MISC.PRON_ATT : LB.MISC.PRON_DET);
       else { const k = Object.keys(LB.NTAG).find(x => tg.includes(x)); label = lab(k ? LB.NTAG[k] : LB.TYPES.N); }
       const c = tg.find(x => LB.CASE[x]); if (c) extra.push(lab(LB.CASE[c], false));
-      const vf = (tg.find(x => x.startsWith('VF:')) || '').slice(3); if (BAB[vf]) extra.push(`${lab(LB.MISC.BAB, false)} ${BAB[vf][0]}`);
+      const vf = qv((tg.find(x => x.startsWith('VF:')) || '').slice(3), g.root); if (vf === 'Q1') extra.push(rubai(false)); else if (BAB[vf]) extra.push(`${lab(LB.MISC.BAB, false)} ${BAB[vf][0]}`);
       if (tg.includes('PRON')) { const p = pgnLab(tg, false); if (p) extra.push(p); if (!g.t) extra.push(t('elided')); }
     } else {
       const k = g.key === 'أ' && tg.includes('INTG') ? null : Object.keys(LB.PTAG).find(x => tg.includes(x));
@@ -1035,12 +1039,13 @@
   }
 
   // --- Segment 2: bab (verb pattern) and how the meaning changes across patterns
-  function babName(vf, lem, root) { return BAB[vf] ? `${lab(LB.MISC.BAB, false)} ${BAB[vf][0]} · ${babWazan(vf, lem, lemForms(root, lem))}` : ''; }
+  function babName(vf, lem, root) { vf = qv(vf, root); if (vf === 'Q1') return rubai(false); return BAB[vf] ? `${lab(LB.MISC.BAB, false)} ${BAB[vf][0]} · ${babWazan(vf, lem, lemForms(root, lem))}` : ''; }
   // P1-F4: which Form I sub-pattern a Shadha al-'Arf meaning belongs to (its own "wazan" field, else read from its English).
   // The ghalabah item is a vowelling rule for one class of fa'ala verbs, not a meaning of every fa'ala verb, so it is
   // not attached to فَعَلَ (left for ATV/UZB, Peringkat 2).
   const babSub = m => m.wazan || (/^fa'ila\b/.test(m.en || '') ? 'فَعِلَ' : /^fa'ula\b|fa'ula pattern/.test(m.en || '') ? 'فَعُلَ' : null);
   function segBab(root, vf, lem) {
+    vf = qv(vf, root);
     const list = (NOTES.forms || {})[root] || [];
     const here = vf ? list.filter(x => x.form === vf) : [];
     const others = list.filter(x => x.form !== vf);
