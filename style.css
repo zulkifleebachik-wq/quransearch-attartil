@@ -410,6 +410,7 @@ a.gl:hover,a.gl:focus-visible{background:color-mix(in srgb,var(--maqsad) 12%,tra
 .irab>summary .muted,.fail>summary .muted,.faillist>summary .muted,.taf>summary .muted,.mq>summary .muted,.msur>summary .muted{margin-inline-start:6px;font-weight:400}
 td.bab .arw1.tri{font-size:1rem}
 .nw{white-space:nowrap}
+.nbal{white-space:nowrap}
 #q::placeholder{font-size:min(1em,17px)}
 .fr-lab{font-weight:600;font-size:.86rem}
 /* Sudut Taraduf on the home page */

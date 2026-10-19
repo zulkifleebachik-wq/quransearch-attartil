@@ -1456,7 +1456,41 @@
   });
   window.addEventListener('hashchange', () => { if (location.hash.startsWith('#/root/')) $('#q').value = ''; if (ROOTS) route(); });   // before the data has loaded, load().then(route) renders it
 
+  // UZB rule: an article such as «al-», «as-», «an-», «asy-» never breaks from its word at a line end.
+  // Each "al-Word" in rendered text is wrapped in <span class="nbal"> (white-space:nowrap). The text itself is
+  // unchanged (same characters for copy, search and the gate). Runs one frame after a render, so linkGloss
+  // (which runs synchronously after each render) always sees plain text first.
+  const NBAL_RE = /(^|[^\p{L}'\u2019\u2011-])(a[lnrsdtz][hys]?-[\p{L}'\u2019]+)/giu;
+  const NBAL_SKIP = 'script,style,textarea,input,select,code,.ar,.nbal,[dir="rtl"]';
+  function noBreakAl(root) {
+    if (!root || root.nodeType !== 1 && root.nodeType !== 3) return;
+    const nodes = [];
+    if (root.nodeType === 3) nodes.push(root);
+    else { const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); let x; while ((x = w.nextNode())) nodes.push(x); }
+    for (const n of nodes) {
+      const v = n.nodeValue; if (!v || v.indexOf('-') < 0) continue;
+      const par = n.parentElement; if (!par || par.closest(NBAL_SKIP)) continue;
+      NBAL_RE.lastIndex = 0; if (!NBAL_RE.test(v)) continue;
+      NBAL_RE.lastIndex = 0; const frag = document.createDocumentFragment(); let last = 0, m;
+      while ((m = NBAL_RE.exec(v))) {
+        const s = m.index + m[1].length;
+        if (s > last) frag.appendChild(document.createTextNode(v.slice(last, s)));
+        const sp = document.createElement('span'); sp.className = 'nbal'; sp.textContent = m[2]; frag.appendChild(sp);
+        last = s + m[2].length;
+      }
+      if (last < v.length) frag.appendChild(document.createTextNode(v.slice(last)));
+      par.replaceChild(frag, n);
+    }
+  }
+  let nbalQ = [], nbalT = 0;
+  const nbalRun = () => { nbalT = 0; const q = nbalQ; nbalQ = []; for (const r of q) if (r.isConnected) noBreakAl(r); };
+  new MutationObserver(ms => {
+    for (const m of ms) for (const a of m.addedNodes) if (!(a.nodeType === 1 && a.classList && a.classList.contains('nbal'))) nbalQ.push(a);
+    if (nbalQ.length && !nbalT) nbalT = requestAnimationFrame(nbalRun);
+  }).observe(document.body, { childList: true, subtree: true });
+
   applySize(); applyLang();
+  noBreakAl(document.body);
   $('#app').innerHTML = `<div class="empty">${t('loading')}</div>`;
   load().then(route).catch(err => { $('#app').innerHTML = `<div class="empty">Error: ${esc(err.message)}</div>`; });
 
