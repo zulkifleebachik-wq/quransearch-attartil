@@ -580,3 +580,10 @@ body:has(.hero-home) .logo-txt{display:none}
 #q{font-size:.95rem;padding:8px 14px;border-radius:12px}
 #kbdToggle{min-width:46px;font-size:.9rem;border-radius:12px}
 .search{margin-top:8px}
+
+.foot a{color:var(--gold);text-decoration:none;font-weight:700}
+.foot a:hover,.foot a:focus-visible{text-decoration:underline}
+.brandbar .org{font-size:.9rem}
+.foot .site{margin:.1em 0 .4em;font-size:.85rem}
+.foot .report{margin-top:.9em;padding:10px 14px;border:1px solid var(--line);border-radius:12px;display:inline-block;font-size:.9rem;color:var(--ink,inherit)}
+:root[data-theme="light"] .foot a{color:var(--blue)}

@@ -10,7 +10,8 @@
     ms: {
       title: 'E-Digital Quran Search AtTartil', ph: 'Cari akar, kata atau makna',
       vision: 'Where Qur\'anic Knowledge Transforms Lives',
-      dev: 'Dibangunkan oleh Ustaz Zulkiflee Bachik, AtTartil Quranic Institute, Singapura. Pembangun bertanggungjawab sepenuhnya atas susunan kandungan ini; sebarang kesilapan adalah daripada kelemahan kami. Mohon maklumkan melalui www.attartilqi.com supaya dapat dibetulkan. Aplikasi ini alat bantu belajar, bukan fatwa; rujuklah guru dan ulama yang muktabar. Mohon doakan agar usaha kecil ini diterima Allah dan memberi manfaat.', credit: 'Data morfologi & kekerapan: Quranic Arabic Corpus (Kais Dukes, GPL) melalui fork quran-morphology. Nukilan ulama: al-Maktabah al-Shamela. Makna & catatan: AtTartil.',
+      sg: 'Singapura', report: 'Jika ada kesilapan, sila hubungi kami supaya dapat dibetulkan:',
+      dev: 'Dibangunkan oleh Ustaz Zulkiflee Bachik, AtTartil Quranic Institute, Singapura. Pembangun bertanggungjawab sepenuhnya atas susunan kandungan ini; sebarang kesilapan adalah daripada kelemahan kami. Aplikasi ini alat bantu belajar, bukan fatwa; rujuklah guru dan ulama yang muktabar. Mohon doakan agar usaha kecil ini diterima Allah dan memberi manfaat.', credit: 'Data morfologi & kekerapan: Quranic Arabic Corpus (Kais Dukes, GPL) melalui fork quran-morphology. Nukilan ulama: al-Maktabah al-Shamela. Makna & catatan: AtTartil.',
       intro: 'Cari kalimah al-Quran mengikut akar kata. Lihat kekerapan, bentuk morfologi, makna umum dan catatan ulama lughah (bahasa) dengan rujukan kitab. Contoh carian: akar ر ح م, perkataan رحمة atau makna kasih.',
       coll: 'Koleksi', soon: 'akan datang', allRoots: 'Semua akar (1,651)',
       times: 'kali', freq: 'Kekerapan dalam al-Quran', rank: 'Kedudukan', forms: 'Bentuk', ayatF: 'Dalam al-Fatihah',
@@ -82,7 +83,8 @@
     en: {
       title: 'E-Digital Quran Search AtTartil', ph: 'Search a root, word or meaning',
       vision: 'Where Qur\'anic Knowledge Transforms Lives',
-      dev: 'Developed by Ustaz Zulkiflee Bachik, AtTartil Quranic Institute, Singapore. The developer takes full responsibility for how this content is arranged; any error is our own shortcoming. Please report it via www.attartilqi.com so it can be corrected. This app is a learning aid, not a fatwa; please refer to qualified teachers and scholars. Kindly pray that this small effort is accepted by Allah and brings benefit.', credit: 'Morphology & frequency data: Quranic Arabic Corpus (Kais Dukes, GPL) via the quran-morphology fork. Scholarly quotations: al-Maktabah al-Shamela. Meanings & notes: AtTartil.',
+      sg: 'Singapore', report: 'If you find an error, please contact us so it can be corrected:',
+      dev: 'Developed by Ustaz Zulkiflee Bachik, AtTartil Quranic Institute, Singapore. The developer takes full responsibility for how this content is arranged; any error is our own shortcoming. This app is a learning aid, not a fatwa; please refer to qualified teachers and scholars. Kindly pray that this small effort is accepted by Allah and brings benefit.', credit: 'Morphology & frequency data: Quranic Arabic Corpus (Kais Dukes, GPL) via the quran-morphology fork. Scholarly quotations: al-Maktabah al-Shamela. Meanings & notes: AtTartil.',
       intro: 'Look up Qur\'anic words by root. See frequency, morphological forms, general meaning and notes from the scholars of lughah with book references. Try: the root ر ح م, the word رحمة or the meaning mercy.',
       coll: 'Collections', soon: 'coming soon', allRoots: 'All roots (1,651)',
       times: 'times', freq: 'Frequency in the Qur\'an', rank: 'Rank', forms: 'Forms', ayatF: 'In al-Fatihah',
