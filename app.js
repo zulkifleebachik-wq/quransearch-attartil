@@ -69,6 +69,7 @@
       tadLab: 'Tadabbur · Renungan, bukan tafsir', tadRenung: 'Renung', tadTanya: 'Tanya Diri', tadTanyaHint: 'Jujurlah; hanya Allah yang melihat.',
       tadFoot: 'Renungan AtTartil berdasarkan makna ayat. Huraian ulama ada dalam Maqsad Ayat dan Tafsir.',
       stocT: 'Senarai surah', thmLight: 'Tema cerah', thmDark: 'Tema gelap',
+      hhTag: 'Kamus kalimah al-Quran mengikut akar kata, dengan nukilan ulama yang disemak', hhSurah: 'surah sedia', hhIst: 'istilah', hhFam: 'Keluarga Makna',
       nbT: 'Nota Ilmu Bahasa', nbDef: 'Nota berwarna tentang tatabahasa <span class="nw">al-Quran</span>, dengan contoh ayat dan nukilan ulama yang disemak.', nbMasdar: 'Mengenal Masdar dalam <span class="nw">al-Quran</span>', nbMasdarSub: 'Apa itu masdar, wazan dan rahsia maknanya, lapan kategori, renungan AtTartil', nbVN: 'Kenali jenis-jenis masdar', nbGl: 'Baca nota', nbMaani: 'Ulasan Pilihan Kitab: <i class="nw">Ma\'ani al-Nahw</i>', nbMaaniSub: 'Ulasan as-Samarra\'i dengan contoh ayat dan rumusan berwarna · 10 topik',
       nzT: 'Jalinan Surah', nzIntro: 'Hubungan surah ini dengan surah di sebelahnya dalam susunan mushaf, menurut ulama yang mengkaji tanasub (jalinan) ayat dan surah. Pandangan setiap ulama dipaparkan dengan namanya, tanpa dipilih salah satu.',
       nzNext: 'Dengan surah selepasnya: __S__', nzPrev: 'Dengan surah sebelumnya: __S__', nzFirst: 'Mengapa al-Fatihah di awal mushaf', nzPdf: 'hlm. __P__ (PDF imbasan)',
@@ -140,6 +141,7 @@
       tadLab: 'Tadabbur · A reflection, not tafsir', tadRenung: 'Reflect', tadTanya: 'Ask yourself', tadTanyaHint: 'Be honest; only Allah is watching.',
       tadFoot: 'AtTartil\'s reflection, based on the meaning of the ayah. The scholars\' explanations are in Maqsad of the ayah and Brief tafsir.',
       stocT: 'Surah list', thmLight: 'Light theme', thmDark: 'Dark theme',
+      hhTag: 'A dictionary of Qur\'anic words by root, with verified scholarly notes', hhSurah: 'surahs ready', hhIst: 'terms', hhFam: 'meaning families',
       nbT: 'Language Notes', nbDef: 'Colour notes on Qur\'anic grammar, with verse examples and verified scholarly quotations (in Malay).', nbMasdar: 'The Masdar (verbal noun) in the Qur\'an', nbMasdarSub: 'What a masdar is, its patterns and their meanings, eight categories, AtTartil reflection', nbVN: 'Learn the kinds of masdar', nbGl: 'Read the note', nbMaani: 'Selected Book Notes: <i class="nw">Ma\'ani al-Nahw</i>', nbMaaniSub: 'As-Samarra\'i\'s explanations with verse examples and colour summaries · 10 topics (in Malay)',
       nzT: 'How the surah links', nzIntro: 'How this surah links with the surah beside it in the mushaf order, according to the scholars of tanasub (the linking of verses and surahs). Each scholar\'s view is shown by name, without one being preferred.',
       nzNext: 'With the next surah: __S__', nzPrev: 'With the previous surah: __S__', nzFirst: 'Why al-Fatihah opens the mushaf', nzPdf: 'p. __P__ (scanned PDF)',
@@ -288,7 +290,14 @@
     const scard = (c, tight) => `<div class="scard off"><span class="sc-ar ar">${esc(SURAH[c.surah - 1])}</span>
         <span class="sc-meta"><b>${esc((c.name_ms || 'Surah').replace(/^Surah /, tight ? '' : 'Surah '))}</b><span class="muted small">${tight ? `${c.surah} · ${c.ayat} ${t('ayatN')}` : `${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`}`}</span></span></div>`;
     const toc = ready.slice().sort((a, b) => a.surah - b.surah).map(c => `<a href="#/s/${c.surah}"><b>${c.surah}</b><span class="nw">${esc((c.name_ms || 'Surah').replace(/^Surah /, ''))}</span>${c.range ? ` <small>${esc(c.range)}</small>` : ''}</a>`).join('');
-    return `<section class="card"><p style="margin:0">${t('intro')}</p></section>
+    const nFam = ((FAMS && FAMS.families) || []).filter(f => f.status === 'verified').length, nGl = (GLOSS.terms || []).length;
+    const hero = `<section class="hero-home" aria-label="E-Digital Quran Search AtTartil">
+        <img class="hh-logo" src="logo.png" alt="" width="88" height="88">
+        <p class="hh-kick">AtTartil Quranic Institute</p>
+        <h1 class="hh-title">E-Digital <span class="nw">Quran Search</span></h1>
+        <p class="hh-tag">${t('hhTag')}</p>
+        <p class="hh-stats"><span><b>${ready.length}</b> ${t('hhSurah')}</span><span><b>${nGl.toLocaleString()}</b> ${t('hhIst')}</span>${nFam ? `<span><b>${nFam}</b> ${t('hhFam')}</span>` : ''}</p></section>`;
+    return `${hero}<section class="card"><p style="margin:0">${t('intro')}</p></section>
       <details class="stoc"><summary>☰ ${t('stocT')} <span class="cnt">(${ready.length})</span></summary><nav class="stoc-list" aria-label="${t('stocT')}">${toc}</nav></details>
       <h2>${t('ready')}</h2><div class="pgrid">${ready.map(rcard).join('')}</div>
       ${nbHome()}
