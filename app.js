@@ -278,14 +278,19 @@
   function viewHome() {
     const ready = COLLS.filter(c => c.ready), soon = COLLS.filter(c => !c.ready);
     const juz30 = soon.filter(c => c.juz === 30), other = soon.filter(c => c.juz !== 30);
-    const rcard = c => `<a class="scard" href="#/s/${c.surah}"><span class="sc-ar ar">${esc(SURAH[c.surah - 1])}</span>
-        <span class="sc-meta"><b>${esc(c.name_ms || 'Surah')}</b><span class="muted small">${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`} · ${t('openSurah')} →</span></span></a>`;
+    // ready-surah card in the Perkata Berwarna style: coloured opening words, name, counts, gold "open" link
+    const samp = c => (c.sample || []).map(w => `<span class="pw">${w.map(([x, k]) => `<span class="${k === 'v' ? 'sv' : k === 'p' ? 'sp' : 'sn'}">${esc(x)}</span>`).join('')}</span>`).join(' ');
+    const rcard = c => `<a class="pcard" href="#/s/${c.surah}">
+        <p class="pc-ar ar" lang="ar" dir="rtl">${c.sample ? samp(c) : esc(SURAH[c.surah - 1])}</p>
+        <span class="pc-name"><b>${esc(c.name_ms || 'Surah')}</b> <span class="pc-sar ar">${esc(SURAH[c.surah - 1])}</span></span>
+        <span class="pc-meta">${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`}${c.kalimah ? ` · ${c.kalimah} ${lang === 'en' ? 'words' : 'kalimah'} · ${c.fiil} fi'il` : ''}</span>
+        <span class="pc-go">${t('openSurah')} →</span></a>`;
     const scard = (c, tight) => `<div class="scard off"><span class="sc-ar ar">${esc(SURAH[c.surah - 1])}</span>
         <span class="sc-meta"><b>${esc((c.name_ms || 'Surah').replace(/^Surah /, tight ? '' : 'Surah '))}</b><span class="muted small">${tight ? `${c.surah} · ${c.ayat} ${t('ayatN')}` : `${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`}`}</span></span></div>`;
     const toc = ready.slice().sort((a, b) => a.surah - b.surah).map(c => `<a href="#/s/${c.surah}"><b>${c.surah}</b><span class="nw">${esc((c.name_ms || 'Surah').replace(/^Surah /, ''))}</span>${c.range ? ` <small>${esc(c.range)}</small>` : ''}</a>`).join('');
     return `<section class="card"><p style="margin:0">${t('intro')}</p></section>
       <details class="stoc"><summary>☰ ${t('stocT')} <span class="cnt">(${ready.length})</span></summary><nav class="stoc-list" aria-label="${t('stocT')}">${toc}</nav></details>
-      <h2>${t('ready')}</h2><div class="sgrid">${ready.map(rcard).join('')}</div>
+      <h2>${t('ready')}</h2><div class="pgrid">${ready.map(rcard).join('')}</div>
       ${nbHome()}
       ${other.length ? `<h2 class="soon-h">${t('soon2')}</h2><div class="sgrid">${other.map(scard).join('')}</div>` : ''}
       ${juz30.length ? `<h2 class="soon-h">${t('juz30')} <span class="muted small">(${juz30.length} ${t('surahsN')} · ${t('soon')})</span></h2>

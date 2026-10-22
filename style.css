@@ -550,3 +550,16 @@ th{font-size:.78rem}
 :root[data-theme="dark"] .rcard .rt,:root[data-theme="dark"] .hero .big,:root[data-theme="dark"] .sc-ar,:root[data-theme="dark"] .sh-ar,:root[data-theme="dark"] .blk-h .ar,:root[data-theme="dark"] .bab-head .ar{color:var(--ink)}
 :root[data-theme="dark"] .wp-gloss,:root[data-theme="dark"] .fgloss{color:#9fd8ff}
 .size.thm{margin-left:0}
+
+/* Ready-surah cards in the Perkata Berwarna style (UZB, 22 Oct 2026): coloured opening words + gold link */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:14px;margin-bottom:18px}
+.pcard{display:flex;flex-direction:column;gap:2px;min-width:0;overflow:hidden;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;transition:border-color .2s,transform .2s}
+.pcard:hover,.pcard:focus-visible{border-color:var(--gold);transform:translateY(-2px);outline:none}
+.pc-ar{margin:0;font-size:clamp(1.35rem,6vw,1.75rem);line-height:1.9;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:clip}
+.pc-ar .sn{color:var(--isim)} .pc-ar .sv{color:var(--fiil)} .pc-ar .sp{color:var(--harf)}
+.pc-name{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-family:'Marcellus','Plus Jakarta Sans',serif;font-size:1.15rem}
+.pc-name b{font-weight:400}
+.pc-sar{font-size:1.1rem;line-height:1.5;color:var(--muted)}
+.pc-meta{color:var(--muted);font-size:.8rem}
+.pc-go{margin-top:6px;color:var(--gold);font-weight:800;font-size:.88rem}
+:root[data-theme="light"] .pc-go{color:var(--blue)}
