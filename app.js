@@ -68,6 +68,7 @@
       msT: 'Maqsad Surah (tujuan surah)', msIntro: 'Tujuan induk surah ini menurut ulama yang mengkaji maqasid (tujuan-tujuan utama) surah. Dua ulama boleh merangkanya dengan cara berbeza; kedua-duanya dipaparkan tanpa dipilih salah satu.',
       tadLab: 'Tadabbur · Renungan, bukan tafsir', tadRenung: 'Renung', tadTanya: 'Tanya Diri', tadTanyaHint: 'Jujurlah; hanya Allah yang melihat.',
       tadFoot: 'Renungan AtTartil berdasarkan makna ayat. Huraian ulama ada dalam Maqsad Ayat dan Tafsir.',
+      nbT: 'Nota Ilmu Bahasa', nbDef: 'Nota berwarna tentang tatabahasa <span class="nw">al-Quran</span>, dengan contoh ayat dan nukilan ulama yang disemak.', nbMasdar: 'Mengenal Masdar dalam <span class="nw">al-Quran</span>', nbMasdarSub: 'Apa itu masdar, wazan dan rahsia maknanya, lapan kategori, renungan AtTartil', nbVN: 'Kenali jenis-jenis masdar', nbGl: 'Baca nota', nbMaani: 'Ulasan Pilihan Kitab: <i class="nw">Ma\'ani al-Nahw</i>', nbMaaniSub: 'Ulasan as-Samarra\'i dengan contoh ayat dan rumusan berwarna · 10 topik',
       nzT: 'Jalinan Surah', nzIntro: 'Hubungan surah ini dengan surah di sebelahnya dalam susunan mushaf, menurut ulama yang mengkaji tanasub (jalinan) ayat dan surah. Pandangan setiap ulama dipaparkan dengan namanya, tanpa dipilih salah satu.',
       nzNext: 'Dengan surah selepasnya: __S__', nzPrev: 'Dengan surah sebelumnya: __S__', nzFirst: 'Mengapa al-Fatihah di awal mushaf', nzPdf: 'hlm. __P__ (PDF imbasan)',
       amT: 'Tujuan surah menurut al-Farahi', amIntro: 'Kotak ini memaparkan pendekatan al-Farahi secara berasingan daripada ulama di atas. Takrif beliau:',
@@ -137,6 +138,7 @@
       msT: 'Maqsad of the surah (its purpose)', msIntro: 'This surah\'s governing purpose according to the scholars of maqasid al-suwar. Two scholars may frame it differently; both are shown without one being preferred.',
       tadLab: 'Tadabbur · A reflection, not tafsir', tadRenung: 'Reflect', tadTanya: 'Ask yourself', tadTanyaHint: 'Be honest; only Allah is watching.',
       tadFoot: 'AtTartil\'s reflection, based on the meaning of the ayah. The scholars\' explanations are in Maqsad of the ayah and Brief tafsir.',
+      nbT: 'Language Notes', nbDef: 'Colour notes on Qur\'anic grammar, with verse examples and verified scholarly quotations (in Malay).', nbMasdar: 'The Masdar (verbal noun) in the Qur\'an', nbMasdarSub: 'What a masdar is, its patterns and their meanings, eight categories, AtTartil reflection', nbVN: 'Learn the kinds of masdar', nbGl: 'Read the note', nbMaani: 'Selected Book Notes: <i class="nw">Ma\'ani al-Nahw</i>', nbMaaniSub: 'As-Samarra\'i\'s explanations with verse examples and colour summaries · 10 topics (in Malay)',
       nzT: 'How the surah links', nzIntro: 'How this surah links with the surah beside it in the mushaf order, according to the scholars of tanasub (the linking of verses and surahs). Each scholar\'s view is shown by name, without one being preferred.',
       nzNext: 'With the next surah: __S__', nzPrev: 'With the previous surah: __S__', nzFirst: 'Why al-Fatihah opens the mushaf', nzPdf: 'p. __P__ (scanned PDF)',
       amT: 'The surah\'s aim according to al-Farahi', amIntro: 'This box shows al-Farahi\'s approach separately from the scholars above. His definition:',
@@ -284,7 +286,14 @@
       ${juz30.length ? `<h2 class="soon-h">${t('juz30')} <span class="muted small">(${juz30.length} ${t('surahsN')} · ${t('soon')})</span></h2>
         <div class="sgrid compact">${juz30.map(c => scard(c, true)).join('')}</div>` : ''}
       <div class="chips" style="margin-top:16px"><a class="chip" href="#/c/fatihah">${t('rootList')} · <span class="ar">الفاتحة</span></a><a class="chip" href="#/all">${t('allRoots')}</a><a class="chip" href="#/istilah">${t('glossTitle')}</a><a class="chip" href="#/makna">${t('famT')}</a>${tadItems().length ? `<a class="chip" href="#/tadabbur">${t('tadHomeT')}</a>` : ''}</div>
-      ${tadHome()}${tdHome()}`;
+      ${nbHome()}${tadHome()}${tdHome()}`;
+  }
+  // ---------- Nota Ilmu Bahasa (home): standalone colour notes beside index.html ----------
+  const NOTA = 'nota-masdar.html';
+  function nbHome() {
+    return `<section class="card td-home nb-home"><h2>${t('nbT')}</h2><p>${t('nbDef')}</p>
+      <a class="scard" href="${NOTA}"><span class="sc-ar ar">مَصْدَر</span><span class="sc-meta"><b>${t('nbMasdar')}</b><span class="muted small">${t('nbMasdarSub')} →</span></span></a>
+      <a class="scard" href="nota-maani-nahw.html" style="margin-top:10px"><span class="sc-ar ar">مَعَانِي النَّحْوِ</span><span class="sc-meta"><b>${t('nbMaani')}</b><span class="muted small">${t('nbMaaniSub')} →</span></span></a></section>`;
   }
   // ---------- Sudut Taraduf (home): definition, link to the three views, alphabetical list of meaning families ----------
   const famSorted = () => (FAMS.families || []).filter(f => f.status === 'verified')
@@ -1143,8 +1152,8 @@
       ${mudah() ? '' : `<div class="muted small">${t('parts')}</div>
       <div class="segs">${segs.map(({ g, info }) => `<div class="seg"><span class="seg-ar ar t-${info.type}">${esc(segText(g))}</span>
         <span class="chip-t t-bg-${info.type}">${esc(lab(LB.TYPE[info.type]))}</span>
-        <span class="seg-l"><b>${esc(info.label)}</b>${info.extra.length ? ` <span class="muted">· ${esc(info.extra.join(' · '))}</span>` : ''}</span></div>`).join('')}</div>`}
-      ${mudah() ? simpleMeaning(segs, gl) + fv.filter(x => x.marji).map(x => `<div class="blk fablk mj-mudah"><div class="muted small">${t(x.voice === 'passive' ? 'failSubPass' : 'failSub')} <span class="ar">${esc(x.verb)}</span></div>${marjiLine(x.marji)}</div>`).join('') : `
+        <span class="seg-l"><b>${esc(info.label)}</b>${info.extra.length ? ` <span class="muted">· ${esc(info.extra.join(' · '))}</span>` : ''}${g.tags.includes('VN') ? ` <a class="more-link small" href="${NOTA}">${t('nbVN')} →</a>` : ''}</span></div>`).join('')}</div>`}
+      ${mudah() ? simpleMeaning(segs, gl) + (segs.some(({ g }) => g.tags.includes('VN')) ? `<p class="small"><a class="more-link" href="${NOTA}">${t('nbVN')} →</a></p>` : '') + fv.filter(x => x.marji).map(x => `<div class="blk fablk mj-mudah"><div class="muted small">${t(x.voice === 'passive' ? 'failSubPass' : 'failSub')} <span class="ar">${esc(x.verb)}</span></div>${marjiLine(x.marji)}</div>`).join('') : `
       ${fv.length ? `<div class="blk fablk"><div class="muted small">${t('failT')}</div>${fv.map(x => failItem(x, n, a)).join('')}</div>` : ''}
       ${blocks}`}`;
   }
@@ -1364,7 +1373,7 @@
     const cats = ['nahu', 'sarf', 'balaghah', 'tafsir', 'lughah', 'umum'], C = t('glossCat');
     const row = x => `<div class="gl-row${sel && x.k === sel ? ' hit' : ''}" id="gl-${esc(x.k)}" data-cat="${x.cat}" data-k="${esc([x.k, ...(x.alt || []), x.ms, x.en].join(' ').toLowerCase())}">
         <div class="gl-h"><b>${esc(x.k)}</b>${x.ar ? ` <span class="ar gl-ar">${esc(x.ar)}</span>` : ''}<span class="gl-cat">${esc(C[x.cat] || x.cat)}</span></div>
-        <div class="gl-m">${esc(x[lang] || x.ms)}</div></div>`;
+        <div class="gl-m">${esc(x[lang] || x.ms)}${x.note ? ` <a class="more-link small" href="${esc(x.note)}">${t('nbGl')} →</a>` : ''}</div></div>`;
     return `<a class="back" href="#/">${t('back')}</a>
       <h2>${t('glossTitle')} <span class="muted small">· ${terms.length} ${t('glossN')}</span></h2>
       <p class="muted" style="margin-top:0">${t('glossIntro')}</p>
