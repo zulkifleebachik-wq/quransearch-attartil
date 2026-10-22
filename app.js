@@ -68,6 +68,7 @@
       msT: 'Maqsad Surah (tujuan surah)', msIntro: 'Tujuan induk surah ini menurut ulama yang mengkaji maqasid (tujuan-tujuan utama) surah. Dua ulama boleh merangkanya dengan cara berbeza; kedua-duanya dipaparkan tanpa dipilih salah satu.',
       tadLab: 'Tadabbur · Renungan, bukan tafsir', tadRenung: 'Renung', tadTanya: 'Tanya Diri', tadTanyaHint: 'Jujurlah; hanya Allah yang melihat.',
       tadFoot: 'Renungan AtTartil berdasarkan makna ayat. Huraian ulama ada dalam Maqsad Ayat dan Tafsir.',
+      stocT: 'Senarai surah', thmLight: 'Tema cerah', thmDark: 'Tema gelap',
       nbT: 'Nota Ilmu Bahasa', nbDef: 'Nota berwarna tentang tatabahasa <span class="nw">al-Quran</span>, dengan contoh ayat dan nukilan ulama yang disemak.', nbMasdar: 'Mengenal Masdar dalam <span class="nw">al-Quran</span>', nbMasdarSub: 'Apa itu masdar, wazan dan rahsia maknanya, lapan kategori, renungan AtTartil', nbVN: 'Kenali jenis-jenis masdar', nbGl: 'Baca nota', nbMaani: 'Ulasan Pilihan Kitab: <i class="nw">Ma\'ani al-Nahw</i>', nbMaaniSub: 'Ulasan as-Samarra\'i dengan contoh ayat dan rumusan berwarna · 10 topik',
       nzT: 'Jalinan Surah', nzIntro: 'Hubungan surah ini dengan surah di sebelahnya dalam susunan mushaf, menurut ulama yang mengkaji tanasub (jalinan) ayat dan surah. Pandangan setiap ulama dipaparkan dengan namanya, tanpa dipilih salah satu.',
       nzNext: 'Dengan surah selepasnya: __S__', nzPrev: 'Dengan surah sebelumnya: __S__', nzFirst: 'Mengapa al-Fatihah di awal mushaf', nzPdf: 'hlm. __P__ (PDF imbasan)',
@@ -138,6 +139,7 @@
       msT: 'Maqsad of the surah (its purpose)', msIntro: 'This surah\'s governing purpose according to the scholars of maqasid al-suwar. Two scholars may frame it differently; both are shown without one being preferred.',
       tadLab: 'Tadabbur · A reflection, not tafsir', tadRenung: 'Reflect', tadTanya: 'Ask yourself', tadTanyaHint: 'Be honest; only Allah is watching.',
       tadFoot: 'AtTartil\'s reflection, based on the meaning of the ayah. The scholars\' explanations are in Maqsad of the ayah and Brief tafsir.',
+      stocT: 'Surah list', thmLight: 'Light theme', thmDark: 'Dark theme',
       nbT: 'Language Notes', nbDef: 'Colour notes on Qur\'anic grammar, with verse examples and verified scholarly quotations (in Malay).', nbMasdar: 'The Masdar (verbal noun) in the Qur\'an', nbMasdarSub: 'What a masdar is, its patterns and their meanings, eight categories, AtTartil reflection', nbVN: 'Learn the kinds of masdar', nbGl: 'Read the note', nbMaani: 'Selected Book Notes: <i class="nw">Ma\'ani al-Nahw</i>', nbMaaniSub: 'As-Samarra\'i\'s explanations with verse examples and colour summaries · 10 topics (in Malay)',
       nzT: 'How the surah links', nzIntro: 'How this surah links with the surah beside it in the mushaf order, according to the scholars of tanasub (the linking of verses and surahs). Each scholar\'s view is shown by name, without one being preferred.',
       nzNext: 'With the next surah: __S__', nzPrev: 'With the previous surah: __S__', nzFirst: 'Why al-Fatihah opens the mushaf', nzPdf: 'p. __P__ (scanned PDF)',
@@ -280,7 +282,9 @@
         <span class="sc-meta"><b>${esc(c.name_ms || 'Surah')}</b><span class="muted small">${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`} · ${t('openSurah')} →</span></span></a>`;
     const scard = (c, tight) => `<div class="scard off"><span class="sc-ar ar">${esc(SURAH[c.surah - 1])}</span>
         <span class="sc-meta"><b>${esc((c.name_ms || 'Surah').replace(/^Surah /, tight ? '' : 'Surah '))}</b><span class="muted small">${tight ? `${c.surah} · ${c.ayat} ${t('ayatN')}` : `${t('surah')} ${c.surah} · ${c.range ? `${t('ayatN')} <span class="nw">${esc(c.range)}</span>` : `${c.ayat} ${t('ayatN')}`}`}</span></span></div>`;
+    const toc = ready.slice().sort((a, b) => a.surah - b.surah).map(c => `<a href="#/s/${c.surah}"><b>${c.surah}</b><span class="nw">${esc((c.name_ms || 'Surah').replace(/^Surah /, ''))}</span>${c.range ? ` <small>${esc(c.range)}</small>` : ''}</a>`).join('');
     return `<section class="card"><p style="margin:0">${t('intro')}</p></section>
+      <details class="stoc"><summary>☰ ${t('stocT')} <span class="cnt">(${ready.length})</span></summary><nav class="stoc-list" aria-label="${t('stocT')}">${toc}</nav></details>
       <h2>${t('ready')}</h2><div class="sgrid">${ready.map(rcard).join('')}</div>
       ${other.length ? `<h2 class="soon-h">${t('soon2')}</h2><div class="sgrid">${other.map(scard).join('')}</div>` : ''}
       ${juz30.length ? `<h2 class="soon-h">${t('juz30')} <span class="muted small">(${juz30.length} ${t('surahsN')} · ${t('soon')})</span></h2>
@@ -1420,6 +1424,11 @@
     const lv = document.querySelector('.lvl'); if (lv) lv.setAttribute('aria-label', t('lvLabel'));
     buildKbd();
   }
+  function applyTheme() {
+    const dk = document.documentElement.getAttribute('data-theme') !== 'light';
+    const b = document.querySelector('[data-theme-t]'); if (b) { b.textContent = dk ? '☀' : '🌙'; b.title = t(dk ? 'thmLight' : 'thmDark'); b.setAttribute('aria-label', b.title); }
+    const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = dk ? '#0F1A0C' : '#389000';
+  }
   function applySize() { document.documentElement.style.setProperty('--fs', size + 'px'); }
 
   function buildKbd() {
@@ -1433,6 +1442,7 @@
     const b = ev.target.closest('button'); if (!b) return;
     if (b.dataset.lang) { lang = b.dataset.lang; store.set('kamus.lang', lang); applyLang(); route(); }
     else if (b.dataset.lv) { level = b.dataset.lv; store.set('kamus.level', level); applyLang(); route(); }
+    else if ('themeT' in b.dataset) { const nt = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; document.documentElement.setAttribute('data-theme', nt); store.set('kamus.theme', nt); applyTheme(); }
     else if (b.dataset.size) { size = Math.min(28, Math.max(15, size + (+b.dataset.size) * 2)); store.set('kamus.size', size); applySize(); }
     else if (b.classList.contains('w') && b.dataset.a) { openWord(b); }
     else if (b.dataset.close) { const p = $('#wp-' + b.dataset.close); p.hidden = true; document.querySelectorAll('.w.on, .w.fa-on').forEach(x => { x.classList.remove('on'); x.classList.remove('fa-on'); }); }
@@ -1498,7 +1508,7 @@
     if (nbalQ.length && !nbalT) nbalT = requestAnimationFrame(nbalRun);
   }).observe(document.body, { childList: true, subtree: true });
 
-  applySize(); applyLang();
+  applySize(); applyLang(); applyTheme();
   noBreakAl(document.body);
   $('#app').innerHTML = `<div class="empty">${t('loading')}</div>`;
   load().then(route).catch(err => { $('#app').innerHTML = `<div class="empty">Error: ${esc(err.message)}</div>`; });
