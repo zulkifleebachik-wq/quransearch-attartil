@@ -16,7 +16,7 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#0F1A0C; --card:#16250F; --ink:#F3EFE0; --muted:#B9C2A8; --line:#2C4220;
-    --blue:#E8C547; --blue-2:#E8C547; --blue-soft:#232a12; --gold:#E8C547;
+    --blue:#E6C77A; --blue-2:#E6C77A; --blue-soft:#232a12; --gold:#E6C77A;
     --ok-bg:#1b3312; --ok:#9fe07a; --warn-bg:#352c0c; --warn:#FFD83D;
     --isim:#7BE05A; --fiil:#FFD83D; --harf:#FF6B6B; --kitab:#e7b57a; --maqsad:#7fc4ee;
     --isim-bg:#16331c; --fiil-bg:#332b0c; --harf-bg:#3d1c1a;
@@ -520,7 +520,7 @@ th{font-size:.78rem}
 
   :root[data-theme="dark"]{
     --bg:#0F1A0C; --card:#16250F; --ink:#F3EFE0; --muted:#B9C2A8; --line:#2C4220;
-    --blue:#E8C547; --blue-2:#E8C547; --blue-soft:#232a12; --gold:#E8C547;
+    --blue:#E6C77A; --blue-2:#E6C77A; --blue-soft:#232a12; --gold:#E6C77A;
     --ok-bg:#1b3312; --ok:#9fe07a; --warn-bg:#352c0c; --warn:#FFD83D;
     --isim:#7BE05A; --fiil:#FFD83D; --harf:#FF6B6B; --kitab:#e7b57a; --maqsad:#7fc4ee;
     --isim-bg:#16331c; --fiil-bg:#332b0c; --harf-bg:#3d1c1a;
@@ -535,14 +535,18 @@ th{font-size:.78rem}
 
 .thm button{font-size:1rem;line-height:1}
 .stoc{margin:14px 0 4px}
-.stoc summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;background:var(--gold,#E8C547);color:#1a1a1a;font-weight:800;border-radius:999px;padding:7px 18px}
-:root[data-theme="light"] .stoc summary{background:#389000;color:#fff}
+.stoc summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;background:var(--gold,#E6C77A);color:#1a1a1a;font-weight:800;border-radius:999px;padding:7px 18px}
+:root[data-theme="light"] .stoc summary{background:#2f6b00;color:#fff}
 .stoc summary::-webkit-details-marker{display:none}
 .stoc summary::after{content:"▾";font-size:.8em} .stoc[open] summary::after{content:"▴"}
 .stoc summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-.stoc .cnt{font-weight:600;opacity:.75}
+.stoc .cnt{font-weight:600}
 .stoc-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
 .stoc-list a{display:flex;align-items:baseline;gap:8px;color:var(--ink);text-decoration:none;font-weight:600;border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:0}
 .stoc-list a b{color:var(--blue);font-size:.8em;min-width:28px;text-align:right}
 .stoc-list a small{color:var(--muted);font-size:.75em}
 .stoc-list a:hover,.stoc-list a:focus-visible{border-color:var(--blue);outline:none}
+/* dark theme: Arabic display text in ink, never in the accent gold, so gold is not mistaken for the fi'il colour */
+:root[data-theme="dark"] .rcard .rt,:root[data-theme="dark"] .hero .big,:root[data-theme="dark"] .sc-ar,:root[data-theme="dark"] .sh-ar,:root[data-theme="dark"] .blk-h .ar,:root[data-theme="dark"] .bab-head .ar{color:var(--ink)}
+:root[data-theme="dark"] .wp-gloss,:root[data-theme="dark"] .fgloss{color:#9fd8ff}
+.size.thm{margin-left:0}

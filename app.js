@@ -1422,7 +1422,7 @@
       b.classList.toggle('on', b.dataset.lv === level);
     });
     const lv = document.querySelector('.lvl'); if (lv) lv.setAttribute('aria-label', t('lvLabel'));
-    buildKbd();
+    buildKbd(); applyTheme();
   }
   function applyTheme() {
     const dk = document.documentElement.getAttribute('data-theme') !== 'light';
