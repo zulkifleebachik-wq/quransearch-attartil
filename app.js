@@ -286,11 +286,12 @@
     return `<section class="card"><p style="margin:0">${t('intro')}</p></section>
       <details class="stoc"><summary>☰ ${t('stocT')} <span class="cnt">(${ready.length})</span></summary><nav class="stoc-list" aria-label="${t('stocT')}">${toc}</nav></details>
       <h2>${t('ready')}</h2><div class="sgrid">${ready.map(rcard).join('')}</div>
+      ${nbHome()}
       ${other.length ? `<h2 class="soon-h">${t('soon2')}</h2><div class="sgrid">${other.map(scard).join('')}</div>` : ''}
       ${juz30.length ? `<h2 class="soon-h">${t('juz30')} <span class="muted small">(${juz30.length} ${t('surahsN')} · ${t('soon')})</span></h2>
         <div class="sgrid compact">${juz30.map(c => scard(c, true)).join('')}</div>` : ''}
       <div class="chips" style="margin-top:16px"><a class="chip" href="#/c/fatihah">${t('rootList')} · <span class="ar">الفاتحة</span></a><a class="chip" href="#/all">${t('allRoots')}</a><a class="chip" href="#/istilah">${t('glossTitle')}</a><a class="chip" href="#/makna">${t('famT')}</a>${tadItems().length ? `<a class="chip" href="#/tadabbur">${t('tadHomeT')}</a>` : ''}</div>
-      ${nbHome()}${tadHome()}${tdHome()}`;
+      ${tadHome()}${tdHome()}`;
   }
   // ---------- Nota Ilmu Bahasa (home): standalone colour notes beside index.html ----------
   const NOTA = 'nota-masdar.html';
