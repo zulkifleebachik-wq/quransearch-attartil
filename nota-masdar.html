@@ -130,6 +130,10 @@ table.gl td:first-child{white-space:nowrap}
 [hidden]{display:none!important}
 .sec{box-shadow:0 1px 0 #0000}
 :root[data-theme="dark"] .sec,:root[data-theme="dark"] .q{border-color:var(--line)}
+
+.foot a{color:var(--accent);font-weight:700;text-decoration:none}
+.foot a:hover,.foot a:focus-visible{text-decoration:underline}
+.foot .report{display:inline-block;margin-top:.8em;padding:10px 14px;border:1px solid var(--line);border-radius:12px;color:var(--ink);font-size:15px}
 </style>
 </head>
 <body>
@@ -403,8 +407,9 @@ table.gl td:first-child{white-space:nowrap}
 </main>
 <footer class="foot">
  <img src="logo.png" alt="" width="48" height="48">
- <p><b>AtTartil Quranic Institute</b> · Singapura<br><i>Where Qur'anic Knowledge Transforms Lives.</i></p>
+ <p><a class="org" href="https://www.attartilqi.com" target="_blank" rel="noopener"><b>AtTartil Quranic Institute Singapura</b></a><br><a href="https://www.attartilqi.com" target="_blank" rel="noopener">www.attartilqi.com</a><br><i>Where Qur'anic Knowledge Transforms Lives.</i></p>
  <p class="fine">Disusun oleh Ustaz Zulkiflee Bachik dengan bantuan AI. Semua nukilan disemak daripada sumber; hukum dan isu sensitif dirujuk kepada ulama yang berkelayakan.</p>
+ <p class="report">Jika ada kesilapan, sila hubungi kami supaya dapat dibetulkan: <a href="https://attartilqi.com/contact" target="_blank" rel="noopener">attartilqi.com/contact</a></p>
 </footer>
 <script>
 try { fetch('app.js', {method:'HEAD'}).then(r => { if (r.ok) document.getElementById('back').hidden = false; }).catch(()=>{}); } catch(e) {}
